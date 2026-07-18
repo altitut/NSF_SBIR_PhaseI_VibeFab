@@ -1,0 +1,184 @@
+\documentclass[11pt,letterpaper]{article}
+
+% ============================================================
+% NSF SBIR Phase I master source:
+% Project Summary + Project Description + References Cited
+%
+% IMPORTANT:
+% Research.gov requires these as separate PDF uploads.
+% Set exactly ONE switch below to true, compile, and save the PDF.
+% ============================================================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Times-like text and mathematics fonts
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+% Improve text search and copy quality in the PDF
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+% ============================================================
+% Page setup
+% ============================================================
+\usepackage[
+    letterpaper,
+    top=1in,
+    bottom=1in,
+    left=1in,
+    right=1in
+]{geometry}
+
+% ============================================================
+% Mathematics
+% Do not load amssymb together with newtxmath
+% ============================================================
+\usepackage{amsmath}
+
+% ============================================================
+% Figures, tables, and layout
+% ============================================================
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{float}
+\usepackage{xcolor}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% ============================================================
+% Lists
+% ============================================================
+\usepackage{enumitem}
+
+\setlist[itemize]{
+    leftmargin=*,
+    itemsep=2pt,
+    topsep=3pt,
+    parsep=0pt
+}
+
+\setlist[enumerate]{
+    leftmargin=*,
+    itemsep=2pt,
+    topsep=3pt,
+    parsep=0pt
+}
+
+% ============================================================
+% Captions
+% ============================================================
+\usepackage{caption}
+
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    singlelinecheck=false
+}
+
+% ============================================================
+% Typography and spacing
+% ============================================================
+\usepackage{microtype}
+\usepackage{setspace}
+
+\singlespacing
+
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0pt}
+
+% ============================================================
+% Headings
+% ============================================================
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titlespacing*{\section}
+  {0pt}
+  {0pt}
+  {0pt}
+
+\titlespacing*{\subsection}
+  {0pt}
+  {2pt}
+  {1pt}
+
+\titlespacing*{\subsubsection}
+  {0pt}
+  {4pt}
+  {2pt}
+
+% ============================================================
+% Bibliography
+% ============================================================
+\usepackage[numbers,sort&compress]{natbib}
+
+% ============================================================
+% Hyperlinks
+% Load near the end of the preamble
+% ============================================================
+\usepackage[hidelinks]{hyperref}
+
+% ============================================================
+% Page style
+% ============================================================
+\pagestyle{empty}
+
+% ============================================================
+% Document
+% ============================================================
+\begin{document}
+\section*{14B. Consultant or Subawardee Letter of Commitment Template}
+
+\textbf{Date:} [Insert]
+
+\textbf{To:} National Science Foundation
+
+\textbf{Re:} Commitment to the proposed NSF SBIR Phase I project,
+``[Insert Project Title]''
+
+I am writing on behalf of [individual/organization] to confirm our commitment
+to participate in the proposed NSF SBIR Phase I project led by ALTITUT LLC.
+
+Our proposed role is to [describe specific scope]. Expected activities include:
+\begin{itemize}
+\item [Deliverable or activity];
+\item [Deliverable or activity];
+\item [Deliverable or activity].
+\end{itemize}
+
+The anticipated level of effort is [insert hours/days/person-months], at a rate
+or total amount consistent with the submitted budget. We have the expertise and
+resources needed to perform this work during the proposed project period.
+
+Sincerely,
+
+[Name] \\
+[Title] \\
+[Organization] \\
+[Signature]
+
+\end{document}

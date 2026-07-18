@@ -1,0 +1,1064 @@
+\documentclass[11pt,letterpaper]{article}
+\input{proposal_style.tex}
+\addbibresource{references.bib}
+\pagestyle{empty}
+\usepackage{pifont}
+\usepackage[table]{xcolor}
+\usepackage{pgffor}
+\definecolor{goldstar}{HTML}{F5A000}
+\newcommand{\starfull}{\textcolor{goldstar}{\ding{72}}}
+\newcommand{\stars}[1]{\foreach \i in {1,...,#1}{\starfull}}
+% \pagestyle{plain}
+\begin{document}
+% ============================================================
+% NSF SBIR Phase I master source:
+% Project Summary + Project Description + References Cited
+%
+% IMPORTANT:
+% Research.gov requires these as separate PDF uploads.
+% Set exactly ONE switch below to true, compile, and save the PDF.
+% ============================================================
+
+% \usepackage[margin=1in]{geometry}
+% \usepackage{graphicx}
+% \usepackage{booktabs}
+% \usepackage{tabularx}
+% \usepackage{array}
+% \usepackage{longtable}
+% \usepackage{enumitem}
+% \usepackage{caption}
+% \usepackage{microtype}
+% \usepackage[hidelinks]{hyperref}
+% \usepackage[numbers,sort&compress]{natbib}
+
+% \pagestyle{empty}
+% \setlength{\parindent}{0.25in}
+% \setlength{\parskip}{0pt}
+% \setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=3pt}
+% \setlist[enumerate]{leftmargin=*,itemsep=2pt,topsep=3pt}
+% \captionsetup{font=small,labelfont=bf,singlelinecheck=false}
+% \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% \usepackage{titlesec}
+
+% \titleformat{\section}
+%   {\normalfont\Large\bfseries}
+%   {}
+%   {0pt}
+%   {}
+
+% \titleformat{\subsection}
+%   {\normalfont\large\bfseries}
+%   {}
+%   {0pt}
+%   {}
+% \titleformat{\subsubsection}
+%   {\normalfont\normalsize\bfseries}
+%   {}
+%   {0pt}
+%   {}
+% \titlespacing*{\section}{0pt}{0pt}{0pt}
+% \titlespacing*{\subsection}{0pt}{2pt}{1pt}
+% \titlespacing*{\subsubsection}{0pt}{4pt}{2pt}
+
+% \usepackage{xcolor}
+% \usepackage{float}
+
+% \begin{document}
+
+
+% \ifsummary
+\section*{Project Summary}
+% ============================================================
+% 1. PROJECT SUMMARY
+% One page maximum; third person; no proprietary information.
+% Required headings must appear on separate lines.
+% ============================================================
+
+% ============================================================
+% Project Summary [One (1) page MAXIMUM]. The project summary should be written in the third person, be informative to other people working in the same or related field(s) and insofar as possible, be understandable to a scientifically or technically literate lay reader. It should not be an abstract of the proposal. Do not include proprietary information.
+
+% The Project Summary should be completed with headers on three separate lines for the “Overview,” “Intellectual Merit” and “Broader Impacts” sections. To be valid, a heading must be on its own line with no other text. The document must be converted to PDF format to be uploaded in Research.gov.
+% ============================================================
+\subsection*{Overview}
+This project proposes \VibeFab, an evidence-bounded, multimodal intent-to-build system that helps community-college learners, makers, artists, and first-time hardware founders translate ambiguous creative ideas into safe, buildable, and testable low-voltage physical-computing projects. These users often describe desired experiences rather than engineering specifications and may omit constraints involving power, heat, interfaces, firmware, fabrication, user contact, available tools, and testing. \VibeFab\ will combine natural-language intent, optional sketches/images, manufacturer documentation, validated reference designs, and physical measurements in a traceable workflow. It will identify missing requirements, ask high-value clarification questions, adapt only reference-design elements that remain within machine-checkable validity boundaries, and recommend tests that reduce decision-critical uncertainty. Outputs will distinguish supported facts, inferred assumptions, test-required claims, and unsupported conditions; the system will abstain or escalate when evidence or safety support is insufficient. Phase I will deliver a research prototype validated on four low-voltage project families and three physical prototypes.
+
+\textbf{Keywords:} human--AI interaction; multimodal learning; engineering design education; uncertainty-aware AI; constraint reasoning; embedded systems; physical computing; selective prediction; active testing; hardware safety; intelligent tutoring; beginner electronics.
+
+\textbf{Subtopic:} LC4. Innovative Approaches to Multimodal Learning.
+
+\subsection*{Intellectual Merit}
+This Small Business Innovation Research Phase I project will investigate whether ambiguous, multimodal creative intent can be converted into decision-ready engineering constraints and safely mapped to validated low-voltage reference designs without unsupported assumptions. The central technical hurdle is determining what is missing, which evidence supports each design claim, whether a customization remains inside a reference design's validity boundary, which physical test most efficiently resolves uncertainty, and when the system should stop. Phase I will develop three linked methods: (1) a multimodal evidence-contract graph and uncertainty-aware clarification policy; (2) machine-checkable bounded reference adaptation with counterexample-guided diagnosis; and (3) decision-guided physical testing that updates the evidence model and produces skill-adaptive guidance with calibrated abstention. The methods will be evaluated on an expert-annotated benchmark and three instrumented prototypes against LLM-only, retrieval-augmented, static-template, fixed-test, and ablated workflows. Metrics include critical-requirement recall, evidence coverage, adaptation accuracy, safety-conflict recall, abstention recall, test efficiency, expert correction time, and physical redesign outcomes.
+
+\subsection*{Broader Impacts}
+\VibeFab\ could broaden participation in physical creation by helping learners and creators enter the design--build--test cycle with clearer requirements, transparent evidence, safer boundaries, and better preparation for expert feedback. Community and technical colleges and makerspaces could support more varied projects while reducing avoidable failed builds, material waste, and one-to-one troubleshooting. The project advances responsible AI practice by making uncertainty visible, limiting automation to reviewed low-voltage domains, and preserving human engineering review for higher-risk decisions. Phase I will measure technical safety and usability; later pilots will track instructor workload, project completion, rework, learner understanding, and breadth of participation. The initial commercial product will be an annual institutional software license for physical-computing, creative-technology, makerspace, entrepreneurship, and introductory electronics programs. Successful Phase I results will provide the benchmark evidence, validated reference structures, safety controls, and pilot-readiness package required for Phase II institutional validation and scalable commercialization.
+
+\newpage
+\section*{Project Description}
+% ============================================================
+% 2. PROJECT DESCRIPTION
+% 10 pages minimum; 15 pages maximum.
+% Required top-level headings are exact.
+% ============================================================
+
+% ============================================================
+% Project Description [10 pages MINIMUM; 15 pages MAXIMUM]. The project description is the core of the proposal document. Ensure that the following headers are used: “Intellectual Merits,” “Company/Team,” Broader Impacts,” and “Commercialization Potential.” Questions under each header are provided for your understanding in preparing this document, but it is not required that every question be explicitly (or even implicitly) addressed. Every proposal story is different, and it is up to the proposer to provide a convincing/compelling case for an award recommendation.
+% ============================================================
+\subsection*{I. Intellectual Merits}
+% ============================================================
+% Intellectual Merit (recommend 7-10 pages, including the technical solution and Research and Development (R&D plan):
+
+%-- What is (are) the proposed technical innovation(s)? What is the new scientific/engineering insight that underpins it? (Provide a description of the innovation, including the novel scientific/engineering aspects that enable the realization of the final product.)
+%-- What are the technical risks/barriers, and how does the proposal address them? What are the go/no-go technical risks/barriers that are unique to your approach and could prevent the innovation from achieving the impact the team intends it to make?
+%-- Please provide a detailed R&D plan, including a timeline, milestones, risk mitigation and quantitative success criteria. The detailed R&D plan should convey to the reader that the team has subject area mastery of the relevant technical details and show that significant planning has been done to maximize the chance of technical success in Phase I. An R&D plan that consists simply of a generic set of tasks and goals, without giving a substantial perspective and understanding that is unique to this particular effort, may result in the proposal being returned without review.
+%-- Explain the significance of the Phase I milestones and how they relate to the commercial objectives of the technology.
+% ============================================================
+
+% ============================================================
+% Technical: 
+% 1. What are the key technology risks/problems specific to your approach (not the market or industry problems, but problems with your technology that are preventing it from achieving the desired results? 
+% 2. What is the proposed innovation to solving the problems? If there has been work done on the innovation, what are the new scientific/engineering elements to be developed that will address the technical risks? What are plans should certain aspects of the approach not work? 
+% 3. Provide an experimental plan that clearly describes the research objectives and a discussion of how you intend on achieving the objectives. What set of quantitative metrics will you use to assess the outcome of the innovation research described in the plan? What are the range of values [or specific values] for target specifications that will establish proof of concept in Phase I? Why are these target metrics appropriate, and how do they evidence success. 
+% 4. What skills, capabilities and resources will be included in the work to successfully demonstrate feasibility? 
+% 5. What intellectual property does the company currently have? Future IP development? What license terms (if any) exist?
+% ============================================================
+% ============================================================
+\subsubsection*{1.1 Technical Problem, Customer Context, and Phase I Scope}
+
+A non-expert beginner may describe a project as ``a lightweight hat that reacts to music'' or ``a portable camera that recognizes visitors'' while missing battery runtime, current draw, temperature limits, sensor range, latency, enclosure ventilation, available tools, and required tests. Instructors can identify many of these omissions, but supporting multiple open-ended projects creates repeated one-to-one troubleshooting. AI-assisted coding has reduced novice effort in software, while also introducing risks of overreliance and unsupported output \cite{liffiton2023codehelp,kazemitabaar2023aicode,kasneci2023chatgpt,yan2024practical,crompton2023highered,southworth2023aicurriculum}. Physical creation is more tightly constrained because incomplete requirements interact with component interfaces, power and thermal limits, firmware, fabrication, materials, human contact, and measurement.
+
+Existing tools most directly relevant to this problem fall into \textbf{three broad categories}. \textbf{General-purpose large language models (LLMs)} can generate parts lists and instructions, but fluent output alone does not establish compatibility, safety, or testability. LLMs may introduce unsupported assumptions, miss relevant evidence in long contexts, or produce internally coherent but weakly grounded claims \cite{ji2023hallucination,farquhar2024semanticentropy,manakul2023selfcheckgpt,liu2024lostmiddle,huang2024selfcorrect,nist2024genaiprofile}. \textbf{Retrieval-augmented generation (RAG)} improves access to technical documentation, but current RAG methods are not specifically designed to identify missing engineering requirements or determine whether a proposed customization remains within a reference design's validated operating region \cite{asai2024selfrag}. \textbf{Professional electronic design automation (EDA)} tools provide powerful synthesis, constraint-checking, and verification capabilities, but are designed primarily for users who can express formal requirements and interpret technical outputs. Recent AI-for-EDA research has focused largely on circuit and register-transfer-level synthesis, tool orchestration, and domain-specific assistance, leaving an open research gap in translating non-expert creative intent into bounded, evidence-supported build decisions \cite{liu2023chipnemo,vijayaraghavan2024circuitsynth,zhang2024analogxpert,thakur2024verigen,lu2024rtllm,he2024chateda,chen2026ai4eda}.
+
+The resulting challenge is a decision problem under incomplete, multimodal evidence (Figure~\ref{fig:creator_to_build_workflow}). Before producing a build plan, a creator-support system must identify missing or conflicting requirements, trace each engineering claim to its source, determine whether customization remains within validated electrical and physical boundaries, select the most informative feasible tests, and recognize when clarification or qualified engineering review is appropriate.
+
+\vspace{-3pt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/creator_to_build_workflow.png}
+    \caption{\textbf{Technical problem and Phase I scope.} \textit{Phase I investigates the uncertainty-aware reasoning layer that converts ambiguous creative intent into bounded engineering decisions before professional EDA and manufacturing workflows are invoked.}}
+    \label{fig:creator_to_build_workflow}
+\end{figure}
+\vspace{-10pt}
+
+To address this gap, this project proposes an \textbf{evidence-bounded multimodal intent-to-build reasoning layer} that transforms incomplete creative intent into traceable requirements, bounded adaptation decisions, and measurement-informed test plans (Section 1.2). 
+%Section~1.2 presents the three linked technical innovations underlying this architecture.
+Phase I will develop and evaluate the method within a controlled low-voltage physical-computing scope. The research will cover USB- or battery-powered projects developed within reviewed educational and maker-oriented safety limits. Four benchmark families will represent distinct forms of creative hardware development: an IoT smart-camera platform, sound-reactive wearable lighting, an environmental sensing display, and an interactive tabletop installation. Three systems will be physically constructed and instrumented to evaluate missing-requirement identification, bounded reference adaptation, physical testing, and measurement-informed redesign. This scope provides the controlled variation needed to demonstrate technical feasibility and prepare the methods for expansion to additional hardware domains.
+
+\subsubsection*{1.2 Proposed Technical Innovation and Product Architecture}
+
+The proposed innovation is an \textbf{evidence-bounded multimodal intent-to-build reasoning layer} that translates creative intent into traceable, testable, and bounded engineering decisions. It integrates machine-checkable evidence representation, uncertainty-aware clarification, executable reference-design boundaries, counterexample-guided diagnosis, and measurement-informed physical testing. LLMs, retrieval, document parsers, manufacturer documentation, and EDA utilities serve as supporting components; the core R\&D is the reasoning and assurance layer that determines what evidence is sufficient, what requires clarification or testing, and when expert review is appropriate \cite{liang2023helm,nist2023airmf,nist2024genaiprofile,angelopoulos2023conformal,xiong2024uncertainty}.
+
+Figure~\ref{fig:architecture} presents the three linked technical innovations developed in Phase I. Their continuity with the invited Project Pitch and Altitut's existing foundation is described in Section 1.3.
+
+\vspace{-3pt}
+\begin{figure}[H]
+\centering
+\small
+\includegraphics[width=\textwidth]{images/proposed.png}
+\caption{\textbf{Phase I product architecture.} \textit{Multimodal intent and validated references flow through evidence representation, bounded adaptation, and measurement-informed testing to produce traceable guidance and appropriate expert escalation.}}
+\label{fig:architecture}
+\end{figure}
+\vspace{-10pt}
+
+\textbf{Innovation 1: Multimodal evidence contract and clarification.}
+User language, sketches, images, reference documents, and project context will be converted into typed requirements, claims, constraints, evidence sources, and tests. Each critical claim will retain provenance, units, validity conditions, uncertainty state, safety relevance, and verification status. A clarification policy will prioritize questions according to safety relevance, expected uncertainty reduction, downstream design impact, and user burden \cite{liu2023llava,li2023blip2,yue2024mmmu,blecher2024nougat,peng2025dochmet}.
+
+\textbf{Innovation 2: Machine-checkable bounded adaptation and diagnosis.}
+Reviewed reference designs will encode components, interfaces, dependencies, allowable ranges, known failure modes, and required tests. Candidate adaptations will be checked against executable invariants and validity boundaries, then classified as reuse, modify, test-required, expert-review-required, or outside the supported space. Boundary violations will produce structured counterexamples identifying the affected requirement, conflicting evidence, and feasible alternatives.
+
+\textbf{Innovation 3: Decision-guided physical testing and skill-adaptive guidance.}
+Physical tests will be ranked by their expected reduction of decision-critical uncertainty subject to time, cost, equipment, and safety constraints. Measurements will update the evidence model and refine the adaptation decision, while the validated plan will be rendered at different instructional levels without changing its evidence links, warnings, or stop conditions \cite{driess2023palme,brohan2023rt2,torne2024realtosim,madaan2023selfrefine,shinn2023reflexion,huang2024selfcorrect}.
+
+The central scientific and engineering insight is that support for non-expert physical creation should be based on \emph{selective, evidence-bounded decision making}. VibeFab extends uncertainty-aware AI from language-level confidence to structured engineering claims, reference-design validity, and physical verification \cite{kuhn2023semanticuncertainty,farquhar2024semanticentropy,angelopoulos2023conformal}. Phase I will evaluate whether this architecture can improve engineering correctness, evidence coverage, test efficiency, and useful safe-case coverage across both benchmark cases and physical prototypes.
+
+\subsubsection*{1.3 Current Foundation, Customer Evidence, and Pitch Continuity}
+
+% Altitut has developed AI-assisted learning and entrepreneurship workflows and an early VibeFab workflow mockup. The mockup demonstrates the intended user journey from an idea to a preliminary project path.
+% % but it does not implement the proposed evidence-contract graph, calibrated clarification policy, executable validity boundaries, counterexample-guided diagnosis, active physical-test selection, or selective abstention. VibeFab is therefore a new R\&D effort rather than an evaluation of an existing commercial hardware product.
+% In Phase I, VibeFab's R\&D effort will focuse on implement the proposed evidence-contract graph, calibrated clarification policy, executable validity boundaries, counterexample-guided diagnosis, active physical-test selection, or selective abstention.
+
+Altitut has developed AI-assisted learning and entrepreneurship workflows and an early VibeFab workflow mockup demonstrating the intended user journey from an initial idea to a preliminary project pathway. Building on this foundation, Phase I will develop and experimentally validate an evidence-bounded reasoning and assurance layer that combines structured evidence representation, uncertainty-aware clarification, executable design boundaries, counterexample-guided diagnosis, active physical testing, and calibrated abstention. Table~\ref{tab:current_phase1} summarizes the progression from Altitut's current foundation to the technical innovation in Phase I.
+
+The team conducted 53 discovery conversations with educators, workforce-program stakeholders, and employers and has an institutional relationship with Austin Community College for discovery and potential pilot planning. Altitut's broader platform has reached more than 1,000 learners through institutional deployments, providing experience with educator workflows, learner-facing AI guidance, institutional onboarding, and privacy-conscious deployment. National and higher-education literature similarly identifies demand for AI literacy, workforce-relevant technical learning, and institutional controls that preserve human judgment \cite{usdoe2023ai,guthaus2023icworkforce,crompton2023highered,southworth2023aicurriculum}. These assets position the team to validate VibeFab in realistic institutional contexts and translate successful results into a pilot-ready product architecture.
+
+The proposed work directly advances the technical concepts presented in the invited Pitch. Objective 1 operationalizes the provenance-linked evidence-contract graph and uncertainty-aware clarification. Objective 2 implements executable reference boundaries and counterexample-guided adaptation. Objective 3 develops active test selection, measurement-informed refinement, and calibrated abstention. This structure preserves the Pitch's technical backbone while concentrating Phase I on a bounded, experimentally testable domain.
+
+PI Lu Sun's prior work on partially observable decision processes and constrained operational planning supports missing-requirement inference, uncertainty-cost tradeoffs, and clarification and test selection \cite{chang2023pomdp,chang2021uniform}. Key Personnel Mengmeng Wang's work on electrical-fault detection and constrained physical systems supports reference validation, fault reasoning, and controlled prototype experiments \cite{chen2022incipient,hu2026lipmotions}. 
+
+\vspace{-3pt}
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{
+P{0.21\textwidth}
+P{0.3\textwidth}
+Y}
+\toprule
+% \rowcolor{darkteal}
+%\textcolor{darkteal}
+{\textbf{Capability}} &
+%\textcolor{darkteal}
+{\textbf{Existing Foundation}} &
+%\textcolor{darkteal}
+{\textbf{Phase I Advancement}} \\
+\midrule
+
+Creator workflow &
+Early VibeFab mockup and institutional workflow experience &
+Validated intent-to-requirement workflow with reduced clarification burden \\
+
+\rowcolor{lighttablegray} Evidence representation &
+Experience integrating user inputs, documents, and AI feedback &
+Machine-checkable evidence graph with provenance, constraints, tests, and verification states \\
+
+Reference adaptation &
+Early reference-selection workflow &
+Validated reuse, modify, test, review, and out-of-scope decisions \\
+
+\rowcolor{lighttablegray} Physical assurance &
+Low-voltage prototyping and fault-analysis experience &
+Three instrumented prototypes with fault injection and measurement-based redesign \\
+
+Safety and abstention &
+Defined low-voltage scope and human-review workflow &
+Calibrated abstention, safe-case coverage, and safety-critical conflict detection \\
+
+\bottomrule
+\end{tabularx}
+\caption{\textit{Existing foundation and Phase I technical advancement.}}
+\label{tab:current_phase1}
+\end{table}
+\vspace{-10pt}
+
+\subsubsection*{1.4 Technical Objectives and Research Methods}
+
+\paragraph{(1) Objective 1: Multimodal Evidence-Contract Graph and Clarification Policy}~{}
+
+\textbf{Research question.} Can \VibeFab\ identify critical and safety-relevant missing requirements from multimodal creative intent while asking substantially fewer questions than a static engineering questionnaire?
+
+\textbf{Representation.} Each case will be represented as a typed graph $G=(V,E)$. The graph is intentionally more restrictive than free-form multimodal prompting because current vision-language and document models can extract useful content while still failing on expert-level diagrams, tables, and layout-dependent reasoning \cite{liu2023llava,li2023blip2,yue2024mmmu,blecher2024nougat,peng2025dochmet}. Node types will include user goals, functional requirements, physical constraints, safety constraints, components, interfaces, firmware dependencies, evidence sources, claims, tests, observations, and unresolved issues. Edges will represent support, conflict, dependency, derivation, modification, and verification. Each critical claim $c$ will store: source identifier; extracted value and unit; allowed interval or categorical state; applicability conditions; evidence strength; safety class; and verification state $z_c\in\{supported, inferred, test\mbox{-}required, unsupported\}$. Deterministic unit normalization and constraint checks will operate after model-based candidate extraction so that a fluent output cannot bypass machine-checkable rules.
+
+\textbf{Uncertainty and clarification.} The method will maintain a decision-risk score rather than treating model confidence as factual correctness, because black-box confidence elicitation remains imperfect and can be systematically overconfident \cite{xiong2024uncertainty}. For candidate clarification question $q$, the initial ranking function $S$ will be
+\[
+S(q)=w_sR_s(q)+w_u\Delta U(q)+w_dD(q)-w_bB(q),
+\]
+where $R_s$ is safety relevance, $\Delta U$ is estimated reduction in unresolved decision risk, $D$ is downstream design impact, and $B$ is user burden. The weights will be estimated on the development set and then frozen. The project will compare this policy with a static questionnaire, a safety-first heuristic, and an LLM-selected question. A question is useful only if it improves requirement completeness or changes a downstream adaptation/test decision; conversational plausibility alone will not count as success.
+
+\textbf{Multimodal evidence.} Text prompts will be supplemented in selected cases by sketches or reference images, datasheet tables/figures, and observations from prior build attempts. Document/image parsers will propose candidate facts; the evidence graph will retain the source region and require unit and applicability checks. An ablation will test whether multimodal evidence improves requirement and interface extraction relative to text-only input without increasing unsupported claims.
+
+\textbf{Objective 1 output.} The output is an expert-reviewable requirement contract: explicit and inferred constraints, unresolved items, ranked clarification questions, provenance links, and a risk state that determines whether reference adaptation may proceed.
+
+\paragraph{(2) Objective 2: Machine-Checkable Reference Adaptation and Counterexample-Guided Diagnosis}~{} % Bounded Reference replaced by "Reference" only
+
+\textbf{Research question.} Can a system adapt validated reference designs to diverse creative goals without reusing modules outside supported electrical, physical, firmware, fabrication, or human-contact boundaries?
+
+\textbf{Reference schema.} Following reviewed reference families will encode: component and module identifiers; interfaces and pin mappings; equations and unit constraints; nominal and allowable ranges; firmware/library dependencies; physical assumptions; fabrication constraints; known failure modes; expected observations; required tests; and escalation rules. 
+The initial library will 
+% not be a generic component catalog. It will 
+be a bounded set of validated design structures that make the adaptation decision experimentally testable. This directly addresses recent hardware-generation benchmarks, which demonstrate that syntactic plausibility does not equate to functional or design-quality correctness \cite{liu2023verilogeval,thakur2024verigen,lu2024rtllm}.
+
+\textbf{Adaptation procedure.} Given the requirement contract from Objective 1, the system will generate candidate module substitutions or parameter changes. A constraint engine will then evaluate hard invariants (for example, voltage compatibility, current budget, interface protocol, required level shifting, thermal/user-contact limits, and firmware dependency compatibility) and soft limits that require physical testing. Each proposed change will receive one of five labels: reuse, modify-within-boundary, test-required, expert-review-required, or outside-supported-space. The adaptation record will state the changed requirement, affected modules, supporting evidence, violated or preserved invariant, and required verification.
+
+\textbf{Counterexample-guided diagnosis.} When a candidate violates a boundary or when a physical observation contradicts the expected range, the system will construct a counterexample record. 
+% rather than simply regenerate an answer. 
+The record will identify competing explanations, such as component mismatch, parameter error, model-form limitation, environment, measurement error, fabrication variation, or unsupported use, and propose the smallest set of constraint changes or tests that could distinguish them. This preserves continuity with the invited Pitch's assurance and real-to-sim-to-real concepts while keeping Phase I within low-voltage, reviewable models.
+
+\textbf{Ablation and transfer.} The full method will be compared with (a) LLM-only adaptation, (b) RAG using the same documents, (c) rules without the evidence graph, and (d) the full method without counterexample generation. Transfer will be tested by holding out component substitutions and creative customizations within each reference family. Success requires generalization beyond memorized examples, not only correct reproduction of the development references.
+
+\textbf{Objective 2 output.} The output is a machine-checkable adaptation contract that specifies what can be built now, what must be tested first, what requires expert review, and why.
+
+\paragraph{(3) Objective 3: Decision-Guided Physical Testing, Model Update, and Skill-Adaptive Guidance}~{}
+
+\textbf{Research question.}
+% Can a limited set of safe physical tests efficiently resolve decision-critical uncertainty, reduce expert correction and redesign effort, and produce guidance that beginners can follow while preserving engineering limits?
+Can a set of safe physical tests resolve decision-critical uncertainty, reduce correction and redesign effort, and produce guidance beginners can follow while preserving engineering limits?
+
+\textbf{Test policy.}
+Motivated by embodied multimodal and real-to-sim-to-real systems that update decisions from physical observations \cite{driess2023palme,brohan2023rt2,torne2024realtosim}, the system will rank each feasible test \(t\) by its expected reduction in unresolved decision risk relative to practical burden:
+\[
+J(t)=
+\frac{\mathbb{E}[\Delta R(t)]}
+{\alpha C(t)+\beta T(t)+\gamma H(t)+\epsilon}.
+\]
+Here, \(\mathbb{E}[\Delta R(t)]\) is the expected decision-risk reduction; \(C(t)\) is monetary and material cost; \(T(t)\) is setup and execution time; and \(H(t)\) captures equipment availability, component stress, and hardware risk. The weights place these burdens on a common scale, and \(\epsilon>0\) stabilizes near-zero-burden scores. Higher \(J(t)\) indicates greater expected risk reduction per unit burden. Unsafe or infeasible tests will be excluded before ranking.
+
+Candidate tests will include current draw, voltage rails, temperature, communication latency, sensor response, packet loss, and controlled component substitution. The learned policy will be compared with a fixed expert checklist and random feasible-test ordering to determine whether selected tests produce design-relevant evidence more efficiently (Figure~\ref{fig:objective3_loop}).
+
+% \vspace{-3pt}
+% \begin{figure}[H]
+% \centering
+% \small
+% \fbox{%
+% \parbox[c][1.35in][c]{0.94\linewidth}{%
+% \centering
+% \textbf{Figure Placeholder: Decision-Guided Physical Testing Loop}\\[4pt]
+% Adaptation record
+% \(\rightarrow\) candidate tests
+% \(\rightarrow\) test ranking
+% \(\rightarrow\) measurement
+% \(\rightarrow\) evidence-graph update\\[3pt]
+% \(\rightarrow\) validated plan, safer redesign, or expert review
+% \(\rightarrow\) skill-adaptive guidance
+% }}
+% \caption{\textbf{Decision-guided physical testing and guidance loop.}
+% \textit{Measurements update the evidence graph and support plan validation, constrained redesign, or expert review. Validated decisions are then rendered at appropriate instructional levels while preserving warnings and stop conditions.}}
+% \label{fig:objective3_loop}
+% \end{figure}
+% \vspace{-10pt}
+
+\begin{wrapfigure}{r}{0.46\textwidth}
+    \vspace{-8pt}
+    \centering
+    \small
+    \includegraphics[
+        width=0.46\textwidth,
+        keepaspectratio
+    ]{images/decision_guided_physical_testing_loop.png}
+    \caption{\textbf{Decision-guided physical testing loop.}\textit{
+    Candidate tests are ranked, measured evidence updates the decision record, and the system produces a validated plan, a safer alternative, or expert review.}}
+    \label{fig:objective3_loop}
+    \vspace{-10pt}
+\end{wrapfigure}
+
+\textbf{Physical validation.} Three prototypes will be constructed: an IoT smart-camera system, a sound-reactive wearable-lighting system, and an environmental sensing/display system. Controlled perturbations will include power variation, sensor bias/noise, latency or packet loss, component substitution, enclosure/thermal variation, and firmware mismatch. Measurements will update the evidence graph until the plan is supported within its bounded operating region, a safer alternative is selected, or qualified review is required.
+
+
+\textbf{Skill-adaptive guidance.} Guidance will be rendered from the validated adaptation and test record rather than regenerated for each user. Beginner, maker/learner, and early-founder profiles will vary explanation depth, tool assumptions, sequencing, and troubleshooting while preserving the same evidence, warnings, unresolved issues, expected measurements, and stop conditions. Structured walkthroughs will evaluate participants' ability to identify and explain the next safe action.
+
+\textbf{Selective prediction.} Risk--coverage curves will evaluate useful-guidance/appropriate-abstention balance. Thresholds selected on a calibration subset will be frozen before held-out evaluation. Required-abstention recall will measure unsafe or unsupported case detection, while safe-case coverage will measure retained guidance on expert-supported cases.
+
+% \textbf{Objective 3 output.} An integrated prototype will convert evidence-bounded adaptation records into prioritized test plans, update decisions from measurements, and deliver skill-appropriate guidance with calibrated escalation.
+
+\textbf{Objective 3 output.} A prototype will convert evidence-bounded adaptation records into test plans, update decisions from measurements, and deliver skill-appropriate guidance with calibrated escalation.
+
+% ============================================================
+\subsubsection*{1.5 Key Technical Risks, Mitigation, and Fallback Approaches}
+
+The principal Phase I risks arise when incomplete user intent, reference-design assumptions, and physical observations do not align. Each risk is tied to a concrete failure mode, a mitigation that will be tested during Phase I, and a narrower fallback that preserves a useful and supportable product capability. Quantitative success thresholds are defined separately in Section~1.6.
+
+\paragraph{(1) Objective 1 risk: incomplete or inefficient intent recovery.}~{} 
+
+Users may describe goals as ``portable,'' ``lightweight,'' or ``safe'' without measurable limits. Text, sketches, references, and context may be incomplete or inconsistent. Thus, system may miss a critical requirement, treat inferred values as confirmed, or ask questions irrelevant to downstream design/test decisions.
+\textbf{Mitigation.} VibeFab will preserve unknowns and retain each constraint's source, units, applicability, uncertainty, safety relevance, and verification status. Clarification questions will be prioritized by decision-risk reduction, safety relevance, downstream impact, and burden. Unit, range, and cross-modal consistency checks will identify conflicts before adaptation.
+\textbf{Fallback.} If the learned clarification policy offers no advantage, VibeFab will use family-specific, risk-weighted templates and require confirming safety-critical values. Persistently ambiguous families will be limited to guided project cards and approved formats.
+
+\paragraph{(2) Objective 2 risk: hidden invalidation of a reference design.}~{}
+
+A customization may preserve a reference design's function while invalidating an underlying assumption about power, heat dissipation, interface timing, firmware compatibility, enclosure geometry, environmental exposure, fabrication, or human contact. The most consequential failure is a plausible adaptation whose unsupported dependency stays hidden.
+\textbf{Mitigation.} Each adaptation decision will be traced to invariants, typed dependencies, validity ranges, tests, and expert-review triggers. Controlled in-bound, boundary, and out-of-bound modifications will identify where assumptions do not propagate across modules. High-consequence power, thermal, interface, and user-contact constraints will receive deterministic checks and model-based reasoning.
+\textbf{Fallback.} If adaptation cannot be maintained across the four benchmark families, VibeFab will support fewer validated reference families with narrower customization regions. Medium- and high-risk changes outside those regions require engineering review.
+
+\paragraph{(3) Objective 3 risk: physical tests do not resolve the relevant uncertainty.}~{}
+
+A ranked test may be easy yet unable to distinguish among explanations such as inadequate power, sensor noise, firmware mismatch, communication latency, or enclosure-related heating. Measurements may be noisy, incomplete, or require unavailable equipment. In these cases, the system could add testing effort without improving design decision.
+\textbf{Mitigation.} Candidate tests will be filtered for safety, feasibility, tool availability, and minimum measurement quality. The evidence graph will record whether result eliminates a hypothesis, changes adaptation decisions, or reduces residual risk. Competing failure explanations will remain until evidence distinguishes them, and family-specific priors will be used where general ranking is unreliable.
+\textbf{Fallback.} If test selection does not outperform simpler procedures, VibeFab will use family-specific decision trees or expert-authored sequences. Unresolved cases will present remaining hypotheses and require human approval before build guidance is issued.
+
+\paragraph{(4) Integrated risk: workflow complexity exceeds demonstrated value.}~{}
+
+The evidence graph, adaptation engine, test policy, and selective-prediction layer may improve traceability without reducing expert correction, redesign, or user effort enough to justify the workflow. Integration may introduce inconsistencies from stage-mismatched updates to evidence states and module decisions.
+\textbf{Mitigation.} Component ablations and baselines will identify modules with value. Cross-module consistency checks will ensure adaptation decisions, test results, unresolved issues, and abstention states share one evidence record. Physical validation will prioritize three prototypes; the fourth family may remain benchmark-based if additional construction would dilute validation quality.
+\textbf{Fallback.} Phase II pilots require the safety-critical gates in Section~1.6 and measurable operational advantage. If only one or two components demonstrate value, the product will narrow to the validated capability, such as reference-boundary checking, physical-test planning, or expert-review support.
+
+
+% ============================================================
+\subsubsection*{1.6 Success Criteria and Go/No-Go Decision}
+
+Table~\ref{tab:metrics} defines the pre-specified Phase I proof-of-concept criteria. Safety-critical criteria are marked with an asterisk and are conjunctive: all must be met. The remaining metrics determine whether VibeFab provides practically meaningful improvement in requirement recovery, bounded adaptation, physical testing, and expert workload. Thresholds will be frozen before the locked held-out evaluation described in Section~1.7.
+
+\vspace{-3pt}
+\begin{table}[H]
+\centering
+\scriptsize
+% \renewcommand{\arraystretch}{1.08}
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabularx}{\textwidth}{
+P{0.035\textwidth}
+P{0.255\textwidth}
+Y
+P{0.05\textwidth}}
+\toprule
+\textbf{Obj.} &
+\textbf{Metric} &
+\textbf{Definition} &
+\textbf{Target} \\
+\midrule
+
+1 &
+Critical-requirement recall &
+Expert-identified critical missing requirements detected before adaptation &
+$\geq 90\%$ \\
+
+1 &
+Safety-relevant requirement recall$^{*}$ &
+Expert-identified safety-relevant requirements detected before guidance &
+$\geq 95\%$ \\
+
+1 &
+Inferred-constraint precision &
+Inferred engineering constraints judged correct and applicable &
+$\geq 85\%$ \\
+
+1 &
+Evidence/provenance coverage &
+Claims linked to sufficient user, document, reference, or measurement evidence &
+$\geq 90\%$ \\
+
+1 &
+Clarification-burden reduction &
+Fewer questions than the static questionnaire at matched requirement completeness &
+$\geq 30\%$ \\
+
+\midrule
+
+2 &
+Adaptation macro-F1 &
+Reuse, modify, test-required, expert-review, and out-of-scope classification &
+$\geq 85\%$ \\
+
+2 &
+Compatibility/safety-conflict recall$^{*}$ &
+Expert-identified compatibility and safety conflicts detected during adaptation &
+$\geq 95\%$ \\
+
+2 &
+Unsupported critical-claim rate$^{*}$ &
+Critical claims lacking sufficient evidence or an approved safe default &
+$\leq 5\%$ \\
+
+2 &
+Unflagged critical omissions$^{*}$ &
+Power, thermal, interface, or user-contact hazards not flagged &
+0 \\
+
+\midrule
+
+3 &
+Required-abstention recall$^{*}$ &
+Expert-identified stop or escalation cases correctly flagged &
+$\geq 95\%$ \\
+
+3 &
+Safe-case coverage &
+Supportable held-out cases receiving a bounded plan rather than unneeded abstention &
+$\geq 65\%$ \\
+
+3 &
+Test efficiency &
+Reduction in tests required to reach the correct decision versus a fixed checklist &
+$\geq 25\%$ \\
+
+3 &
+Expert correction-time reduction &
+Paired reduction relative to the strongest automated baseline &
+$\geq 30\%$ \\
+
+3 &
+Beginner next-action comprehension &
+Walkthrough participants identifying the next safe action and stop condition &
+$\geq 85\%$ \\
+
+3 &
+Physical validation outcome &
+Prototypes completing the validated build/test cycle with reduced major redesign &
+2 of 3 \\
+
+\bottomrule
+\end{tabularx}
+\caption{\textit{Objective-aligned Phase I performance targets. $^{*}$Safety-critical technical go/no-go criterion.}}
+\label{tab:metrics}
+\end{table}
+\vspace{-10pt}
+
+The targets are intended to represent demanding but decision-relevant Phase I feasibility evidence. The 95\% safety-recall thresholds and zero unflagged safety-critical omissions reflect the higher consequence of missed hazards. The safe-case coverage floor prevents apparent safety from being achieved through excessive abstention. The required reductions in testing and expert correction are intended to demonstrate an operationally visible improvement over existing workflows.
+
+% \paragraph{Technical go/no-go decision.}~{}
+
+The Phase I technical go decision requires: 
+(1) all safety-critical criteria marked with an asterisk are met;
+(2) Objective 1 meets the critical-requirement recall and evidence/provenance coverage targets, together with either inferred-constraint precision or clarification-burden reduction;
+(3) Objective 2 meets the adaptation macro-F1 target;
+(4) Objective 3 meets the safe-case coverage target, validates at least two of three physical prototypes, and achieves either the test-efficiency or expert correction-time target.
+
+These gates prevent a strong aggregate score from masking a safety failure, excessive abstention, or insufficient physical validation. If a safety-critical criterion is not met, the affected project family will remain under expert approval. If safe-case coverage or operational improvement is insufficient, the supported reference space will be narrowed and the validated assurance components will be advanced independently.
+
+
+\subsubsection*{1.7 Experimental Design and Evaluation Protocol}
+\paragraph{(1) Benchmark construction}~{}
+
+Following multi-scenario evaluation principles used in foundation-model, multimodal, and hardware-generation benchmarks \cite{liang2023helm,yue2024mmmu,liu2023verilogeval}, Phase I will construct 120 controlled cases: 30 cases in each of the four project families. Cases will be stratified into three levels: 40 routine inbound customization cases, 40 ambiguous or conflicting requirement cases, and 40 boundary/safety stress cases. Each family will include text-only cases and multimodal cases containing a sketch/image, datasheet excerpt, or build observation. Eighty cases will be used for method development and calibration; 40 cases will form a locked held-out test set. Near-duplicate variants and modifications of the same base configuration will remain in the same split to prevent leakage.
+
+% Each case will be independently annotated by two qualified electrical/embedded-systems reviewers, including the Key Personnel and a budgeted independent engineering reviewer. 
+Each case will be independently annotated by the PI and Key Personnel using a predefined codebook. The Key Personnel will approve safety-critical electrical decisions, and disagreements will be resolved before the benchmark is frozen.
+The annotation protocol will define critical requirements, acceptable defaults, safety-relevant omissions, evidence sufficiency, reference-boundary labels, required tests, expected observations, and abstention decisions. Disagreements will be adjudicated before the benchmark is frozen. The codebook will be revised until inter-rater agreement reaches Cohen's $\kappa\geq0.75$ on categorical decisions; continuous values will use tolerance bands defined by the reference design and measurement uncertainty. The agreement criterion is a benchmark quality gate, not a system-performance claim.
+
+\paragraph{(2) Baselines and controlled comparisons}~{}
+
+All computational baselines will receive the same user input and, where applicable, the same document corpus. The principal baselines (Table~\ref{tab:principal}) are designed to separate retrieval, generation, structural checking, and uncertainty control; this is important because reflective RAG, self-checking, and iterative refinement can improve outputs without guaranteeing engineering validity or reliable intrinsic correction \cite{asai2024selfrag,manakul2023selfcheckgpt,madaan2023selfrefine,shinn2023reflexion,huang2024selfcorrect}. 
+
+% \begin{table}[H]
+%     \centering
+%     \small
+%     \begin{tabularx}{\textwidth}{P{0.16\textwidth}Y}
+%     \toprule
+%     \textbf{Baseline} & \textbf{Definition}\\
+%     \midrule
+%     \textbf{LLM-only} & direct prompting with no structured evidence graph or deterministic constraint checks\\
+%     \textbf{RAG-only} & retrieval over the same reference documents followed by generation, with no machine-checkable validity model\\
+%     \textbf{Static workflow} & a comprehensive engineering questionnaire, fixed reference templates, and fixed test checklist\\
+%     \textbf{Expert reference} & adjudicated expert annotations and procedures as the performance ceiling, not an automated competitor\\
+%     \textbf{Ablations} & full \VibeFab\ without clarification ranking, without executable boundary checks, without counterexample diagnosis, and without selective abstention\\
+%     \bottomrule
+%     \end{tabularx}
+%     \caption{Principal Baselines}
+%     \label{tab:principal}
+% \end{table}
+\vspace{-3pt}
+\begin{table}[H]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{P{0.16\textwidth}Y}
+    \toprule
+    \textbf{Baseline} & \textbf{Definition}\\
+    \midrule
+    \textbf{LLM-only} & Uses only direct prompting with no structured evidence graph or rule-based checks.\\
+   \rowcolor{lighttablegray} \textbf{RAG-only} & Retrieves documents over the same reference set; generation limited to retrieved content\\
+    \textbf{Static workflow} & Uses fixed templates and a single reference checklist; no dynamic evaluation.\\
+    \rowcolor{lighttablegray} \textbf{Expert reference} & Relies on human annotations and procedures as the performance benchmark.\\
+    \textbf{Ablations} & Runs without clarification or boundary checks to assess their impact on performance.\\
+    \bottomrule
+    \end{tabularx}
+    \caption{\textbf{Principal Baselines.} \textit{Baselines represent common approaches used for comparison in our evaluation.}}
+    \label{tab:principal}
+\end{table}
+\vspace{-10pt}
+
+
+% The principal baselines are:
+% \begin{itemize}
+% \item \textbf{LLM-only:} direct prompting with no structured evidence graph or deterministic constraint checks;
+% \item \textbf{RAG-only:} retrieval over the same reference documents followed by generation, with no machine-checkable validity model;
+% \item \textbf{Static workflow:} a comprehensive engineering questionnaire, fixed reference templates, and fixed test checklist;
+% \item \textbf{Expert reference:} adjudicated expert annotations and procedures as the performance ceiling, not an automated competitor;
+% \item \textbf{Ablations:} full \VibeFab\ without clarification ranking, without executable boundary checks, without counterexample diagnosis, and without selective abstention.
+% \end{itemize}
+For stochastic models, the team will use fixed model versions, prompts, retrieval settings, and generation budgets and will run each held-out case three times. The primary reported result will aggregate case-level outcomes across runs; failure analysis will retain individual outputs.
+
+\paragraph{(3) Statistical analysis}~{}
+
+Held-out test set will remain locked until methods and thresholds are frozen. Binary paired outcomes will be analyzed with McNemar tests and bootstrap confidence intervals; ordinal or continuous paired outcomes such as correction time and number of questions will use paired $t$ tests or Wilcoxon signed-rank tests depending on distributional diagnostics. The report will include 95\% confidence intervals and effect sizes.%, not only point estimates. 
+Because Phase I is a feasibility study, success will be determined by pre-specified technical thresholds and practically meaningful improvements rather than by statistical significance alone. This multi-metric, locked-evaluation approach is consistent with recent foundation-model evaluation practice \cite{liang2023helm}.
+
+\paragraph{(4) User walkthroughs}~{}
+
+Twelve to eighteen non-expert participants representing community-college learners, makers, or first-time founders will complete structured walkthroughs using held-out supportable cases. %This is not an efficacy trial. 
+Participants will identify the next safe action, locate the evidence or measurement that supports it, and recognize a stop/escalation condition. No participant will perform hazardous work; all physical activities will remain within reviewed low-voltage procedures under supervision. Results will inform usability and Phase II pilot design; prior computing-education studies support evaluating both task completion and whether AI guidance preserves learner understanding and self-regulation \cite{liffiton2023codehelp,kazemitabaar2023aicode,crompton2023highered}.
+
+
+\subsubsection*{1.8 R\&D Work Plan, Timeline, and Milestones}
+The 12-month plan is organized around sequential technical gates, overlapping implementation and validation. Its sequence of structured evidence, executable constraints, tool/measurement feedback, and locked validation is based on recent EDA-agent, RTL-benchmark, and real-to-sim-to-real workflows \cite{he2024chateda,lu2024rtllm,torne2024realtosim}. 
+
+\textbf{Objective 1 (Months 1-6).} Evidence-constrained translation of intent into engineering requirements and clarification questions. Objective 1 includes 3 tasks. \textbf{Task 1.1 Benchmark and references (Months 1-3).} Finalize taxonomy; create four schemas; annotate cases; establish codebook and agreement. \textbf{Task 1.2 Evidence graph (Months 2-5).} Typed graph, provenance, unit normalization, document/image extraction, uncertainty states. \textbf{Task 1.3 Clarification policy}. Ranking policy; compare static, heuristic, LLM-selected, proposed questions.
+
+\textbf{Objective 2 (Months 4-9).} The machine-checkable evaluation of reference-design applicability, dependency propagation, and bounded adaptation. Objective 2 includes 2 tasks. \textbf{Task 2.1 Boundary engine (Months 4-8).} Encode invariants, validity regions, dependencies, and adaptation classes. \textbf{Task 2.2 Counterexample diagnosis (Months 6-9).} Generate structured conflicts and candidate explanations; perform held-out transfer/ablation tests. 
+
+\textbf{Objective 3 (Months 6-11).} The selection of decision-relevant physical tests, prototype-based evidence updating, and calibrated guidance and abstention. Objective 3 includes 3 tasks. \textbf{Task 3.1 Active test policy (Months 6--10).} Define feasible tests and risk-reduction model; compare fixed and random policies. \textbf{Task 3.2 Physical prototypes (Months 7--11).} Build and instrument three systems; inject controlled faults; update evidence and adaptation decisions. \textbf{Task 3.3 Guidance and abstention (Months 9--11)}. Calibrate selective prediction; render three skill profiles; conduct structured walkthroughs.
+
+
+
+Task T4 integrates the outputs of all three objectives and evaluates the frozen system on a locked held-out benchmark. The Phase I R\&D timeline and milestones are in 
+% Table~\ref{tab:workplan} and 
+Figure~\ref{fig:gantt}.
+
+% \begin{table}[H]
+% \centering
+% \scriptsize
+% \begin{tabularx}{\textwidth}{P{0.05\textwidth}P{0.22\textwidth}YP{0.21\textwidth}}
+% \toprule
+% \textbf{Months} & \textbf{Task} & \textbf{R\&D activity} & \textbf{Deliverable/gate} \\
+% \midrule
+% 1--3 & T1.1 Benchmark and references & Finalize case taxonomy; create four reference schemas; annotate development cases; establish codebook and agreement & M1: benchmark protocol; $\kappa\geq0.75$; first validated references \\
+% 2--5 & T1.2 Evidence graph & Implement typed graph, provenance, unit normalization, document/image extraction, uncertainty states & Machine-checkable requirement contracts \\
+% 3--6 & T1.3 Clarification policy & Develop ranking policy; compare static, heuristic, LLM-selected, and proposed questions & M2: Objective 1 development targets reached \\
+% \midrule
+% 4--8 & T2.1 Boundary engine & Encode invariants, validity regions, dependencies, and adaptation classes & Executable boundary checks for four families \\
+% 6--9 & T2.2 Counterexample diagnosis & Generate structured conflicts and candidate explanations; perform held-out transfer/ablation tests & M3: Objective 2 development targets reached \\
+% \midrule
+% 6--10 & T3.1 Active test policy & Define feasible tests and risk-reduction model; compare fixed and random policies & Ranked test plans with cost/safety constraints \\
+% 7--11 & T3.2 Physical prototypes & Build and instrument three systems; inject controlled faults; update evidence and adaptation decisions & Prototype data and redesign records \\
+% 9--11 & T3.3 Guidance and abstention & Calibrate selective prediction; render three skill profiles; conduct structured walkthroughs & Integrated guidance and risk--coverage results \\
+% \midrule
+% 11--12 & T4 Held-out validation & Lock methods; run 40 held-out cases; statistical analysis; failure analysis & M4: final go/no-go report and pilot-readiness package \\
+% \bottomrule
+% \end{tabularx}
+% \caption{Phase I work plan and milestone outputs.}
+% \label{tab:workplan}
+% \end{table}
+% \vspace{-10pt}
+\vspace{-3pt}
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{images/Timeline.png}
+\tightcaption{\textbf{Twelve-month Phase I timeline.} \textit{Milestones: \textbf{M1 Month 3:} benchmark protocol; $\kappa\geq0.75$; first validated references; \textbf{M2 Month 6:} Objective 1 development targets reached; \textbf{M3 Month 9:} Objective 2 development targets reached; \textbf{M4 Month 12:} final go/no-go report and pilot-readiness package.}}
+\label{fig:gantt}
+\end{figure}
+\vspace{-10pt}
+
+\subsubsection*{1.9 Significance of Milestones for Commercial Readiness}
+
+The Phase I milestones are designed to reduce the principal technical
+and adoption risks that could prevent an institutional buyer from using
+VibeFab (Figure~\ref{fig:milestone_progression}). Community-college scale, engineering-workforce needs,
+makerspace learning evidence, and higher-education AI adoption support
+an initial institutional market, but they also require the product to
+reduce expert burden without removing human oversight
+\cite{aacc2025fastfacts,guthaus2023icworkforce,
+papagiannis2024makerspace,alvarez2024physicalcomputing,
+kasneci2023chatgpt,yan2024practical,crompton2023highered}.
+
+
+\vspace{-3pt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/figure new1.png}
+    \caption{\textbf{Phase I milestone progression.}
+    \textit{Technical evidence advances from benchmark validation to integrated prototype results.}}
+    \label{fig:milestone_progression}
+\end{figure}
+\vspace{-10pt}
+
+
+M1 establishes that Altitut can create defensible reference structures, expert annotations, and evaluation protocols.
+%rather than relying on a
+%small number of product demonstrations. 
+M2 determines whether users can begin with ambiguous creative language while the system still recovers critical engineering requirements with lower clarification burden.
+M3 determines whether VibeFab can support customization beyond fixed kits or tutorials while preserving reference validity, traceability, and safety boundaries. 
+M4 determines whether the integrated workflow reduces expert correction and redesign effort on physical systems without hiding uncertainty or unsupported assumptions.
+
+These milestones also preserve continuity with the invited Project
+Pitch (Table ~\ref{tab:milestone_commercial_readiness}): the evidence-contract graph is evaluated through M1 and M2,
+validity and uncertainty controls through M2 and M3, and active testing
+and physical feedback through M3 and M4.
+
+\vspace{-3pt}
+\begin{table}[H]
+\centering
+\small
+% \renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{
+    P{0.14\textwidth}
+    P{0.28\textwidth}
+    Y
+    P{0.22\textwidth}}
+\toprule
+\textbf{Milestone} &
+\textbf{Technical evidence} &
+\textbf{Commercial question} &
+\textbf{Risk reduced} \\
+\midrule
+
+M1: Validated benchmark &
+Expert-annotated cases, reference schemas, agreement, and locked protocol &
+Can Altitut produce defensible and repeatable evidence? &
+Limited trust in unvalidated demonstrations \\
+
+% \midrule
+
+\rowcolor{lighttablegray}M2: Intent translation &
+Evidence contracts, requirement recall, constraint precision, and clarification results &
+Can users begin with natural creative language? &
+High intake burden or incomplete requirements \\
+
+% \midrule
+
+M3: Bounded adaptation &
+Boundary checks, conflict detection, adaptation decisions, and ranked tests &
+Can VibeFab support customization beyond fixed kits? &
+Unsafe or overly restricted customization \\
+
+% \midrule
+
+\rowcolor{lighttablegray}M4: Physical validation &
+Held-out results, prototype measurements, fault diagnosis, abstention, and correction time &
+Does the system justify a controlled institutional pilot? &
+Insufficient physical or operational value \\
+
+\bottomrule
+\end{tabularx}
+\caption{\textit{Commercial significance of Phase I technical milestones.}}
+\label{tab:milestone_commercial_readiness}
+\end{table}
+\vspace{-10pt}
+
+% \vspace{-3pt}
+% \begin{table}[H]
+% \centering
+% \small
+% \begin{tabularx}{\textwidth}{
+%     P{0.09\textwidth}
+%     P{0.27\textwidth}
+%     Y
+%     P{0.26\textwidth}}
+% \toprule
+% \textbf{Milestone} &
+% \textbf{Technical evidence produced} &
+% \textbf{Commercial question answered} &
+% \textbf{Commercial risk reduced} \\
+% \midrule
+
+% M1: Benchmark and validated references &
+% Expert-annotated cases, reference schemas, annotation codebook,
+% inter-rater agreement, locked evaluation protocol &
+% Can the company produce defensible, repeatable evidence rather than a one-off demonstration? &
+% Institutional buyers may not trust claims lacking independent review, repeatable cases, or validated references. \\
+
+% \midrule
+
+% M2: Intent-to-requirement translation &
+% Machine-checkable evidence contracts, missing-requirement recall,
+% constraint precision, and clarification-burden results &
+% Can non-expert users begin with natural creative language without
+% completing a long engineering intake process? &
+% The workflow may be too difficult for learners and makers, or too
+% incomplete for safe downstream use. \\
+
+% \midrule
+
+% M3: Bounded adaptation and test planning &
+% Reference-boundary checks, dependency and conflict detection,
+% adaptation classifications, and ranked physical-test plans &
+% Can the product support customized projects beyond fixed kits while preserving evidence, safety, and expert review? &
+% The product may remain a tutorial library or produce unsafe
+% customizations that institutions cannot approve. \\
+
+% \midrule
+
+% M4: Integrated physical validation &
+% Held-out benchmark results, prototype measurements, fault-diagnosis
+% results, abstention performance, expert correction time, and redesign
+% outcomes &
+% Does the integrated system create enough operational value to justify
+% a controlled institutional pilot and future annual license? &
+% The software may not transfer to physical use, reduce expert workload,
+% or provide measurable value over existing tools and instructor support. \\
+
+% \bottomrule
+% \end{tabularx}
+% \caption{\textit{Commercial significance of the Phase I technical milestones.}}
+% \label{tab:milestone_commercial_readiness}
+% \end{table}
+% \vspace{-10pt}
+
+
+% option1: suggest a picture, seed-> leaves -> branch -> fruit
+% option2: suggest a scale or timeline picture, TRL (technology readniess level, 9 level system) -> target 7 level,  We had validation to 4 (intern meeting/ prototype), link milestone M1 (4), M2(5), M3 (6), M4(7)
+
+
+
+
+
+
+% \newpage
+% ============================================================
+\subsection*{II. Company/Team}
+% ============================================================
+% Company/Team (recommend 1-2 pages):
+
+%-- Provide the date when the company was founded and describe the revenue history, if any, for the past three years. Include and explicitly state government funding and private investment in this discussion.
+%-- Describe the company founders or key participants in this proposed project. What level of effort will these people devote to the proposed Phase I activities? How does the background and experience of the team enhance the credibility of the effort? Describe the company’s core competencies as related to this project, especially for aspects that are not obvious from other documents contained in the proposal. Give evidence that the core company team is committed to building a viable business around the product/service being developed. If your proposal includes consultants or advisors outside the budgeted company personnel, please discuss it briefly.
+%-- If the company has existing operations, describe how the proposed effort would fit into these activities. Describe your vision for the company and the company’s expected impact over the next five years.
+% ============================================================
+\subsubsection*{2.1 Company Background, Commitment, and Operating Fit}
+ALTITUT LLC was organized in June 2025 to develop and commercialize AI-assisted learning and innovation technologies. As a newly organized legal entity, the company does not yet have a three-year operating history. In FY2025, ALTITUT LLC received \$100,000 in support from the City of Sacramento Office of Innovation and Economic Development for company and product development activities. A portion of this support is being used to advance preliminary VibeFab prototyping and establish the technical starting point for the proposed Phase I research. VibeFab remains pre-revenue as a distinct product line.
+
+The company has received no private institutional investment and no prior direct federal R\&D award for VibeFab. The Sacramento support, company revenue, and any related government-assisted activities will be reported consistently with ALTITUT's accounting records, Current and Pending Support, and other Research.gov disclosures. Prior company activities have supported early workflow and prototype development but have not completed the evidence-bounded reasoning, reference-adaptation, physical-testing, or validation methods proposed in this Phase I project.
+
+
+% ALTITUT LLC was organized on June, 2025 to develop and commercialize AI-assisted learning and innovation technologies. As a newly organized legal entity, it has no three-year revenue history: reported ALTITUT LLC revenue was \$100,000 in FY2025, and VibeFab is pre-revenue in FY2026. The company has received no private institutional investment and no direct government R\&D award for VibeFab. Any government-supported work associated with predecessor or affiliated education-technology activities will be disclosed consistently in Current and Pending Support and company records; none has developed the Phase I methods proposed here.  
+% [need refine] the sentenece \$100,000 from City of sacramento, office of innovation and economic development
+% who Gives award for the development of Altitut. We fall this one into VibeFab proposal to reach level 4. (prototype)
+
+% Altitut's existing operations support idea development, customer discovery, pitch practice, and structured AI feedback for learners and educators. The platform has reached more than 1,000 learners through dozens of institutional deployments and relationships with more than 40 educators. VibeFab fits these operations by extending the company's learning workflow from software-centered entrepreneurship into evidence-bounded physical creation. The company is committed to building a viable business around the resulting technology: Phase I technical outputs will be incorporated into a pilot-ready product architecture, and Phase II will focus on external institutional validation, expanded reference families, instructor controls, and scalable deployment.
+
+Altitut's existing operations support idea development, customer discovery, pitch practice, and structured AI feedback for learners and educators. The platform has reached more than 1,000 learners through dozens of institutional deployments and relationships with more than 40 educators. VibeFab extends this operating foundation from software-centered entrepreneurship to evidence-bounded physical creation.
+The company is committed to building a viable business around the resulting technology. Phase I outputs will be incorporated into a pilot-ready product architecture, while Phase II will emphasize external institutional validation, expanded reference families, instructor controls, and scalable deployment.
+
+\subsubsection*{2.2 Personnel, Level of Effort, and Review Authority}
+
+\textbf{Lu Sun, Principal Investigator,} holds a B.S. in Mathematics and an M.S. in Industrial Engineering. Her research and manufacturing experience supports uncertainty-aware decision modeling, benchmark design, evaluation, and integration of technical and operational constraints. She will devote 12 person-months (PM) to technical direction, Objectives 1 and 3, evaluation, research integration, and NSF reporting (Table~\ref{tab:team}).
+
+\textbf{Mengmeng Wang, Key Personnel,} brings experience in electrical engineering, fault detection, robotics, and physical-system validation. She will devote approximately full time to reference architecture, component and interface constraints, safety boundaries, physical testing, benchmark annotation, inter-rater review, safety-case adjudication, and engineering validation. She will hold approval authority for the low-voltage reference designs, test procedures, and safety-related benchmark decisions used in Phase I.
+
+\textbf{Software and AI engineering personnel} will devote approximately 4.0 person-months to the evidence graph, document and image processing, constraint engine, model orchestration, evaluation tooling, secure data handling, and prototype interface. Interns or research assistants may support documentation, data preparation, and supervised test execution but will not hold independent design or safety-approval authority.
+
+\vspace{-3pt}
+\begin{table}[H]
+\centering
+\small
+% \renewcommand{\arraystretch}{1.10}
+\begin{tabularx}{\textwidth}{P{0.17\textwidth}P{0.10\textwidth}YP{0.16\textwidth}}
+
+\toprule
+%\rowcolor{darkteal}
+%\textcolor{white}
+{\textbf{Role}} &
+%\textcolor{white}
+{\textbf{Effort}} &
+%\textcolor{white}
+{\textbf{Primary Responsibility}} &
+%\textcolor{white}
+{\textbf{Authority}} \\
+\midrule
+
+PI (Lu Sun) &
+Full-Time &
+Technical direction, uncertainty methods, clarification and test policies, evaluation, and integration &
+Final research and go/no-go review \\
+
+\rowcolor{lighttablegray}
+Key Personnel (Mengmeng Wang) &
+Full-Time &
+Reference designs, electrical and physical constraints, benchmark annotation, fault injection, prototype validation, and safety-case review &
+Reference, test-procedure, and safety approval \\
+
+Software/AI team &
+4.0 PM &
+Evidence graph, constraint engine, multimodal pipeline, evaluation tools, and secure interface &
+Implementation review under PI and Key Personnel \\
+
+\rowcolor{lighttablegray}
+ACC and discovery partners &
+In kind &
+Workflow requirements, user context, and pilot-readiness feedback &
+No design or safety approval \\
+
+\bottomrule
+\end{tabularx}
+\caption{\textit{Phase I responsibility and review-authority matrix.}}
+\label{tab:team}
+\end{table}
+\vspace{-10pt}
+
+The project will use secure software-development infrastructure and a low-voltage prototyping environment with regulated power supplies, current and voltage measurement, temperature measurement, logic and protocol inspection, and controlled component substitution. Manufacturer documentation and third-party references will be used under applicable terms, and third-party reference designs will remain clearly distinguished from Altitut's proprietary methods and software.
+
+
+% \subsubsection*{2.3 Five-Year Vision}
+% Within five years, Altitut intends to become a trusted creation platform that helps non-expert innovators move from ideas to responsible prototypes. The sequence is deliberately bounded: low-voltage institutional pilots; expanded validated reference libraries; integrations with makerspace and course workflows; support for early-stage hardware founders; and only then selected professional design-support applications. The company's durable assets will be the benchmark and annotation protocols, validated reference structures, evidence and boundary models, physical failure mappings, test policies, institutional implementation knowledge, and software that operationalizes them.
+
+% ============================================================
+\subsubsection*{2.3 Core Competencies and Five-Year Vision}
+
+Altitut's core competencies include AI-assisted learning workflows, structured feedback, institutional deployment, customer discovery, uncertainty-aware decision modeling, and the integration of technical tools into guided user experiences. The Phase I team adds electrical-engineering, fault-detection, and physical-system validation capabilities required to extend this foundation into low-voltage physical creation.
+
+Within five years, Altitut intends to become a trusted creation platform that helps non-expert innovators move from ideas to responsible prototypes. The planned progression begins with low-voltage institutional pilots, followed by expanded validated reference libraries, integration with makerspace and course workflows, support for early-stage hardware founders, and selected professional design-support applications.
+
+The company's durable technical assets will include benchmark and annotation protocols, validated reference structures, evidence and boundary models, physical-failure mappings, test-selection policies, institutional implementation knowledge, and the software that operationalizes these capabilities.
+
+
+% \newpage
+% ============================================================
+\subsection*{III. Broader Impacts}
+% ============================================================
+% Broader Impacts (recommend 1-2 pages):
+
+%-- What is the motivation for the company to take on this project?
+%-- Clearly articulate how the proposed technology will result in a societal benefit. Which communities will benefit and on what timeline?
+%-- How will the societal benefits be measured and tracked?
+%-- What steps are being taken to recognize and minimize any unintended consequences of the proposed technology?
+% ============================================================
+
+% ============================================================
+% Broader Impacts: 
+% 1. What is the motivation for the company to take on this project? 
+% 2. Clearly articulate how the proposed technology will result in a societal benefit. Which communities will benefit and on what timeline? 3. How will the societal benefits be measured and tracked? 
+% 4. What steps are being taken to recognize and minimize the unintended consequences of the proposed technology?
+% ============================================================
+\subsubsection*{3.1 Societal Benefit and Beneficiaries}
+Physical prototyping can develop creativity, systems thinking, engineering judgment, and workforce-relevant skills, yet entry remains difficult for people who cannot translate a creative goal into entire engineering requirements \cite{guthaus2023icworkforce,papagiannis2024makerspace,alvarez2024physicalcomputing}. VibeFab's intended societal benefit 
+%is not replacement of engineering education or expert review. It 
+is earlier and more transparent entry into the design--build--test cycle: clearer requirements, visible evidence, explicit uncertainty, safer boundaries, and better preparation for instructor or engineer feedback.
+
+Initial beneficiaries are community- and technical-college learners in electronics, embedded systems, creative technology, entrepreneurship, and capstone courses; artists and makers adding sensing, lighting, display, or interaction to physical work; instructors and makerspace staff supporting diverse projects with limited time; and hardware founders creating early prototypes. During Phase I, the direct outcome will be technical feasibility evidence and validated safety boundaries. Later in Phase II, the company will test performance in institutional settings. In later deployment, the intended outcomes are fewer avoidable failed builds, reduced material rework, lower troubleshooting burden, and broader participation in hands-on creation.
+
+\subsubsection*{3.2 Measurement and Tracking}
+Phase I broader-impact indicators will be grounded in technical and usability measures rather than untested learning claims: critical-requirement detection, safety-conflict detection, unsupported assumptions, expert correction time, build/test correctness, appropriate abstention, and participant ability to identify the next safe action. Phase II pilots will add implementation measures: number and diversity of supported project types, project completion and abandonment, instructor-reported troubleshooting time, material rework, learner explanation of evidence and uncertainty, and access across learner backgrounds. Altitut will report results by project family and user profile to identify where the system helps and where it creates unequal burden or excessive abstention.
+
+\subsubsection*{3.3 Unintended Consequences and Safeguards}
+Potential unintended consequences include unsafe build attempts, overtrust in generated instructions, suppression of creative intent through excessive constraints, privacy exposure from user project data or images, unequal performance across language and experience levels, dependence on proprietary model services, and reduced appreciation for human expertise. Safeguards include (Figure~\ref{fig:gantt}):
+\begin{itemize}
+\item a bounded low-voltage scope and clear exclusion of voltage, regulated devices, and product certification;
+\item evidence labels, uncertainty states, required measurements, stop conditions, and expert-review triggers;
+\item risk--coverage evaluation so safety is not achieved by hidden or indiscriminate refusal;
+\item preservation of the user's creative goal while constraining only unsupported implementation choices;
+\item accessibility-conscious interfaces, alternative text/input modalities, and plain-language explanations;
+\item data minimization, role-based access, secure storage, and retention controls for institutional deployments;
+\item human approval for new reference families and for higher-risk adaptations.
+\end{itemize}
+
+\vspace{-3pt}
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{images/Fig6.png}
+\tightcaption{\textbf{Technology readiness progression, TRL 1--9.} \textit{The scale is divided into three phases: \textbf{TRL 1--3 (prior foundational work):} basic principles observed through early proof-of-concept; \textbf{TRL 4--7 (Phase I R\&D, this proposal):} the current lab-validated baseline advances through Objectives 1--3 under evidence-bounded iterative review to an integrated, demonstrated prototype; \textbf{TRL 8--9 (Phase II, future scope):} institutional qualification and pilot-ready deployment, outside the scope of the current proposal.}}
+\label{fig:gantt}
+\end{figure}
+\vspace{-10pt}
+
+
+
+% \newpage
+% ============================================================
+\subsection*{IV. Commercialization Potential}
+% ============================================================
+% Commercialization Potential (recommend 1-3 pages):
+
+%-- Is there a compelling potential business model?
+%-- What is your initial target market and its size? How have you validated that this market needs your technology?
+%-- Provide a detailed plan on your pathway to generate revenue and to become a self-sustaining entity. Present a compelling case that the project will significantly advance the readiness of the technology and strengthen its commercial position.
+%-- Describe the value proposition of the proposed technology.
+%-- Describe your plans to address regulatory (including permitting) or safety standards and ethical considerations involved in developing your technology and bringing your product or service to market.
+%-- Describe your intellectual property strategy and provide a brief rationale for why you chose this strategy.
+%-- Provide a detailed description of the competitive landscape and your sustainable competitive advantage.
+% ============================================================
+
+% ============================================================
+% Commercial: 
+% 1. What is the background of the team, why is this the right team to execute the commercialization of the proposed innovation? 
+% 2. What is the size and scope of the market opportunity? You must identify how you plan to make a scalable, sustainable business from this effort. 
+% 3. Who is the customer for the innovation? What is the value proposition for your customer?
+% 4. What does the competitive landscape look like? What is your competitive advantage? (Please search NSF awards database for prior similar technology awards) 
+% 5. Which group of customers want the product/technology being proposed? 
+% 6. What customer(s) needs or requirements will be satisfied by the proposed product? Is this a need to have or a nice to have? 
+% 7. How are the needs and requirement(s) being satisfied now? 
+% 8. Why will the customer choose the proposed product over existing solutions?
+% ============================================================
+\subsubsection*{4.1 Product, Buyer, User, and Value Proposition}
+VibeFab will be delivered as institutional software that complements, rather than replaces, EDA tools, maker hardware, and instructor expertise. The initial economic buyer is a department chair, workforce-program administrator, makerspace director, innovation-center leader, or faculty lead with responsibility for laboratory outcomes and instructional capacity. Primary users are learners, makers, artists, and first-time founders; instructors and technical staff are approvers and reviewers.
+
+The customer problem is operational as well as educational. One instructor or makerspace staff member may support many teams using different sensors, boards, libraries, enclosures, and fabrication methods. Existing options are fragmented: free AI tools provide fast answers but limited assurance; kits and tutorials are reliable but fixed; manufacturer references are component-specific; professional EDA tools are powerful but assume engineering inputs; and human experts remain the integration layer. VibeFab's value proposition is measurable: help users arrive at expert review with more complete requirements, fewer unsupported assumptions, explicit tests, and a traceable adaptation record, thereby reducing correction time and avoidable redesign while preserving customized projects.
+
+This is a need-to-have when institutions permit open-ended projects but lack sufficient expert capacity to review every decision before parts are ordered or prototypes are fabricated. It is a nice-to-have where courses use fixed kits with no customization. The initial beachhead therefore excludes tightly scripted kit courses and targets programs in which learner choice is central and instructor troubleshooting is a documented bottleneck.
+
+\subsubsection*{4.2 Customer Validation and Market Size}
+The team has completed 53 discovery conversations with educators, workforce stakeholders, and employers. Recurring themes were the difficulty of supporting diverse projects, the time required to translate ideas into technical plans, late discovery of component or fabrication problems, and concern about trusting unverified AI guidance. Austin Community College has provided institutional support for discovery and pilot planning. During Phase I, the company will conduct 20 additional structured interviews focused on buyer role, budget ownership, procurement, acceptable safety controls, integration conditions, and renewal criteria. At least eight interviews will be with two-year institutions, four with makerspace/innovation-center leaders, four with four-year creative-technology or entrepreneurship programs, and four with workforce/employer stakeholders.
+
+The market model is bottom-up. The United States has approximately 1,000 community colleges, many with career and technical, engineering-technology, computer, manufacturing, entrepreneurship, or makerspace programs \cite{aacc2025fastfacts}. The broader market includes four-year institutions, libraries and community makerspaces, incubators, and workforce-training organizations. The initial serviceable market assumption is 750 institutions with at least one relevant program. At a working annual contract value of \$18,000, this represents approximately \$13.5 million in annual serviceable software revenue. The five-year obtainable-market objective is 60 institutional contracts at an average \$20,000 annual contract value, or \$1.2 million in annual recurring revenue. These are planning assumptions, not top-down claims; Phase I discovery will test the institution count, program fit, and price sensitivity.
+
+\subsubsection*{4.3 Business Model and Revenue Path}
+The initial model is annual institutional licensing with three working tiers: a course/makerspace pilot at \$5,000--\$8,000 per year; a department or campus license at \$15,000--\$25,000; and a multi-program license beginning near \$40,000 with administrative controls, integrations, onboarding, and expanded reference libraries. Pricing will be validated by presenting buyers with explicit alternatives and procurement scenarios rather than asking only general willingness-to-pay questions.
+
+The commercialization sequence is: 
+\textbf{Phase I:} establish technical feasibility; validate buyer, workflow, controls, and price hypotheses; prepare a pilot-readiness package.
+%\textbf{Phase II:} deploy three to five institutional pilots; expand reference families; add instructor approval, analytics, accessibility, privacy, and integration features; measure renewal criteria.
+\textbf{Initial launch:} convert successful pilots to annual contracts and sell through direct institutional relationships, workforce networks, conference partnerships, and existing Altitut relationships.
+\textbf{Scale:} develop repeatable onboarding, partner-created reference libraries subject to Altitut validation, and tiered support; expand to early hardware-founder programs after institutional safety and evidence controls mature.
+
+The technical milestones directly affect revenue readiness. Requirement and clarification performance determines whether onboarding can be lightweight. Boundary and abstention performance determines whether an institution can trust the product. Expert-time and redesign reductions determine whether a buyer can justify renewal. Reference-family transfer determines gross-margin scalability because the product cannot require bespoke engineering for every new project.
+
+\subsubsection*{4.4 Competitive Landscape and Sustainable Advantage}
+
+VibeFab enters a market that already includes AI-assisted electronics-design tools, professional EDA platforms, manufacturer reference designs, and general-purpose LLM-based support. These alternatives are useful, but they typically begin after requirements, system boundaries, or engineering constraints are already more structured. VibeFab targets an earlier stage: helping non-expert creators turn intent into explicit engineering constraints, reviewed reference adaptations, build/test guidance, and clear escalation boundaries \cite{flux2026,circuitmind2025,quilter2026,altium2025,cadence2025,siemens2026,siliconexpert2026}.
+
+\begin{table}[H]
+\centering
+\small
+\scalebox{0.85}{
+\begin{tabular}{p{0.18\linewidth} p{0.12\linewidth} p{0.12\linewidth} p{0.12\linewidth} p{0.12\linewidth} p{0.12\linewidth} p{0.12\linewidth}}
+\hline
+\rowcolor{darkteal}
+\textcolor{white}{\textbf{Feature}} &
+\textcolor{white}{\textbf{VibeFab}} &
+\textcolor{white}{\textbf{Flux.ai}} &
+\textcolor{white}{\textbf{Circuit Mind}} &
+\textcolor{white}{\textbf{Quilter}} &
+\textcolor{white}{\textbf{Pro EDA}} &
+\textcolor{white}{\textbf{LLM Tools}} \\
+\hline
+Non-Expert Support & \stars{3} & \stars{2} & \stars{1} & \stars{1} & \stars{1} & \stars{2} \\
+Reference Grounding & \stars{3} & \stars{2} & \stars{2} & \stars{1} & \stars{3} & \stars{1} \\
+Build/Test Guidance & \stars{3} & \stars{1} & \stars{1} & \stars{1} & \stars{2} & \stars{1} \\
+Safety Abstention   & \stars{3} & \stars{1} & \stars{1} & \stars{1} & \stars{2} & \stars{1} \\
+Classroom Fit       & \stars{2} & \stars{1} & \stars{1} & \stars{1} & \stars{1} & \stars{3} \\
+Cost                & Low       & Low       & High      & Low       & High      & Low \\
+\hline
+Primary Use Case & Novice Build & PCB Design & Full EDA & PCB Layout & Pro Suite & AI Guidance \\
+\hline
+\end{tabular}}
+\caption{\textit{Competitive feature comparison of VibeFab with Flux.ai, Circuit Mind, Quilter, professional EDA platforms (Altium, Cadence), and general-purpose LLM tools. No alternative combines non-expert intent translation, reference-grounded bounded adaptation, and explicit safety abstention at VibeFab's proposed low-cost institutional license: professional EDA platforms match VibeFab on reference-grounded rigor but assume users can already express formal engineering requirements, while general-purpose LLM tools operate at broader classroom scale but do not enforce machine-checkable validity boundaries or calibrated escalation to expert review.}}
+\label{tab:competition_compact}
+\end{table}
+\vspace{-10pt}
+
+VibeFab does not seek to replace professional EDA, lifecycle, simulation, or manufacturer-reference systems. Those tools remain important downstream environments and evidence sources. The Phase I research will address a different decision layer: determining what the user has not specified, what remains valid from a reference design, what must be tested, and when the system should abstain or require qualified review.
+
+The initial commercial wedge is low-voltage physical-computing instruction and early prototype development in community colleges, makerspaces, creative-technology programs, and entrepreneurship courses. In these settings, users often start with incomplete goals, while instructors must support many different projects with limited time. VibeFab's value is therefore not unrestricted hardware automation; it is a bounded pre-build workflow that improves requirement completeness, constrains adaptation to reviewed references, makes assumptions visible, and reduces repetitive troubleshooting.
+
+VibeFab's sustainable advantage will depend on assets that are not easily reproduced through access to a general-purpose model alone: expert-annotated ambiguous-intent cases, machine-readable reference applicability boundaries, records linking proposed changes to preserved or invalidated evidence, calibrated clarification and abstention policies, physical measurement and failure data, and institutional implementation knowledge. Phase I customer discovery will further test which alternatives customers currently use, where those alternatives fall short, and what technical evidence is required for pilot adoption and renewal.
+
+\subsubsection*{4.5 Safety, Regulatory, Ethical, and IP Strategy}
+The first product will remain within reviewed low-voltage educational and maker-oriented applications. It will not certify a design for sale, authorize hazardous electrical work, or replace a licensed engineer. Product controls will include supported-project declarations, versioned reference records, audit logs, instructor approval settings, stop/escalation states, and clear separation between generated guidance and validated measurements. Institutional deployment will address accessibility, student-data privacy, cybersecurity, data retention, and vendor review. Any later expansion into regulated domains will require a separate regulatory and technical strategy.
+
+\begin{wrapfigure}{r}{0.46\textwidth}
+    \vspace{-3pt}
+    \centering
+    \small
+    \includegraphics[
+        width=0.46\textwidth,
+        keepaspectratio
+    ]{images/funnel.png}
+    \caption{\textbf{Commercialization funnel.} \textit{Projected pathway from market outreach to pilot adoption.}}
+    \label{fig:funnel}
+    \vspace{-10pt}
+\end{wrapfigure}
+
+The IP strategy combines patents, trade secrets, copyright, contracts, and license management. The company will evaluate patent protection for novel combinations of evidence-contract representation, uncertainty-aware clarification, bounded adaptation, counterexample-guided physical diagnosis, and decision-guided test selection. Trade secrets will protect benchmark data, annotation protocols, reference validity structures, risk thresholds, physical failure mappings, evaluation workflows, and model orchestration. Copyright will protect software, interface design, documentation, and company-authored reference materials. Third-party software, model APIs, manufacturer documentation, and open references will be inventoried and reviewed for commercial license compatibility. VibeFab will retain provenance and will not claim ownership of third-party designs.
+
+% \begin{figure}[H]
+% \centering
+% \begin{tikzpicture}[font=\small,node distance=6mm,arr/.style={-{Latex[length=2mm]},thick},b/.style={draw,rounded corners,align=center,text width=30mm,minimum height=12mm}]
+% \node[b] (p1) {Phase I\\technical proof + buyer validation};
+% \node[b,right=of p1] (p2) {Phase II\\3--5 pilots + expanded references};
+% \node[b,right=of p2] (p3) {Launch\\annual institutional licenses};
+% \node[b,right=of p3] (p4) {Expansion\\founder programs + selected workflows};
+% \draw[arr] (p1)--(p2);\draw[arr] (p2)--(p3);\draw[arr] (p3)--(p4);
+% \end{tikzpicture}
+% \tightcaption{Commercialization wedge. Expansion occurs only after technical boundaries, institutional controls, and external validation mature.}
+% \label{fig:commercial}
+% \end{figure}
+
+
+
+
+
+\subsubsection*{4.6 Phase I Commercialization Activities and Exit Criteria}
+Commercial work during Phase I will run in parallel with R\&D and will test whether the technical gains translate into a purchasable institutional outcome. The team will use a structured interview guide and retain evidence by buyer type rather than aggregating all educators into one group. Interview topics will include the current project-review process, frequency and cost of late failures, acceptable automation boundaries, required instructor controls, budget owner, procurement cycle, data/privacy review, preferred license unit, and renewal evidence. Prototype walkthroughs will present the same bounded use case and pricing choices so responses can be compared.
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabularx}{\textwidth}{P{0.2\textwidth}YP{0.35\textwidth}}
+\toprule
+\textbf{Question} & \textbf{Phase I activity} & \textbf{Pilot-readiness criterion} \\
+\midrule
+Is the problem urgent? & Twenty structured interviews; quantify project volume, late failures, troubleshooting time, and consequences & $\geq10$ interviewees identify a recurring high-cost workflow; $\geq$6 rank it as a budget priority. \\
+\rowcolor{lighttablegray} Who buys and pays? & Map user, influencer, technical approver, economic buyer, and procurement steps & Repeatable buyer/budget path identified in at least two institutional segments \\
+What controls are required? & Test reference approval, audit trail, privacy, accessibility, and abstention concepts & A common minimum control set covers at least 75\% of interested institutions \\
+\rowcolor{lighttablegray} What price is credible? & Compare course, department, and multi-program packages with explicit alternatives & At least five qualified buyers accept a price hypothesis within the proposed tier ranges \\
+Phase II pilots be recruited? & Obtain scoped expressions of interest describing program, users, timing, and success criteria & Three or more qualified institutions express interest in a controlled Phase II pilot \\
+\bottomrule
+\end{tabularx}
+\caption{Phase I commercialization validation plan. Each activity addresses a key market adoption question and defines measurable exit criteria for advancing to Phase II pilots.}
+\label{tab:commercialtests}
+\end{table}
+\vspace{-10pt}
+
+The company will finance the path to initial revenue through a combination of founder effort, existing operating resources, non-dilutive Phase II support if merited, paid pilots, and early license revenue. The plan does not assume that NSF will fund indefinite product development. A positive Phase I exit requires both technical go criteria and a credible route to at least three external pilots. If the technical results are strong but customer evidence is weak, the company will narrow or change the initial segment before Phase II. If customer demand is strong but safety or evidence criteria fail, the company will offer only a human-reviewed workflow until the relevant technical risk is resolved.
+
+\newpage
+\section*{References Cited}
+% \nocite{*}
+\small
+\printbibliography[heading=none]
+
+\end{document}

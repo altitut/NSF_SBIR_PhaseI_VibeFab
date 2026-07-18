@@ -1,0 +1,68 @@
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{float}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,calc}
+\usepackage[hidelinks]{hyperref}
+\usepackage[
+  backend=biber,
+  style=numeric-comp,
+  sorting=none,
+  sortcites=true,
+  maxbibnames=8,
+  minbibnames=3,
+  giveninits=true,
+  doi=true,
+  url=true,
+  isbn=false,
+  hyperref=true
+]{biblatex}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage[normalem]{ulem}
+\usepackage{wrapfig}
+
+\pagestyle{plain}
+\setlength{\parindent}{0.22in}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=*,itemsep=1.5pt,topsep=2pt,parsep=0pt}
+\setlist[enumerate]{leftmargin=*,itemsep=1.5pt,topsep=2pt,parsep=0pt}
+\captionsetup{font=small,labelfont=bf,singlelinecheck=false,skip=3pt}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\renewcommand{\arraystretch}{1.08}
+\definecolor{lightgray}{gray}{0.92}
+\definecolor{midgray}{gray}{0.72}
+\definecolor{darkgray}{gray}{0.28}
+
+\titleformat{\section}{\normalfont\large\bfseries\color{darkteal}}{}{0pt}{\uline}
+\titleformat{\subsection}{\normalfont\large\bfseries}{}{0pt}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{}{0pt}{}
+\titleformat{\paragraph}[runin]{\normalfont\normalsize\bfseries\itshape}{}{0pt}{}
+\titlespacing*{\section}{0pt}{5pt}{2.5pt}
+\titlespacing*{\subsection}{0pt}{5pt}{2.5pt}
+\titlespacing*{\subsubsection}{0pt}{3pt}{1.5pt}
+\titlespacing*{\paragraph}{0pt}{2pt}{1pt}
+
+\newcommand{\tightcaption}[1]{\caption{#1}\vspace{-3pt}}
+\newcommand{\metric}[1]{\textbf{#1}}
+\newcommand{\good}{\ensuremath{\geq}}
+\newcommand{\bad}{\ensuremath{\leq}}
+\newcommand{\VibeFab}{VibeFab}
+
+
+\usepackage[table]{xcolor}
+\definecolor{darkteal}{HTML}{005c5c}
+\definecolor{lighttablegray}{HTML}{F1F1F1}

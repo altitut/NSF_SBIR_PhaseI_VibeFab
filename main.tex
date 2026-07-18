@@ -1,0 +1,1752 @@
+\documentclass[11pt,letterpaper]{article}
+
+% ============================================================
+% Page setup
+% ============================================================
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Times-like text and mathematics fonts
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+% Improve text search and copy quality in the PDF
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+% ============================================================
+% Page setup
+% ============================================================
+\usepackage[
+    letterpaper,
+    top=1in,
+    bottom=1in,
+    left=1in,
+    right=1in
+]{geometry}
+
+% ============================================================
+% Mathematics
+% Do not load amssymb together with newtxmath
+% ============================================================
+\usepackage{amsmath}
+
+% ============================================================
+% Figures, tables, and layout
+% ============================================================
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{float}
+\usepackage{xcolor}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% ============================================================
+% Lists
+% ============================================================
+\usepackage{enumitem}
+
+\setlist[itemize]{
+    leftmargin=*,
+    itemsep=2pt,
+    topsep=3pt,
+    parsep=0pt
+}
+
+\setlist[enumerate]{
+    leftmargin=*,
+    itemsep=2pt,
+    topsep=3pt,
+    parsep=0pt
+}
+
+% ============================================================
+% Captions
+% ============================================================
+\usepackage{caption}
+
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    singlelinecheck=false
+}
+
+% ============================================================
+% Typography and spacing
+% ============================================================
+\usepackage{microtype}
+\usepackage{setspace}
+
+\singlespacing
+
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0pt}
+
+% ============================================================
+% Headings
+% ============================================================
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titlespacing*{\section}
+  {0pt}
+  {0pt}
+  {0pt}
+
+\titlespacing*{\subsection}
+  {0pt}
+  {2pt}
+  {1pt}
+
+\titlespacing*{\subsubsection}
+  {0pt}
+  {4pt}
+  {2pt}
+
+% ============================================================
+% Bibliography
+% ============================================================
+\usepackage[numbers,sort&compress]{natbib}
+
+% ============================================================
+% Hyperlinks
+% Load near the end of the preamble
+% ============================================================
+\usepackage[hidelinks]{hyperref}
+
+% ============================================================
+% Page style
+% ============================================================
+\pagestyle{empty}
+
+% ============================================================
+% Document
+% ============================================================
+\begin{document}
+
+\section*{NSF SBIR Phase I Proposal Internal Preparation Plan}
+
+\textbf{Target submission date:} July 27, 2026
+
+\textbf{First complete draft deadline:} Friday, July 17, 2026
+
+\textbf{Project Pitch status:} Invitation received
+
+\textbf{NSF topic:} Learning and Cognition Technologies
+
+\textbf{Subtopic:}  LC4. Innovative Approaches to Multimodal Learning.
+
+\textbf{Project Pitch number:} 00118188
+
+% ============================================================
+\section{Current Administrative Status}
+
+\begin{itemize}[leftmargin=0.25in]
+    \item ALTITUT LLC's SAM.gov registration has been confirmed as active.
+    
+    \item Lu Sun's Research.gov organization and PI role request for ALTITUT
+    LLC is currently in \textbf{Requested/Pending Approval} status.
+    
+    \item Until the role request is approved, Lu cannot create the
+    Research.gov proposal shell.
+    
+    \item Alfredo or the appropriate ALTITUT Organization Administrator/AOR
+    should review and approve the pending role request as soon as possible.
+    
+    \item Proposal narrative development, budget planning, personnel
+    documents, figures, tables, references, letters, and other supporting
+    materials will continue outside Research.gov while access is pending.
+\end{itemize}
+
+% ============================================================
+\section{LaTeX Repository and File-Naming Convention}
+
+The LaTeX/Pdf source files intended for the final NSF submission should be stored
+in:
+
+\begin{quote}
+\texttt{sections/main/}
+\end{quote}
+
+Each submission component should follow the naming convention:
+
+\begin{quote}
+\texttt{\{ranking number of the material\}\_\{material need to be submitted\}.tex or .pdf}
+\end{quote}
+
+Examples include:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item \texttt{1\_Cover\_Sheet.tex}
+    \item \texttt{2\_SBIR\_Phase\_I\_Questionnaire.tex}
+    \item \texttt{3\_SBIR\_Phase\_I\_Certification\_Questions.tex}
+    \item \texttt{4\_Project\_Summary\_5\_Project\_Description\_6\_References.tex}
+    \item \texttt{7\_Budget.tex}
+    \item \texttt{8\_Budget\_Justification.tex}
+    \item \texttt{9\_Facilities\_Equipment\_Other\_Resources.tex}
+    \item \texttt{10\_Senior\_Key\_Personnel\_Documents.tex}
+    \item \texttt{11\_Data\_Management\_Sharing\_Plan.tex}
+    \item \texttt{14\_Other\_Supplementary\_Documents.tex}
+    \item \texttt{18\_Project\_Pitch\_Invitation.pdf}
+\end{itemize}
+
+For the first complete draft, the current combined narrative file is:
+
+\begin{quote}
+\texttt{sections/main/4\_Project\_Summary\_5\_Project\_Description\_6\_Reference.tex}
+\end{quote}
+
+This file currently contains:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item the first draft of the Project Summary;
+    \item the first draft of the Project Description;
+    \item the first draft of References Cited;
+    \item placeholders for required figures;
+    \item placeholders or draft formatting for tables.
+\end{itemize}
+
+After the July 17 first-draft review, the combined file may be separated into
+individual submission-component files if that improves document control and
+Research.gov uploading.
+
+% ============================================================
+\section{Immediate Team Update}
+
+A Project Pitch invitation has been received, and the team plans to submit the
+final NSF SBIR Phase I proposal on July 27, 2026.
+
+The first complete proposal draft is targeted for Friday, July 17. The initial
+Project Summary, Project Description, References Cited, figure placeholders,
+and table placeholders are currently located in:
+
+\begin{quote}
+\texttt{sections/main/4\_Project\_Summary\_5\_Project\_Description\_6\_Reference.tex}
+\end{quote}
+
+Lu will continue revising the narrative, verifying citations, checking
+references, and coordinating the complete proposal package.
+
+% ============================================================
+\section{Immediate Requests and Responsibilities}
+
+\subsection{Research.gov and PI Role Approval}
+
+\textbf{Requested from Alfredo:}
+
+Please review and approve Lu Sun's pending Research.gov organization and PI
+role request for ALTITUT LLC so that the Research.gov proposal shell can be
+created.
+
+After access is approved, Lu will:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item create the proposal shell;
+    \item select the correct solicitation and topic;
+    \item enter Project Pitch number 00118188;
+    \item begin the Cover Sheet and questionnaires;
+    \item associate Senior/Key Personnel;
+    \item begin entering the budget and uploading completed documents.
+\end{itemize}
+
+\subsection{Figures and Table Formatting}
+
+\textbf{Requested from James and An:}
+
+Please review the figure and table placeholders in:
+
+\begin{quote}
+\texttt{sections/main/4\_Project\_Summary\_5\_Project\_Description\_6\_Reference.tex}
+\end{quote}
+
+Priority visual materials include:
+
+\begin{enumerate}[leftmargin=0.3in]
+    \item the VibeFab creator-to-build workflow;
+    \item the technical architecture and core R\&D modules;
+    \item the experimental-design and validation workflow;
+    \item the 12-month Phase I timeline;
+    \item correction of table widths, alignment, overflow, and readability.
+\end{enumerate}
+
+The figures should clearly distinguish:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item supporting components, such as LLMs, retrieval, documentation, and
+    reference materials;
+    \item proposed R\&D contributions;
+    \item system outputs;
+    \item uncertainty labels;
+    \item test requirements;
+    \item abstention and expert-review triggers.
+\end{itemize}
+
+\subsection{Budget and Budget Justification}
+
+\textbf{Requested from Alfredo:}
+
+Please lead or provide the information needed for:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item personnel salaries;
+    \item person-month commitments;
+    \item fringe benefits;
+    \item hardware and prototyping materials;
+    \item software, model API, cloud, and computing costs;
+    \item consultant costs, if applicable;
+    \item travel, if applicable;
+    \item indirect costs;
+    \item proposed fee;
+    \item company financial and funding history needed in the narrative.
+\end{itemize}
+
+An initial internal budget should be available by July 17 even if the final
+Research.gov budget cannot yet be entered.
+
+\subsection{Diana's Project Role}
+
+\textbf{Decision needed from Alfredo:}
+
+Please confirm whether Diana will participate in the proposed Phase I project.
+
+If Diana will be included as Senior/Key Personnel, please confirm:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item her official project role;
+    \item her Phase I responsibilities;
+    \item her person-month commitment;
+    \item whether her salary will be included in the budget;
+    \item which objective or project activity she will support.
+\end{itemize}
+
+If she is Senior/Key Personnel, the following materials should be prepared:
+
+\begin{enumerate}[leftmargin=0.3in]
+    \item Biographical Sketch;
+    \item Current and Pending Support;
+    \item Collaborators and Other Affiliations information;
+    \item Synergistic Activities.
+\end{enumerate}
+
+Mengmeng Wang is preparing her Senior/Key Personnel documents, with an
+internal deadline of Friday, July 17.
+
+% ============================================================
+\section{Parallel Tasks Lu Can Complete}
+
+In addition to citation and reference verification, Lu can work in parallel on
+the following high-priority materials.
+
+\subsection{1. Complete the Experimental Protocol}
+
+The current narrative should be supplemented with specific experimental
+details, including:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item number of benchmark prompts;
+    \item number of project families;
+    \item number and percentage of safety-critical cases;
+    \item number of reference designs and controlled variants;
+    \item number and qualifications of expert annotators;
+    \item annotation and disagreement-resolution procedures;
+    \item training, development, and held-out test separation;
+    \item LLM, RAG, questionnaire, and expert-reference baselines;
+    \item repeated model runs;
+    \item statistical analysis and confidence intervals;
+    \item exact success and go/no-go criteria.
+\end{itemize}
+
+\subsection{2. Decide the Human-Subjects Pathway}
+
+The team should decide whether Phase I will include research with beginner or
+student participants.
+
+If human participants are included, the proposal should specify:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item participant population;
+    \item sample size;
+    \item recruitment;
+    \item consent;
+    \item data collected;
+    \item compensation, if any;
+    \item privacy and data-security measures;
+    \item IRB or exemption pathway.
+\end{itemize}
+
+If Phase I will not include human-subject research, the user-walkthrough
+language and metrics should be revised accordingly.
+
+\subsection{3. Verify Company Facts}
+
+Prepare a verified company fact sheet covering:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item legal company name;
+    \item founding date;
+    \item UEI;
+    \item SAM.gov expiration date;
+    \item revenue history;
+    \item government funding history;
+    \item private investment history;
+    \item relationship between ALTITUT LLC and any related entities;
+    \item ownership of the proposed project's IP;
+    \item verified number of deployments;
+    \item verified number of students, educators, institutions, and states.
+\end{itemize}
+
+No unverified number should remain in the July 17 first draft.
+
+\subsection{4. Prepare the Commercialization Evidence}
+
+Prepare or verify:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item beachhead customer segment;
+    \item primary users and paying buyers;
+    \item bottom-up market-size estimate;
+    \item customer-discovery interview evidence;
+    \item current customer workarounds;
+    \item budget owner and procurement pathway;
+    \item preliminary pricing hypothesis;
+    \item initial annual institutional-license model;
+    \item named competitors;
+    \item relevant prior NSF-funded projects;
+    \item sustainable competitive advantage;
+    \item Phase I-to-Phase II commercialization pathway.
+\end{itemize}
+
+\subsection{5. Draft Facilities, Equipment and Other Resources}
+
+Prepare a draft describing available:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item software-development resources;
+    \item cloud infrastructure;
+    \item model and data infrastructure;
+    \item secure storage;
+    \item low-voltage prototyping resources;
+    \item testing and measurement equipment;
+    \item embedded-system development tools;
+    \item partner or consultant resources;
+    \item customer-discovery and pilot access.
+\end{itemize}
+
+\subsection{6. Draft the Data Management and Sharing Plan}
+
+The plan should address:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item benchmark prompts;
+    \item expert annotations;
+    \item reference-design data;
+    \item model outputs;
+    \item evaluation data;
+    \item user or participant data, if applicable;
+    \item access control;
+    \item secure storage;
+    \item data retention and deletion;
+    \item sharing restrictions;
+    \item IP and commercialization considerations;
+    \item reproducibility.
+\end{itemize}
+
+\subsection{7. Coordinate Letters of Support}
+
+Confirm at least one strong support letter and, if possible, two or three
+letters from different relevant customer or partner types.
+
+Letters should provide concrete evidence of:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item the customer or educational problem;
+    \item current limitations;
+    \item interest in the proposed capability;
+    \item relevant target learners or creators;
+    \item potential participation in discovery, workflow review, walkthroughs,
+    or later pilots;
+    \item institutional implementation requirements.
+\end{itemize}
+
+\subsection{8. Prepare Research.gov Information Offline}
+
+While waiting for role approval, prepare a separate record containing:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item legal organization information;
+    \item project title;
+    \item Project Pitch number;
+    \item project start and end dates;
+    \item NSF topic and subtopic;
+    \item personnel names and emails;
+    \item personnel roles;
+    \item human-subjects response;
+    \item proprietary-information response;
+    \item budget values;
+    \item suggested reviewers, if applicable;
+    \item reviewers not to include, if applicable.
+\end{itemize}
+
+This will allow rapid system entry once the role is approved.
+
+% ============================================================
+\section{Revised Proposal Preparation Timeline}
+
+\begin{landscape}
+
+\begin{longtable}{
+    L{0.075\linewidth}
+    L{0.15\linewidth}
+    L{0.32\linewidth}
+    L{0.19\linewidth}
+    L{0.18\linewidth}
+}
+
+\caption{Revised Internal NSF SBIR Phase I Proposal Timeline}
+\label{tab:revised_timeline}\\
+
+\toprule
+\textbf{Date} &
+\textbf{Primary Goal} &
+\textbf{Required Activities} &
+\textbf{Required Deliverables} &
+\textbf{Primary Owner(s)} \\
+\midrule
+\endfirsthead
+
+\multicolumn{5}{c}
+{{\tablename\ \thetable{} -- continued from previous page}}\\
+
+\toprule
+\textbf{Date} &
+\textbf{Primary Goal} &
+\textbf{Required Activities} &
+\textbf{Required Deliverables} &
+\textbf{Primary Owner(s)} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{5}{r}{{Continued on next page}}\\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+July 14 &
+Confirm owners, unblock access, and identify missing materials &
+Request approval of Lu's ALTITUT LLC Research.gov PI role. Confirm whether
+Diana will be Senior/Key Personnel. Confirm all proposal owners. Review the
+current combined narrative file and identify unresolved placeholders, missing
+data, incomplete tables, and unsupported claims. Begin citation verification,
+company-fact verification, experimental-protocol development, budget
+assumptions, and support-letter coordination. &
+Role-approval request; final responsibility matrix; Diana role decision
+requested; missing-material checklist; citation-verification tracker; company
+fact-sheet template. &
+Lu, Alfredo, all leads \\
+
+\midrule
+
+July 15 &
+Complete technical and commercial missing content &
+Add specific sample sizes, benchmark composition, annotation procedures,
+baseline configurations, statistical analysis, technical methods, and go/no-go
+logic. Complete bottom-up market assumptions, customer evidence, preliminary
+pricing, procurement pathway, named competitors, and prior NSF-award search.
+Decide the human-subjects pathway. &
+Experimental protocol; benchmark table; human-subjects decision;
+commercialization evidence table; market-size assumptions; revised success
+criteria. &
+Lu, Alfredo \\
+
+\midrule
+
+July 16 &
+Integrate all first-draft materials &
+Integrate updated Intellectual Merits, Company/Team, Broader Impacts, and
+Commercialization Potential. Insert all available company facts, roles,
+person-month assumptions, budget assumptions, and partner information. James
+and An prepare initial figures and correct priority tables. Collect available
+Senior/Key Personnel materials. &
+Integrated Project Description draft; preliminary figures; corrected tables;
+Project Summary revision; References Cited revision; personnel-document
+status report; initial budget structure. &
+Lu, James, An, Alfredo \\
+
+\midrule
+
+July 17 &
+Complete and circulate the first full proposal draft &
+Complete the first full draft of the Project Summary, Project Description,
+References Cited, budget assumptions, personnel plan, Facilities draft, Data
+Management and Sharing Plan outline, and support-letter plan. Remove major
+placeholders from the narrative. Circulate the full first draft to the team for
+technical, commercial, visual, personnel, and budget review. Mengmeng submits
+her Senior/Key Personnel documents. Diana submits hers if included as
+Senior/Key Personnel. &
+\textbf{Complete first proposal draft}; first-draft figures and tables;
+References Cited version 1; preliminary budget; Senior/Key Personnel
+documents received or status confirmed; consolidated review request. &
+Lu, Alfredo, Mengmeng, James, An, Diana if applicable \\
+
+\midrule
+
+July 18 &
+Collect and categorize first-round feedback &
+Collect comments from the technical team, company leadership, visual-design
+team, and personnel. Separate comments into technical-critical,
+commercial-critical, factual, compliance, formatting, and optional categories.
+Resolve contradictions before revising. &
+Consolidated comment log; ranked revision list; decisions on disputed scope,
+personnel, budget, figures, and metrics. &
+Lu, Alfredo, technical team \\
+
+\midrule
+
+July 19 &
+Revise technical methods and experimental rigor &
+Address the highest-priority technical comments. Strengthen algorithms,
+benchmark design, expert annotation, baselines, statistical analysis,
+technical risks, fallback approaches, metrics, and go/no-go logic. Verify that
+each objective contains a research question, method, data, baseline, metric,
+threshold, risk, and deliverable. &
+Intellectual Merits version 2; experimental protocol version 2; revised risk
+and metric tables; revised technical figures. &
+Lu, technical reviewers \\
+
+\midrule
+
+July 20 &
+Revise company, broader impacts, and commercialization sections &
+Finalize company history, team roles, effort, IP ownership, and available
+resources. Strengthen broader-impact measurement and safeguards. Add market
+size, customer evidence, buyer and procurement information, pricing,
+competitors, revenue pathway, and commercial milestones. &
+Company/Team version 2; Broader Impacts version 2; Commercialization Potential
+version 2; verified company and market claims. &
+Lu, Alfredo \\
+
+\midrule
+
+July 21 &
+Complete integrated proposal version 2 &
+Integrate all narrative revisions. Finalize the Project Summary and References
+Cited. Insert revised figures and tables. Remove repeated content and control
+the Project Description to approximately 14--14.5 pages. &
+Complete Project Summary version 2; complete Project Description version 2;
+References Cited version 2; final figure/table placement plan. &
+Lu, James, An \\
+
+\midrule
+
+July 22 &
+Complete budget, personnel, and administrative supporting materials &
+Finalize the internal budget workbook and Budget Justification draft. Confirm
+person-months and budget alignment. Complete Facilities, Equipment and Other
+Resources; the Data Management and Sharing Plan; Senior/Key Personnel
+documents; consultant documents; and subaward materials if applicable. &
+Budget version 1; Budget Justification version 1; complete personnel package;
+Facilities draft; DMSP draft; consultant or subaward documents. &
+Alfredo, Lu, all Senior/Key Personnel \\
+
+\midrule
+
+July 23 &
+Complete letters, factual verification, and submission package &
+Obtain final Letters of Support. Verify every citation, market claim, company
+number, funding statement, personnel statement, competitor description, and
+technical reference. Prepare all upload-ready PDFs and Research.gov data-entry
+information. &
+Signed support letters; citation-verification log; factual-verification log;
+upload-ready draft package; Research.gov entry worksheet. &
+Lu, Alfredo \\
+
+\midrule
+
+July 24 &
+Conduct formal red-team review &
+Conduct separate technical, commercialization, budget, and NSF-compliance
+reviews. Confirm that the proposal is a detailed R\&D plan rather than a
+product pitch. Check required headings, page limits, figures, URLs, personnel
+consistency, budget consistency, human-subjects information, and all required
+documents. Freeze the project concept after this review. &
+Consolidated red-team comments; final ranked revision list; compliance
+checklist; decision log. &
+Lu, Alfredo, technical reviewer, commercial reviewer, compliance reviewer \\
+
+\midrule
+
+July 25 &
+Freeze the narrative and all supporting documents &
+Resolve all high-priority red-team comments. Freeze the Project Summary,
+Project Description, References Cited, Budget, Budget Justification,
+Facilities, DMSP, personnel documents, Letters of Support, and supplementary
+documents. Generate and inspect final PDFs. &
+Final narrative PDFs; final budget and supporting documents; upload manifest;
+complete backup package. &
+Lu, Alfredo, proposal editor \\
+
+\midrule
+
+July 26 &
+Complete Research.gov upload and system validation &
+Assuming PI access has been approved, complete the proposal shell, Cover
+Sheet, questionnaires, certifications, topic selection, Project Pitch number,
+personnel association, budget entry, and all document uploads. Upload the
+Project Pitch invitation in Additional Single Copy Documents. Generate the
+assembled proposal and correct all validation or rendering errors. &
+Complete Research.gov package; assembled proposal PDF; zero unresolved
+validation errors; AOR submission approval. &
+Lu, Alfredo, AOR \\
+
+\midrule
+
+July 27 &
+Submit the final NSF SBIR Phase I proposal &
+Conduct a final page-by-page review. Verify company information, PI, project
+title, topic, Project Pitch number, project dates, budget, personnel effort,
+human-subjects response, support letters, and supplementary documents. Submit
+through the AOR before the internal target time. Archive the final package and
+submission confirmation. &
+Successfully submitted proposal; Research.gov confirmation; archived final
+package. &
+AOR, Lu, Alfredo \\
+
+\end{longtable}
+
+\end{landscape}
+
+% ============================================================
+\section{Key Internal Control Dates}
+
+\begin{itemize}[leftmargin=0.25in]
+    \item \textbf{July 14:} Research.gov role request escalated; personnel and
+    owner decisions requested.
+    
+    \item \textbf{July 15:} Experimental protocol, human-subjects pathway, and
+    commercialization assumptions available.
+    
+    \item \textbf{July 17:} First complete proposal draft circulated.
+    
+    \item \textbf{July 21:} Integrated second narrative version completed.
+    
+    \item \textbf{July 23:} Supporting materials and factual verification
+    substantially completed.
+    
+    \item \textbf{July 24:} Formal red-team review and project-concept freeze.
+    
+    \item \textbf{July 25:} Narrative and supporting-document freeze.
+    
+    \item \textbf{July 26:} Research.gov upload, validation, and assembled-PDF
+    review.
+    
+    \item \textbf{July 27:} AOR submission.
+\end{itemize}
+
+% ============================================================
+\section{July 17 First-Draft Minimum Package}
+
+The July 17 first draft should include, at minimum:
+
+\begin{enumerate}[leftmargin=0.3in]
+    \item Project Summary;
+    \item complete 10--15-page Project Description draft;
+    \item Intellectual Merits with three detailed objectives;
+    \item experimental protocol and benchmark assumptions;
+    \item technical risks, mitigation, and go/no-go criteria;
+    \item Company/Team section;
+    \item Broader Impacts section;
+    \item Commercialization Potential section;
+    \item References Cited;
+    \item figure and table draft versions;
+    \item preliminary personnel list and person-month assumptions;
+    \item preliminary budget structure;
+    \item Senior/Key Personnel document status;
+    \item Facilities draft;
+    \item Data Management and Sharing Plan outline;
+    \item support-letter status;
+    \item Research.gov access and administrative status.
+\end{enumerate}
+
+A first draft does not require every Research.gov form to be complete, but it
+must contain enough technical, commercial, personnel, budget, and
+administrative information for the team to identify substantive weaknesses
+before the July 24 red-team review.
+
+% ============================================================
+% Master proposal package checklist
+% ============================================================
+\newpage
+\section*{PROPOSAL CONTENTS AND MASTER CHECKLIST}
+
+\noindent
+\textbf{Submission source-file location:}
+\texttt{sections/main/}
+
+\noindent
+\textbf{File-naming convention:}
+\texttt{\{ranking number\}\_\{material need to be submitted\}.tex}
+
+\medskip
+
+\noindent
+The current combined first-draft file for the Project Summary, Project
+Description, and References Cited is:
+
+\begin{quote}
+\texttt{sections/main/4\_Project\_Summary\_5\_Project\_Description\_6\_Reference.tex}
+\end{quote}
+
+After the first-draft review, the combined file may be separated into:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item \texttt{4\_Project\_Summary.tex}
+    \item \texttt{5\_Project\_Description.tex}
+    \item \texttt{6\_References\_Cited.tex}
+\end{itemize}
+
+\begin{landscape}
+
+\begin{longtable}{
+    L{0.02\linewidth}
+    L{0.13\linewidth}
+    L{0.14\linewidth}
+    L{0.12\linewidth}
+    L{0.35\linewidth}
+    L{0.15\linewidth}
+}
+
+\caption{NSF SBIR Phase I Proposal Package Master Checklist}
+\label{tab:proposal_master_checklist}\\
+
+\toprule
+\textbf{No.} &
+\textbf{Proposal Material} &
+\textbf{Primary Owner(s)} &
+\textbf{Status} &
+\textbf{Target Source File} &
+\textbf{Required Action / Notes} \\
+\midrule
+\endfirsthead
+
+\multicolumn{6}{c}
+{{\tablename\ \thetable{} -- continued from previous page}}\\
+
+\toprule
+\textbf{No.} &
+\textbf{Proposal Material} &
+\textbf{Primary Owner(s)} &
+\textbf{Status} &
+\textbf{Required Action / Notes} &
+\textbf{Target Source File} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{6}{r}{{Continued on next page}}\\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+1 &
+Cover Sheet &
+Lu; approval/input from Alfredo and AOR &
+Blocked by pending Research.gov role &
+Alfredo or the ALTITUT Organization Administrator/AOR must approve Lu's
+pending ALTITUT LLC organization and PI role. After approval, create the
+proposal shell and complete organization, topic, subtopic, Project Pitch,
+personnel, project-period, human-subjects, and proprietary-information fields.&
+\texttt{1\_Cover\_Sheet.tex} or Research.gov worksheet 
+
+\\
+
+\midrule
+
+2 &
+SBIR Phase I Questionnaire &
+Lu; review by Alfredo/AOR &
+Not started in system  &
+Prepare responses offline while Research.gov access is pending. Verify all
+ownership, eligibility, work-share, PI-employment, and organization answers
+against company records and the active solicitation.&
+\texttt{2\_SBIR\_Phase\_I\_Questionnaire.tex} or offline worksheet
+\\
+
+\midrule
+
+3 &
+SBIR Phase I Certification Questions &
+Lu; review by Alfredo/AOR &
+Not started in system  &
+Prepare answers offline. Final responses must be reviewed against legal,
+ownership, affiliation, prior-funding, and company records before submission.&
+\texttt{3\_SBIR\_Phase\_I\_Certification\_Questions.tex} or offline worksheet
+\\
+
+\midrule
+
+4 &
+Project Summary &
+Lu; review by Alfredo &
+First draft in progress  &
+One page maximum and written in the third person. Required headings:
+Overview, Intellectual Merit, and Broader Impacts. The Intellectual Merit
+section must begin with the required NSF SBIR Phase I wording.&
+\texttt{4\_Project\_Summary.tex}
+\\
+
+\midrule
+
+5 &
+Project Description &
+Lu; figures from James and An; review by Alfredo &
+Advanced first draft in progress  &
+No fewer than 10 pages and no more than 15 pages. Target approximately
+14--14.5 pages. Complete all four required sections: Intellectual Merits,
+Company/Team, Broader Impacts, and Commercialization Potential. Remove all
+placeholders before the July 17 first-draft circulation where possible.&
+\texttt{5\_Project\_Description.tex}
+\\
+
+\midrule
+
+6 &
+References Cited &
+Lu verify claims; (optional, James and An verify format) &
+Citation verification in progress  &
+Verify every author, title, venue, year, DOI, URL, team-publication claim,
+commercial source, and 2025--2026 reference. Confirm that each source supports
+the exact claim for which it is cited.&
+\texttt{6\_References\_Cited.tex}
+\\
+
+\midrule
+
+7 &
+Budget(s) &
+Alfredo/finance lead; technical input from Lu &
+Information requested  &
+Confirm personnel, person-months, salaries, fringe, equipment, travel,
+materials, consultants, computer services, subawards, other direct costs,
+indirect costs, and fee. Verify the final funding limit against the active
+solicitation and Research.gov.&
+\texttt{7\_Budget.tex} and internal budget workbook
+\\
+
+\midrule
+
+8 &
+Budget Justification(s) &
+Alfredo/finance lead; review by Lu &
+Not started / dependent on budget  &
+Explain every non-zero budget line and show calculations. Ensure exact
+consistency with personnel effort, work plan, consultant roles, supplies,
+computing costs, and the Research.gov budget.&
+\texttt{8\_Budget\_Justification.tex}
+\\
+
+\midrule
+
+9 &
+Facilities, Equipment and Other Resources &
+Alfredo; technical input from Lu and Mengmeng &
+Draft needed  &
+Describe available company, software, cloud, embedded-system, low-voltage
+prototyping, testing, data, partner, and personnel resources. Do not include
+dollar values.&
+\texttt{9\_Facilities\_Equipment\_Other\_Resources.tex}
+\\
+
+\midrule
+
+10 &
+Senior/Key Personnel Documents &
+Lu; Mengmeng; Diana if included; other final Senior/Key Personnel &
+Mengmeng in progress; Diana pending decision  &
+For each final Senior/Key Person: Biographical Sketch, Current and Pending
+Support, Collaborators and Other Affiliations, and Synergistic Activities.
+Alfredo must confirm whether Diana is involved, her role, responsibilities,
+effort, and budget status. &
+\texttt{10\_Senior\_Key\_Personnel\_Documents.tex} and individual forms
+\\
+
+\midrule
+
+11 &
+Data Management and Sharing Plan &
+Lu &
+Draft needed  &
+Address benchmark prompts, expert annotations, reference-design records,
+model outputs, evaluation results, participant information if applicable,
+security, access, retention, deletion, sharing, reproducibility, and IP
+restrictions. Confirm the current page limit and Research.gov format.&
+\texttt{11\_Data\_Management\_Sharing\_Plan.tex}
+\\
+
+\midrule
+
+12 &
+Mentoring Plan &
+Lu/Alfredo if applicable &
+Conditional  &
+Prepare only if required by the final personnel or subaward structure under
+the active solicitation. Confirm applicability before marking NA.&
+\texttt{12\_Mentoring\_Plan.tex}
+\\
+
+\midrule
+
+13 &
+Other Personnel Biographical Information &
+Alfredo; input from relevant personnel &
+Optional / decision needed  &
+Include only for important contributors who are not Senior/Key Personnel,
+where permitted and useful. Avoid duplicating Senior/Key Personnel materials.&
+\texttt{13\_Other\_Personnel\_Biographical\_Information.tex}
+\\
+
+\midrule
+
+14A &
+Company Commercialization History &
+Alfredo &
+Required if applicable  &
+Determine applicability based on the company's prior SBIR/STTR history and
+the active solicitation. Prepare company funding and commercialization history
+if required.&
+\texttt{14A\_Company\_Commercialization\_History.tex}
+\\
+
+\midrule
+
+14B &
+Letters of Commitment from Subawardees and Consultants &
+Alfredo; relevant consultant or subawardee &
+Conditional  &
+Required or strongly recommended when the final proposal includes consultants
+or subawardees. Letters must match the final scope and budget.&
+\texttt{14B\_Letters\_of\_Commitment.tex}
+\\
+
+\midrule
+
+14C &
+Resubmission Change Description &
+Lu &
+Not applicable unless resubmission  &
+Prepare only if this proposal is treated as a resubmission for which NSF
+requires a change description. &
+\texttt{14C\_Resubmission\_Change\_Description.tex}
+\\
+
+\midrule
+
+14D &
+Letters of Support &
+Alfredo; drafting/coordination by Lu &
+In progress / at least one needed  &
+Obtain at least one strong and specific support letter, subject to the current
+solicitation maximum. Letters should document customer need, implementation
+context, relevant users, and willingness to support discovery, review, or
+future pilot activities. Do not use generic endorsement letters.&
+\texttt{14D\_Letters\_of\_Support.tex} or signed PDFs
+\\
+
+\midrule
+
+14E &
+IP Rights Agreement &
+Alfredo; legal or institutional partner if applicable &
+Conditional  &
+Required for STTR and potentially applicable to an SBIR proposal involving a
+research-institution subaward or shared IP. Confirm after the final project
+and subaward structure is established.&
+\texttt{14E\_IP\_Rights\_Agreement.tex}
+\\
+
+\midrule
+
+14F &
+Other Personnel Biographical Information &
+Alfredo &
+Optional  &
+Include only if permitted, useful, and not already provided elsewhere.&
+\texttt{14F\_Other\_Personnel\_Biographical\_Information.tex}
+\\
+
+\midrule
+
+15 &
+List of Suggested Reviewers &
+Lu; review by Alfredo &
+Optional / decision needed  &
+Prepare only if permitted or requested in Research.gov. Reviewers must have
+relevant expertise and no conflict of interest.&
+\texttt{15\_Suggested\_Reviewers.tex}
+\\
+
+\midrule
+
+16 &
+List of Reviewers Not to Include &
+Lu; review by Alfredo &
+Optional / decision needed  &
+Prepare only if there are legitimate conflicts, competitive concerns, or
+other allowable reasons.&
+\texttt{16\_Reviewers\_Not\_to\_Include.tex}
+\\
+
+\midrule
+
+17 &
+Deviation Authorization &
+Lu/AOR &
+Not applicable unless authorized &
+Include only if NSF has issued written authorization for a deviation from the
+solicitation or PAPPG requirements.&
+\texttt{17\_Deviation\_Authorization.tex} 
+\\
+
+\midrule
+
+18 &
+Additional Single Copy Documents: Project Pitch Invitation &
+Lu &
+Done / ready to upload  &
+Upload the invitation email/PDF in the Additional Single Copy Documents
+section. Verify Project Pitch number 00118188 and Learning and Cognition
+Technologies topic information.&
+\texttt{18\_Project\_Pitch\_Invitation.tex} or invitation PDF
+\\
+
+\end{longtable}
+
+\end{landscape}
+
+% ============================================================
+% Detailed requirements for key narrative components
+% ============================================================
+\section*{KEY NARRATIVE REQUIREMENTS}
+
+\subsection*{4. Project Summary}
+
+\textbf{Requirements:}
+
+\begin{itemize}[leftmargin=0.25in]
+    \item One page maximum.
+    \item Written in the third person.
+    \item Use the required headings:
+    \begin{itemize}
+        \item Overview
+        \item Intellectual Merit
+        \item Broader Impacts
+    \end{itemize}
+    \item Intellectual Merit must begin with:
+    ``This Small Business Innovation Research Phase I project \ldots''
+    \item Broader Impacts should address both direct societal impact and
+    potential commercial impact.
+\end{itemize}
+
+\subsection*{5. Project Description}
+
+\textbf{Requirements:}
+
+\begin{itemize}[leftmargin=0.25in]
+    \item No fewer than 10 pages and no more than 15 pages.
+    \item Use the required primary headings:
+    \begin{itemize}
+        \item Intellectual Merits
+        \item Company/Team
+        \item Broader Impacts
+        \item Commercialization Potential
+    \end{itemize}
+    \item The R\&D plan should occupy most of the narrative and include
+    detailed methods, experiments, baselines, technical risks, fallback
+    approaches, milestones, timeline, and quantitative success criteria.
+\end{itemize}
+
+\subsubsection*{Intellectual Merits}
+
+Recommended allocation: approximately 7--10 pages.
+
+Must explain:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item proposed technical innovation;
+    \item new scientific or engineering insight;
+    \item technology-specific risks and barriers;
+    \item unique go/no-go risks;
+    \item detailed R\&D procedures;
+    \item experimental design;
+    \item benchmarks and comparison baselines;
+    \item timeline and milestones;
+    \item risk mitigation and fallback approaches;
+    \item quantitative success criteria;
+    \item commercial significance of the Phase I milestones.
+\end{itemize}
+
+\subsubsection*{Company/Team}
+
+Recommended allocation: approximately 1--2 pages.
+
+Must explain:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item company founding date;
+    \item revenue history;
+    \item government funding;
+    \item private investment;
+    \item founders and key participants;
+    \item person-month commitments;
+    \item relevant qualifications;
+    \item core competencies;
+    \item consultants or advisors, if applicable;
+    \item relationship to existing company operations;
+    \item five-year company vision.
+\end{itemize}
+
+\subsubsection*{Broader Impacts}
+
+Recommended allocation: approximately 1--2 pages.
+
+Must explain:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item company motivation;
+    \item societal benefit;
+    \item communities expected to benefit;
+    \item expected timeline;
+    \item measurement and tracking;
+    \item unintended consequences;
+    \item safeguards and mitigation.
+\end{itemize}
+
+\subsubsection*{Commercialization Potential}
+
+Recommended allocation: approximately 1--3 pages.
+
+Must explain:
+
+\begin{itemize}[leftmargin=0.25in]
+    \item business model;
+    \item initial target market and its size;
+    \item evidence validating customer need;
+    \item pathway to revenue and self-sustainability;
+    \item advancement in technical and commercial readiness;
+    \item value proposition;
+    \item regulatory, safety, standards, and ethical issues;
+    \item intellectual-property strategy;
+    \item competitive landscape;
+    \item sustainable competitive advantage.
+\end{itemize}
+
+% ============================================================
+% Immediate missing decisions
+% ============================================================
+\section*{IMMEDIATE DECISIONS AND INPUTS NEEDED}
+
+\begin{enumerate}[leftmargin=0.3in]
+    \item \textbf{Research.gov access:}
+    Alfredo or the appropriate Organization Administrator/AOR should approve
+    Lu's pending ALTITUT LLC organization and PI role request.
+
+    \item \textbf{Diana's role:}
+    Confirm whether Diana will participate and whether she is Senior/Key
+    Personnel. If yes, confirm her responsibilities, effort, salary treatment,
+    and personnel-document deadline.
+
+    \item \textbf{Budget:}
+    Alfredo should provide or confirm personnel salaries, person-months,
+    fringe, materials, computing, consultants, indirect costs, fee, and
+    company financial history.
+
+    \item \textbf{Figures and tables:}
+    James and An should review the placeholders in
+    \texttt{4\_Project\_Summary\_5\_Project\_Description\_6\_Reference.tex}
+    and prepare the priority figures and corrected tables.
+
+    \item \textbf{Human subjects:}
+    Decide whether Phase I includes research involving learners, beginners,
+    students, or other participants.
+
+    \item \textbf{Letters of Support:}
+    Confirm the letter writers, requested content, responsible coordinator,
+    and signature deadline.
+
+    \item \textbf{Consultants or subawards:}
+    Confirm whether the project needs a hardware, safety, statistical, or
+    other consultant, or any institutional subaward.
+
+    \item \textbf{Verified company facts:}
+    Confirm legal name, founding date, funding history, revenue, investment,
+    deployment statistics, and IP ownership.
+\end{enumerate}
+
+\end{document}
+% \documentclass[11pt,letterpaper]{article}
+
+% % ============================================================
+% % Page size and margins: 8.5 x 11 inches, 1-inch margins
+% % ============================================================
+% \usepackage[
+%     letterpaper,
+%     top=1in,
+%     bottom=1in,
+%     left=1in,
+%     right=1in
+% ]{geometry}
+% % Add these packages to the preamble:
+% \usepackage{booktabs}
+% \usepackage{tabularx}
+% \usepackage{array}
+% \usepackage{longtable}
+% \usepackage{pdflscape}
+% \usepackage{xcolor}
+
+% % Optional column definitions:
+% \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+% \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+% % ============================================================
+% % Font
+% % Use XeLaTeX on Overleaf if possible.
+% % TeX Gyre Termes is a Times-like font commonly available on Overleaf.
+% % If your solicitation strictly requires Times New Roman, upload/use
+% % Times New Roman only if you have the legal right and the font is available.
+% % ============================================================
+% \usepackage{fontspec}
+% \setmainfont{TeX Gyre Termes}
+
+% % ============================================================
+% % Single spacing
+% % ============================================================
+% \usepackage{setspace}
+% \singlespacing
+
+% % Make sure paragraphs are readable and not artificially compressed
+% \setlength{\parindent}{0.25in}
+% \setlength{\parskip}{0pt}
+
+% % ============================================================
+% % Ensure footnotes are not smaller than 12pt
+% % The solicitation says footnotes must also follow the same size requirement.
+% % ============================================================
+% \renewcommand{\footnotesize}{\normalsize}
+
+% % ============================================================
+% % Captions, tables, figures
+% % Captions must also be 12pt and single-spaced.
+% % ============================================================
+% \usepackage{caption}
+% \captionsetup{
+%     font=normalsize,
+%     labelfont=bf,
+%     singlelinecheck=false
+% }
+
+% \usepackage{graphicx}
+% \usepackage{array}
+% \usepackage{booktabs}
+% \usepackage{longtable}
+% \usepackage{tabularx}
+
+% % Do NOT use \small, \footnotesize, \scriptsize, or \tiny in tables.
+% % Keep all table text at 12pt.
+
+% % ============================================================
+% % Headings
+% % Use clear section headers.
+% % ============================================================
+% \usepackage{titlesec}
+
+% \titleformat{\section}
+%   {\normalfont\normalsize\bfseries}
+%   {}
+%   {0pt}
+%   {}
+
+% \titleformat{\subsection}
+%   {\normalfont\normalsize\bfseries}
+%   {}
+%   {0pt}
+%   {}
+
+% \titlespacing*{\section}{0pt}{12pt}{6pt}
+% \titlespacing*{\subsection}{0pt}{10pt}{4pt}
+
+% % ============================================================
+% % Page numbers
+% % Remove if the solicitation says no page numbers.
+% % ============================================================
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \cfoot{\thepage}
+% \renewcommand{\headrulewidth}{0pt}
+
+% % ============================================================
+% % Optional: hyperlinks
+% % Keep links black to maintain standard black text.
+% % ============================================================
+% \usepackage[hidelinks]{hyperref}
+
+% % ============================================================
+% % Document begins
+% % ============================================================
+% \begin{document}
+
+% % ============================================================
+% % SECTION III. PROPOSAL CONTENTS
+% % Replace the placeholder headers below with the exact A--N headers
+% % from the solicitation, in the same order.
+% % ============================================================
+% % \section*{SECTION I. TIMELINE}
+
+% \begin{landscape}
+
+% \begin{longtable}{
+%     L{0.075\linewidth}
+%     L{0.15\linewidth}
+%     L{0.32\linewidth}
+%     L{0.19\linewidth}
+%     L{0.18\linewidth}
+% }
+% \caption{Internal NSF SBIR Phase I Proposal Preparation Timeline}
+% \label{tab:nsf_submission_timeline}\\
+
+% \toprule
+% \textbf{Date} &
+% \textbf{Primary Goal} &
+% \textbf{Required Activities} &
+% \textbf{Required Deliverables} &
+% \textbf{Primary Owner(s)} \\
+% \midrule
+% \endfirsthead
+
+% \multicolumn{5}{c}
+% {{\tablename\ \thetable{} -- continued from previous page}}\\
+% \toprule
+% \textbf{Date} &
+% \textbf{Primary Goal} &
+% \textbf{Required Activities} &
+% \textbf{Required Deliverables} &
+% \textbf{Primary Owner(s)} \\
+% \midrule
+% \endhead
+
+% \midrule
+% \multicolumn{5}{r}{{Continued on next page}}\\
+% \endfoot
+
+% \bottomrule
+% \endlastfoot
+
+% July 13 &
+% Launch proposal and freeze scope &
+% Create the Research.gov proposal shell; confirm solicitation, Project Pitch invitation, organization registration, UEI, SAM status, PI access, and Authorized Organizational Representative access. Freeze the initial customer as non-expert creators, including artists, makers, community-college learners, and first-time hardware founders. Finalize the one-sentence technical innovation and the three Phase I objectives. Assign owners for all proposal documents. &
+% Research.gov proposal shell; final project scope; one-sentence innovation; three objectives; master compliance checklist; responsibility matrix. &
+% PI, company officer, AOR \\
+
+% \midrule
+
+% July 14 &
+% Complete the proposal technical spine &
+% Define the technical gap, central hypothesis, current development stage, Phase I scope, benchmark projects, technical risks, experimental baselines, quantitative metrics, and go/no-go conditions. Limit Phase I to bounded, low-voltage embedded-system projects and validated reference designs. &
+% Two-to-three-page proposal spine; central hypothesis; benchmark plan; risk list; baseline comparison plan; preliminary success criteria. &
+% PI, EE lead \\
+
+% \midrule
+
+% July 15 &
+% Draft Objective 1: Intent-to-Constraint Translation &
+% Define how the system will translate ambiguous creative ideas into explicit functional and engineering requirements. Specify missing-requirement detection, conflict detection, uncertainty estimation, clarification-question selection, default-selection rules, and abstention conditions. Design comparisons against a general-purpose LLM, conventional RAG, and a static questionnaire. &
+% Complete Objective 1 draft, including hypothesis, method, data, experiment, baselines, metrics, success thresholds, and risk mitigation. &
+% PI, AI/software lead \\
+
+% \midrule
+
+% July 16 &
+% Draft Objective 2: Validated Reference-Design Adaptation &
+% Define the executable reference-design representation, including components, interfaces, software dependencies, build steps, validity conditions, known limitations, and verification history. Specify how the system will compare a user's idea with a validated reference and classify modules as reusable, modified, unsupported, or requiring expert confirmation. &
+% Complete Objective 2 draft; baseline reference-design schema; two or three controlled customization cases; preliminary system architecture figure. &
+% PI, EE lead, EE intern \\
+
+% \midrule
+
+% July 17 &
+% Draft Objective 3 and complete the R\&D plan &
+% Define skill-adaptive build guidance, test sequencing, expected observations, fault feedback, safety boundaries, and abstention or escalation policies. Complete the 12-month Phase I work plan, milestones, dependencies, technical risks, mitigation strategies, and quantitative go/no-go criteria. &
+% Complete Objective 3 draft; Phase I work plan; milestone table; technical-risk table; success and go/no-go criteria. &
+% PI, EE lead, software lead \\
+
+% \midrule
+
+% July 18 &
+% Complete the Intellectual Merits first draft &
+% Integrate the technical gap, innovation, current stage, central hypothesis, benchmark, three objectives, experimental methods, metrics, risks, timeline, and Phase II transition into a coherent seven-to-nine-page Intellectual Merits section. Prepare figures showing the intent-to-build workflow, reference adaptation, and validation logic. &
+% Full Intellectual Merits draft; reference list version 1; two or three proposal figures. &
+% PI, technical team \\
+
+% \midrule
+
+% July 19 &
+% Complete Company/Team and Broader Impacts &
+% Document company history, revenue, prior funding, private investment, core competencies, personnel roles, person-month commitments, facilities, and five-year company vision. Draft broader impacts focused on expanding access to physical creation, supporting non-expert creators, reducing failed builds and material waste, and maintaining clear safety and human-review boundaries. &
+% Company/Team draft; Broader Impacts draft; personnel responsibility table; broader-impact metrics. &
+% PI, CEO/company officer \\
+
+% \midrule
+
+% July 20 &
+% Complete Commercialization Potential &
+% Define the initial beachhead market, users, buyers, adoption path, pricing hypothesis, institutional-license model, customer-discovery evidence, competitive alternatives, commercialization milestones, and intellectual-property strategy. Position professional engineering markets as a later expansion rather than the initial Phase I focus. &
+% Commercialization Potential draft; market and customer table; competitive matrix; business-model summary; IP strategy. &
+% PI, CEO, commercialization lead \\
+
+% \midrule
+
+% July 21 &
+% Complete Project Summary and integrated narrative &
+% Draft the one-page Project Summary using the required headings: Overview, Intellectual Merit, and Broader Impacts. Begin the Intellectual Merit paragraph with the required NSF wording. Integrate the full Project Description, standardize terminology, verify the required section headings, remove unsupported claims, and complete References Cited. &
+% One-page Project Summary; complete 10--15-page Project Description version 1; References Cited version 1. &
+% PI, proposal editor \\
+
+% \midrule
+
+% July 22 &
+% Complete budget and supporting documents &
+% Finalize personnel effort, salaries, fringe, materials, software and computing, consultants, indirect costs, fee, and other direct costs. Complete the Budget Justification. Collect all Senior/Key Personnel documents, including SciENcv biosketches, Current and Pending Support, Collaborators and Other Affiliations, and Synergistic Activities. Complete Facilities, Equipment, and Other Resources; Data Management and Sharing Plan response; consultant commitments; subaward materials, if applicable; and the Project Pitch invitation PDF. &
+% Complete Research.gov budget; Budget Justification; all personnel documents; Facilities document; DMSP response; consultant or subaward documents; Project Pitch invitation PDF. &
+% CEO/finance lead, PI, all Senior/Key Personnel \\
+
+% \midrule
+
+% July 23 &
+% Complete letters, forms, and the full submission package &
+% Obtain one to three customer or partner Letters of Support. Complete the Cover Sheet, SBIR questionnaire, certifications, topic selection, Project Pitch case number, proprietary-information selection, human-subjects information, organization details, and senior-personnel records. Assemble all final draft PDFs. &
+% Complete proposal package; Letters of Support; Research.gov forms at least 90\% complete; upload-ready PDFs. &
+% PI, AOR, company officer \\
+
+% \midrule
+
+% July 24 &
+% Conduct formal red-team review &
+% Conduct separate technical, commercialization, and NSF-compliance reviews. Confirm that the proposal presents a clear high-risk technical innovation rather than a product-feature list. Check that each objective contains a testable hypothesis, method, benchmark, metric, risk, and go/no-go threshold. Check page limits, required headings, prohibited URLs, prohibited appendices, and all required documents. Freeze the project concept after review. &
+% Consolidated red-team comments; ranked revision list; final decision on all technical and commercial claims. &
+% PI, technical reviewer, commercial reviewer, compliance reviewer \\
+
+% \midrule
+
+% July 25 &
+% Freeze narrative and upload the full proposal &
+% Resolve high-priority review comments. Freeze the Project Summary, Project Description, References, Budget, Budget Justification, Facilities, personnel documents, letters, and supplementary documents. Upload all files to Research.gov, run system validation, generate the assembled proposal, and inspect every page for formatting problems. &
+% Final narrative and supporting files; complete Research.gov upload; first assembled proposal PDF; validation report. &
+% PI, AOR, company officer \\
+
+% \midrule
+
+% July 26 &
+% Complete compliance and system validation &
+% Correct Research.gov validation errors, missing certifications, personnel-document issues, budget inconsistencies, page overflow, unreadable figures, broken references, and PDF rendering problems. Confirm AOR permissions and conduct a final submission-readiness review. Do not revise the core technical story unless a critical error is discovered. &
+% Zero unresolved validation errors; AOR submission approval; final assembled PDF; complete backup package. &
+% AOR, PI, company officer \\
+
+% \midrule
+
+% July 27 &
+% Submit the NSF SBIR Phase I proposal &
+% Review the assembled proposal one final time. Verify the company, PI, title, solicitation, topic, project period, budget, personnel effort, letters, and Project Pitch invitation. Submit through the Authorized Organizational Representative by the internal target time rather than waiting until the system deadline. &
+% Successfully submitted proposal; submission confirmation and archived final package. &
+% AOR, PI \\
+
+% \end{longtable}
+
+% \end{landscape}
+
+% \noindent
+% \textbf{Internal control dates.}
+% The complete technical narrative should be available by July 21, all
+% administrative and personnel documents should be complete by July 23,
+% the narrative should be frozen and uploaded by July 25, and July 26
+% should be reserved exclusively for Research.gov validation and
+% compliance corrections. No major change to the technical innovation,
+% Phase I objectives, initial market, or benchmark should be introduced
+% after the July 24 red-team review.
+
+% \section*{PROPOSAL CONTENTS}
+
+% % ------------------------------------------------------------
+% % https://www.nsf.gov/funding/opportunities/sbirsttr-phase-i-nsf-small-business-innovation-research-small-business/505960/nsf24-579/solicitation#CS
+% %https://seedfund.nsf.gov/solicitation-project-description/
+% % ------------------------------------------------------------
+% \section{1. [Lu, help approve EIN - Alfredo]Cover Sheet}
+
+% % \newpage
+% \section{2. [Lu] SBIR Phase I Questionnaire}
+
+
+
+% % \newpage
+% \section{3. [Lu] SBIR Phase I Certification Questions}
+
+
+% % \newpage
+% \section{4. [Lu, help review - Alfredo] Project Summary}
+% Requirements: one page maximum, in the third person.
+% \subsection{Overview}
+% %Describe the potential outcome(s) of the proposed activity in terms of a product, process or service. Provide a list of keywords or phrases that identify the areas of technical expertise to be invoked in reviewing the proposal and the areas of application that are the initial target of the technology. Provide the subtopic name.
+% \subsection{Intellectual Merit}
+% %This section MUST begin with “This Small Business Innovation Research (or Small Business Technology Transfer) Phase I project…” and should address the intellectual merits of the proposed activity. Briefly describe the technical hurdle(s) that will be addressed by the proposed research and development (R&D)(which should be crucial to successful commercialization of the innovation), the goals of the proposed R&D, and a high-level summary of the plan to reach those goals.
+% \subsection{Broader Impacts}
+% %“Broader Impacts” are considered in two ways: 1) The direct impacts of this NSF-funded project on education, the environment, science, society, the nation and/or the world; and 2) the potential commercial impact that might result based on a successful commercial launch of the product or service described in the proposal. Explain the expected outcome in terms of both impacts. For “Commercial Potential,” describe how the proposed project will bring the innovation closer to commercialization under a sustainable business model. In this box, also describe the potential commercial and market impacts that such a commercialization effort would have if successful.
+
+% % \newpage
+% \section{5. [Lu, Help pictures - An/James] Project Description}
+% Requirements: no less than 10 pages, no more than 15 pages
+% suggest: one figure per page
+% \subsection{Intellectual Merits}
+% Requirements: recommend 7-10 pages, including technical solution and R\&D plan
+
+% %What is (are) the proposed technical innovation(s)? What is the new scientific/engineering insight that underpins it? (Provide a description of the innovation, including the novel scientific/engineering aspects that enable the realization of the final product.)
+% %What are the technical risks/barriers, and how does the proposal address them? What are the go/no-go technical risks/barriers that are unique to your approach and could prevent the innovation from achieving the impact the team intends it to make?
+% %Please provide a detailed R&D plan, including a timeline, milestones, risk mitigation and quantitative success criteria. The detailed R&D plan should convey to the reader that the team has subject area mastery of the relevant technical details and show that significant planning has been done to maximize the chance of technical success in Phase I. An R&D plan that consists simply of a generic set of tasks and goals, without giving a substantial perspective and understanding that is unique to this particular effort, may result in the proposal being returned without review.
+% %Explain the significance of the Phase I milestones and how they relate to the commercial objectives of the technology.
+% \subsection{Company/Team}
+% requirments: 1-2 pages
+% %Provide the date when the company was founded and describe the revenue history, if any, for the past three years. Include and explicitly state government funding and private investment in this discussion.
+% %Describe the company founders or key participants in this proposed project. What level of effort will these people devote to the proposed Phase I activities? How does the background and experience of the team enhance the credibility of the effort? Describe the company’s core competencies as related to this project, especially for aspects that are not obvious from other documents contained in the proposal. Give evidence that the core company team is committed to building a viable business around the product/service being developed. If your proposal includes consultants or advisors outside the budgeted company personnel, please discuss it briefly.
+% %If the company has existing operations, describe how the proposed effort would fit into these activities. Describe your vision for the company and the company’s expected impact over the next five years.
+
+% \subsection{Broader Impacts}
+% requirments: 1-2 pages
+% %What is the motivation for the company to take on this project?
+% %Clearly articulate how the proposed technology will result in a societal benefit. Which communities will benefit and on what timeline?
+% %How will the societal benefits be measured and tracked?
+% %What steps are being taken to recognize and minimize any unintended consequences of the proposed technology?
+% \subsection{Commercialization Potential}
+% requirments: 1-3 pages
+
+% %Is there a compelling potential business model?
+% %What is your initial target market and its size? How have you validated that this market needs your technology?
+% %Provide a detailed plan on your pathway to generate revenue and to become a self-sustaining entity. Present a compelling case that the project will significantly advance the readiness of the technology and strengthen its commercial position.
+% %Describe the value proposition of the proposed technology.
+% %Describe your plans to address regulatory (including permitting) or safety standards and ethical considerations involved in developing your technology and bringing your product or service to market.
+% %Describe your intellectual property strategy and provide a brief rationale for why you chose this strategy.
+% %Provide a detailed description of the competitive landscape and your sustainable competitive advantage.
+
+% % \newpage
+% \section{6. [Lu] References Cited}
+
+
+% % \newpage
+% \section{7. [Help -Alfredo] Budget(s)}
+% requirements: no more than \$305,000 total
+% \subsection{A. Senior/Key Personnel}
+% \subsection{B. Other Personnel}
+% \subsection{C. Fringe Benefits}
+% \subsection{D. Equipment}
+% \subsection{E. Travel}
+% % \subsection{F. Participant Support Costs} not permitted
+% \subsubsection*{G.1 Materials and supplies}
+% % \subsubsection*{G.2 Publication Costs/Documentation/Dissemination} not allowed
+% \subsubsection*{G.3 Consultant Services}
+% \subsubsection*{G.4 Computer Services}
+% \subsubsection*{G.5 Subaward(s)}
+% \subsubsection*{G.6 Other Direct Costs}
+% \subsection{I. Indirect Costs}
+% \subsection{K. Fee}
+
+
+
+% % \newpage
+% \section{8. [Help -Alfredo] Budget Justification(s)}
+% \subsection{A. and B. Personnel}
+% \subsection{C. Fringe Benefits}
+% \subsection{D. Equipment}
+% \subsection{E. Travel}
+% % \subsection{F. Participant Support Costs}
+% \subsubsection*{G.1 Materials and supplies}
+% % \subsubsection*{G.2 Publication Costs/Documentation/Dissemination}
+% \subsubsection*{G.3 Consultant Services}
+% \subsubsection*{G.4 Computer Services}
+% \subsubsection*{G.5 Subaward(s)}
+% \subsubsection*{G.6 Other Direct Costs}
+% \subsection{I. Indirect Costs}
+% \subsection{K. Fee}
+
+
+
+
+% % \newpage
+% \section{9. [Help - Alfredo] Facilities, Equipment and Other Resources}
+
+
+
+
+% % \newpage
+% \section{10. [Mengmeng Wang, Lu Sun, Diana] Senior/Key Personnel Documents}
+% \subsection{A. Biographical Sketch(es)}
+% \subsection{B. Current and Pending (Other) Support}
+% \subsection{C. Collaborators \& Other Affiliations (COA) Information (Single Copy Document)}
+% \subsection{D. Synergistic Activities}
+
+
+
+% % \newpage
+% \section{11. [Lu] Data Management and Sharing Plan}
+% requirements: cannot exceed 2 pages
+
+
+
+% % \newpage
+% \section{12. [NA] Mentoring Plan (Conditionally required)}
+% requirements: cannot exceed 1 page
+% % Skip section: Letter(s) of Support (Not Allowed)
+% % skip section: IP (Intellectual Property) Rights Agreement, don't have ?
+
+% % \newpage
+% \section{13. [Help - Alfredo] Other Personnel Biographical Information (Optional, highly recommended)}
+
+
+% % \newpage
+% \section{14. Other Supplementary Documents}
+
+% \subsection{A. [Help - Alfredo] Company Commercialization History (required, if applicable)}
+% \subsection{B. [NA] Letters of Commitment from Subawardees and Consultants (strongly recommended)}
+% \subsection{C. [NA] Resubmission Change Description (required, if applicable)}
+% \subsection{D. [Help - Alfredo] Letters of Support (at least one required; three maximum)}
+% \subsection{E. [NA] IP (Intellectual Property) Rights Agreement (Required for STTR proposals and strongly recommended for SBIR proposals where there is a subaward to another institution)}
+% \subsection{F. [NA] Other Personnel Biographical Information (strongly recommended)}
+
+
+% % \newpage
+% \section{15. [NA] List of Suggested Reviewers (Single Copy Document)}
+% \section{16. [NA] List of Reviewers Not to Include (Single Copy Document)}
+% \section{17. Deviation Authorization (Single Copy Document)}
+% \section{18. [Done] Additional Single Copy Documents: "Project Pitch" Invitation (required)}
+
+
+% \end{document}

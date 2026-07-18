@@ -1,0 +1,194 @@
+\documentclass[11pt,letterpaper]{article}
+
+% ============================================================
+% NSF SBIR Phase I master source:
+% Project Summary + Project Description + References Cited
+%
+% IMPORTANT:
+% Research.gov requires these as separate PDF uploads.
+% Set exactly ONE switch below to true, compile, and save the PDF.
+% ============================================================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Times-like text and mathematics fonts
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+% Improve text search and copy quality in the PDF
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+% ============================================================
+% Page setup
+% ============================================================
+\usepackage[
+    letterpaper,
+    top=1in,
+    bottom=1in,
+    left=1in,
+    right=1in
+]{geometry}
+
+% ============================================================
+% Mathematics
+% Do not load amssymb together with newtxmath
+% ============================================================
+\usepackage{amsmath}
+
+% ============================================================
+% Figures, tables, and layout
+% ============================================================
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{float}
+\usepackage{xcolor}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% ============================================================
+% Lists
+% ============================================================
+\usepackage{enumitem}
+
+\setlist[itemize]{
+    leftmargin=*,
+    itemsep=2pt,
+    topsep=3pt,
+    parsep=0pt
+}
+
+\setlist[enumerate]{
+    leftmargin=*,
+    itemsep=2pt,
+    topsep=3pt,
+    parsep=0pt
+}
+
+% ============================================================
+% Captions
+% ============================================================
+\usepackage{caption}
+
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    singlelinecheck=false
+}
+
+% ============================================================
+% Typography and spacing
+% ============================================================
+\usepackage{microtype}
+\usepackage{setspace}
+
+\singlespacing
+
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0pt}
+
+% ============================================================
+% Headings
+% ============================================================
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titlespacing*{\section}
+  {0pt}
+  {0pt}
+  {0pt}
+
+\titlespacing*{\subsection}
+  {0pt}
+  {2pt}
+  {1pt}
+
+\titlespacing*{\subsubsection}
+  {0pt}
+  {4pt}
+  {2pt}
+
+% ============================================================
+% Bibliography
+% ============================================================
+\usepackage[numbers,sort&compress]{natbib}
+
+% ============================================================
+% Hyperlinks
+% Load near the end of the preamble
+% ============================================================
+\usepackage[hidelinks]{hyperref}
+
+% ============================================================
+% Page style
+% ============================================================
+\pagestyle{empty}
+
+% ============================================================
+% Document
+% ============================================================
+\begin{document}
+\section*{9. Facilities, Equipment and Other Resources}
+
+% Do not include dollar values.
+
+\subsection*{Company Facilities}
+ALTITUT LLC will conduct the proposed Phase I activities at [insert primary
+work location(s)]. The company has access to [describe office, remote,
+development, meeting, and secure working environments].
+
+\subsection*{Software and Computing Resources}
+Available resources include [describe development workstations, repositories,
+cloud infrastructure, model/API access, secure storage, backup, CI/CD,
+evaluation infrastructure, and collaboration systems].
+
+\subsection*{Embedded-System and Prototyping Resources}
+Available resources include [describe microcontrollers, sensors, development
+boards, low-voltage power supplies, breadboards, soldering tools, fabrication
+tools, enclosures, and related prototyping resources].
+
+\subsection*{Measurement and Testing Resources}
+Available resources include [describe multimeters, oscilloscopes, logic
+analyzers, power meters, thermal measurement, cameras, test fixtures, and
+software instrumentation].
+
+\subsection*{Data and Reference-Design Resources}
+The team has access to [describe internal design records, validated reference
+designs, benchmark materials, product documentation, safety rules, and
+technical reference sources].
+
+\subsection*{Personnel and Partner Resources}
+The project will use the expertise of [insert personnel and roles]. External
+consultants, advisors, customer partners, or facilities will include [insert
+or state none].
+
+\subsection*{Resource Availability}
+[Confirm that all facilities and resources required for the proposed Phase I
+work will be available during the project period. If any facility is not owned
+or leased by ALTITUT, identify the owner and attach an availability statement
+if required.]
+
+\end{document}

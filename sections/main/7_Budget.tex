@@ -1,0 +1,865 @@
+\documentclass[11pt,letterpaper]{article}
+
+% ============================================================
+% NSF SBIR Phase I master source:
+% Project Summary + Project Description + References Cited
+%
+% IMPORTANT:
+% Research.gov requires these as separate PDF uploads.
+% Set exactly ONE switch below to true, compile, and save the PDF.
+% ============================================================
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Times-like text and mathematics fonts
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+% Improve text search and copy quality in the PDF
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+% ============================================================
+% Page setup
+% ============================================================
+\usepackage[
+    letterpaper,
+    top=1in,
+    bottom=1in,
+    left=1in,
+    right=1in
+]{geometry}
+
+% ============================================================
+% Mathematics
+% Do not load amssymb together with newtxmath
+% ============================================================
+\usepackage{amsmath}
+
+% ============================================================
+% Figures, tables, and layout
+% ============================================================
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{float}
+\usepackage{xcolor}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% ============================================================
+% Lists
+% ============================================================
+\usepackage{enumitem}
+
+\setlist[itemize]{
+    leftmargin=*,
+    itemsep=2pt,
+    topsep=3pt,
+    parsep=0pt
+}
+
+\setlist[enumerate]{
+    leftmargin=*,
+    itemsep=2pt,
+    topsep=3pt,
+    parsep=0pt
+}
+
+% ============================================================
+% Captions
+% ============================================================
+\usepackage{caption}
+
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    singlelinecheck=false
+}
+
+% ============================================================
+% Typography and spacing
+% ============================================================
+\usepackage{microtype}
+\usepackage{setspace}
+
+\singlespacing
+
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0pt}
+
+% ============================================================
+% Headings
+% ============================================================
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titlespacing*{\section}
+  {0pt}
+  {0pt}
+  {0pt}
+
+\titlespacing*{\subsection}
+  {0pt}
+  {2pt}
+  {1pt}
+
+\titlespacing*{\subsubsection}
+  {0pt}
+  {4pt}
+  {2pt}
+
+% ============================================================
+% Bibliography
+% ============================================================
+\usepackage[numbers,sort&compress]{natbib}
+
+% ============================================================
+% Hyperlinks
+% Load near the end of the preamble
+% ============================================================
+\usepackage[hidelinks]{hyperref}
+
+% ============================================================
+% Page style
+% ============================================================
+\pagestyle{empty}
+
+% ============================================================
+% Document
+% ============================================================
+\begin{document}
+% ============================================================
+% File: sections/main/7_Budget.tex
+% Purpose: Internal NSF SBIR Phase I Budget Planning Template
+% Primary owner: Alfredo / Finance Lead
+% Technical input: Lu
+%
+% Note:
+% The official budget will ultimately be entered directly into
+% Research.gov. This LaTeX file is an internal planning and
+% review template to ensure consistency among the budget,
+% Budget Justification, personnel effort, and R&D work plan.
+% ============================================================
+
+\section*{Budget}
+
+\noindent
+\textbf{Project Title:} [Insert final project title]
+
+\noindent
+\textbf{Company:} ALTITUT LLC
+
+\noindent
+\textbf{Principal Investigator:} Lu Sun
+
+\noindent
+\textbf{Proposed Project Period:} [Insert proposed start date] to
+[Insert proposed end date]
+
+\noindent
+\textbf{Project Duration:} 12 months
+
+\noindent
+\textbf{Total Requested Amount:} \$[Insert total]
+
+\medskip
+
+\noindent
+\textbf{Internal instruction.}
+Please complete the assumptions and estimated costs below. The final budget
+must be entered into Research.gov and must be fully consistent with:
+
+\begin{itemize}
+    \item the Project Description;
+    \item the Phase I work plan;
+    \item personnel roles and person-month commitments;
+    \item the Budget Justification;
+    \item consultant or subaward commitment letters;
+    \item company payroll and accounting records.
+\end{itemize}
+
+% ============================================================
+\subsection*{Budget Summary}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{
+    p{0.08\textwidth}
+    X
+    p{0.19\textwidth}
+    p{0.22\textwidth}
+}
+\toprule
+\textbf{Line} &
+\textbf{Budget Category} &
+\textbf{Requested Amount} &
+\textbf{Responsible Owner / Notes} \\
+\midrule
+
+A &
+Senior/Key Personnel &
+\$[Insert] &
+Alfredo / Lu \\
+
+B &
+Other Personnel &
+\$[Insert] &
+Alfredo \\
+
+C &
+Fringe Benefits &
+\$[Insert] &
+Alfredo / Finance \\
+
+D &
+Equipment &
+\$[Insert or 0] &
+Confirm allowability and classification \\
+
+E &
+Travel &
+\$[Insert or 0] &
+Confirm project need \\
+
+F &
+Participant Support Costs &
+\$0 &
+Do not include unless explicitly allowed and applicable \\
+
+G.1 &
+Materials and Supplies &
+\$[Insert] &
+Hardware and prototyping supplies \\
+
+G.2 &
+Publication / Documentation / Dissemination &
+\$0 &
+Confirm against active solicitation \\
+
+G.3 &
+Consultant Services &
+\$[Insert or 0] &
+Hardware, safety, statistics, or commercialization consultant \\
+
+G.4 &
+Computer Services &
+\$[Insert] &
+Cloud, storage, model/API, software services \\
+
+G.5 &
+Subaward(s) &
+\$[Insert or 0] &
+Complete only if applicable \\
+
+G.6 &
+Other Direct Costs &
+\$[Insert or 0] &
+Explain all items \\
+
+H &
+Total Direct Costs &
+\$[Insert] &
+Sum of direct costs \\
+
+I &
+Indirect Costs &
+\$[Insert] &
+Insert rate and base \\
+
+J &
+Total Direct and Indirect Costs &
+\$[Insert] &
+Direct plus indirect \\
+
+K &
+Fee &
+\$[Insert or 0] &
+Confirm calculation and cap \\
+
+\midrule
+&
+\textbf{Total Requested Amount} &
+\textbf{\$[Insert total]} &
+Must match Research.gov \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+\subsection*{A. Senior/Key Personnel}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{
+    p{0.19\textwidth}
+    p{0.18\textwidth}
+    p{0.13\textwidth}
+    p{0.15\textwidth}
+    p{0.15\textwidth}
+    X
+}
+\toprule
+\textbf{Name} &
+\textbf{Project Role} &
+\textbf{Person-Months} &
+\textbf{Annual Salary} &
+\textbf{Requested Salary} &
+\textbf{Primary Responsibility} \\
+\midrule
+
+Lu Sun &
+Principal Investigator &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+Technical direction, uncertainty-aware reasoning, benchmark design,
+evaluation, integration, and NSF reporting. \\
+
+Mengmeng Wang &
+Key Personnel &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+Low-voltage reference designs, component and interface reasoning,
+build/test procedures, safety boundaries, and expert annotations. \\
+
+Diana [Last Name] &
+[Insert role or remove row] &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+[Insert responsibilities if included.] \\
+
+[Additional person] &
+[Insert role] &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+[Insert responsibilities.] \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent
+\textbf{Questions for Alfredo:}
+
+\begin{itemize}
+    \item What annual salary base should be used for Lu?
+    \item What person-month commitment should be budgeted for Lu?
+    \item What salary and person-month commitment should be used for Mengmeng?
+    \item Will Diana be Senior/Key Personnel?
+    \item If Diana is included, what is her role, effort, and salary treatment?
+    \item Are any other company officers or technical leads Senior/Key Personnel?
+\end{itemize}
+
+% ============================================================
+\subsection*{B. Other Personnel}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{
+    p{0.22\textwidth}
+    p{0.15\textwidth}
+    p{0.13\textwidth}
+    p{0.15\textwidth}
+    p{0.15\textwidth}
+    X
+}
+\toprule
+\textbf{Role / Name} &
+\textbf{Employment Type} &
+\textbf{Person-Months} &
+\textbf{Salary Base} &
+\textbf{Requested Amount} &
+\textbf{Phase I Responsibility} \\
+\midrule
+
+Software / AI Engineer &
+[Employee / TBD] &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+Prototype implementation, model orchestration, evaluation tooling,
+reference-design data structures, and workflow interface. \\
+
+Frontend / Visualization Support &
+[Employee / TBD] &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+User interface implementation, data visualization, and internal testing. \\
+
+Research Assistant / Intern &
+[Employee / Intern / TBD] &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+Benchmark preparation, test-case execution, measurement logging,
+documentation, and interface testing under senior supervision. \\
+
+[Additional role] &
+[Insert] &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+[Insert responsibility.] \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent
+\textbf{Important:}
+Interns or research assistants should not be assigned independent design,
+safety, or engineering approval authority.
+
+% ============================================================
+\subsection*{C. Fringe Benefits}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{
+    X
+    p{0.20\textwidth}
+    p{0.20\textwidth}
+    p{0.22\textwidth}
+}
+\toprule
+\textbf{Personnel Category} &
+\textbf{Salary Base} &
+\textbf{Fringe Rate} &
+\textbf{Requested Fringe} \\
+\midrule
+
+Senior/Key Personnel &
+\$[Insert] &
+[Insert]\% &
+\$[Insert] \\
+
+Other Personnel &
+\$[Insert] &
+[Insert]\% &
+\$[Insert] \\
+
+\midrule
+\textbf{Total} &
+&
+&
+\textbf{\$[Insert]} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent
+\textbf{Fringe rate source:}
+[Insert company payroll, accounting, or approved rate information.]
+
+% ============================================================
+\subsection*{D. Equipment}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{
+    p{0.24\textwidth}
+    p{0.12\textwidth}
+    p{0.14\textwidth}
+    p{0.15\textwidth}
+    X
+}
+\toprule
+\textbf{Item} &
+\textbf{Quantity} &
+\textbf{Unit Cost} &
+\textbf{Total Cost} &
+\textbf{Purpose / Classification Rationale} \\
+\midrule
+
+[Insert equipment item or write ``None''] &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+[Explain why this qualifies as equipment and is necessary for Phase I.] \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent
+Routine laptops, computers, monitors, and office equipment should not be
+placed in this category without confirming allowability and providing a
+strong project-specific justification.
+
+% ============================================================
+\subsection*{E. Travel}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{
+    p{0.19\textwidth}
+    p{0.16\textwidth}
+    p{0.13\textwidth}
+    p{0.15\textwidth}
+    p{0.15\textwidth}
+    X
+}
+\toprule
+\textbf{Trip Purpose} &
+\textbf{Destination} &
+\textbf{Travelers} &
+\textbf{Cost per Traveler} &
+\textbf{Total Cost} &
+\textbf{Project Relevance} \\
+\midrule
+
+[Insert trip or write ``None''] &
+[Insert] &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+[Explain why travel is necessary for Phase I.] \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+\subsection*{G.1 Materials and Supplies}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{
+    p{0.25\textwidth}
+    p{0.12\textwidth}
+    p{0.14\textwidth}
+    p{0.15\textwidth}
+    X
+}
+\toprule
+\textbf{Material / Supply Category} &
+\textbf{Quantity} &
+\textbf{Unit Cost} &
+\textbf{Total Cost} &
+\textbf{Phase I Use} \\
+\midrule
+
+Embedded development boards &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+IoT smart-camera and low-voltage reference-design development. \\
+
+Sensors, cameras, and interfaces &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+Controlled benchmark and adaptation cases. \\
+
+Power-management and battery components &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+Testing power-budget, runtime, heat, and user-contact constraints. \\
+
+Lighting, display, and actuator components &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+Creative physical-computing project families. \\
+
+Wiring, connectors, breadboards, and prototyping supplies &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+Assembly, controlled modifications, and test execution. \\
+
+Enclosure and fabrication supplies &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+Physical adaptation and user-safety testing. \\
+
+Measurement and testing consumables &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+Logging expected observations and controlled failure cases. \\
+
+Other: [Insert] &
+[Insert] &
+\$[Insert] &
+\$[Insert] &
+[Explain.] \\
+
+\midrule
+\textbf{Total Materials and Supplies} &
+&
+&
+\textbf{\$[Insert]} &
+\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+\subsection*{G.3 Consultant Services}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{
+    p{0.20\textwidth}
+    p{0.19\textwidth}
+    p{0.13\textwidth}
+    p{0.13\textwidth}
+    p{0.14\textwidth}
+    X
+}
+\toprule
+\textbf{Consultant} &
+\textbf{Expertise} &
+\textbf{Rate} &
+\textbf{Days / Hours} &
+\textbf{Total Cost} &
+\textbf{Deliverables} \\
+\midrule
+
+[Name or TBD] &
+Embedded hardware / electrical safety &
+\$[Insert] per [day/hour] &
+[Insert] &
+\$[Insert] &
+Review reference-design boundaries, safety-critical cases, build/test
+procedures, and escalation criteria. \\
+
+[Name or TBD] &
+Statistics / experimental design &
+\$[Insert] per [day/hour] &
+[Insert] &
+\$[Insert] &
+Review sample sizes, metrics, confidence intervals, and baseline comparisons. \\
+
+[Name or TBD] &
+Commercialization / community-college market &
+\$[Insert] per [day/hour] &
+[Insert] &
+\$[Insert] &
+Review buyer needs, pricing, procurement, and pilot-readiness assumptions. \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent
+Delete any unused consultant rows. Each consultant included in the budget
+should have a defined scope and, where required or appropriate, a commitment
+letter.
+
+% ============================================================
+\subsection*{G.4 Computer Services}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{
+    p{0.26\textwidth}
+    p{0.17\textwidth}
+    p{0.17\textwidth}
+    X
+}
+\toprule
+\textbf{Service Category} &
+\textbf{Cost Assumption} &
+\textbf{Total Cost} &
+\textbf{Purpose} \\
+\midrule
+
+Cloud computing &
+\$[Insert] per month $\times$ [Insert] months &
+\$[Insert] &
+Prototype hosting, benchmark execution, evaluation, and development. \\
+
+Commercial model/API usage &
+[Insert token, request, or monthly assumption] &
+\$[Insert] &
+LLM baseline evaluation, model orchestration, and controlled comparison. \\
+
+Secure data storage and backup &
+\$[Insert] per month $\times$ [Insert] months &
+\$[Insert] &
+Benchmark prompts, annotations, reference-design records, and outputs. \\
+
+Specialized software or development services &
+[Insert assumption] &
+\$[Insert] &
+[Explain project-specific need.] \\
+
+Other: [Insert] &
+[Insert] &
+\$[Insert] &
+[Explain.] \\
+
+\midrule
+\textbf{Total Computer Services} &
+&
+\textbf{\$[Insert]} &
+\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+\subsection*{G.5 Subaward(s)}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{
+    p{0.24\textwidth}
+    p{0.18\textwidth}
+    p{0.18\textwidth}
+    X
+}
+\toprule
+\textbf{Subawardee} &
+\textbf{Amount} &
+\textbf{Project Role} &
+\textbf{Scope of Work} \\
+\midrule
+
+[Insert institution or write ``None''] &
+\$[Insert] &
+[Insert] &
+[Describe work, deliverables, and why a subaward is necessary.] \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+\subsection*{G.6 Other Direct Costs}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{
+    p{0.28\textwidth}
+    p{0.18\textwidth}
+    X
+}
+\toprule
+\textbf{Cost Item} &
+\textbf{Requested Amount} &
+\textbf{Purpose and Calculation} \\
+\midrule
+
+[Insert item or write ``None''] &
+\$[Insert] &
+[Explain.] \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+\subsection*{I. Indirect Costs}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{
+    p{0.25\textwidth}
+    p{0.18\textwidth}
+    p{0.20\textwidth}
+    X
+}
+\toprule
+\textbf{Indirect-Cost Base} &
+\textbf{Applicable Rate} &
+\textbf{Requested Amount} &
+\textbf{Rate Source / Notes} \\
+\midrule
+
+\$[Insert base] &
+[Insert]\% &
+\$[Insert] &
+[Insert negotiated rate, de minimis rate, or other approved basis.] \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+\subsection*{K. Fee}
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{
+    p{0.30\textwidth}
+    p{0.20\textwidth}
+    X
+}
+\toprule
+\textbf{Calculation Base / Method} &
+\textbf{Requested Fee} &
+\textbf{Notes} \\
+\midrule
+
+[Insert calculation] &
+\$[Insert] &
+Confirm the applicable maximum and calculation under the active solicitation. \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+\subsection*{Budget Consistency Review}
+
+Before finalizing the budget, confirm:
+
+\begin{itemize}
+    \item[$\square$] Every budgeted person appears in the Project Description
+    or supporting personnel materials.
+    \item[$\square$] Person-months match the Company/Team section.
+    \item[$\square$] Personnel roles match the R\&D tasks.
+    \item[$\square$] Consultants match their commitment letters.
+    \item[$\square$] Materials and equipment match the experimental plan.
+    \item[$\square$] Cloud and model costs match the planned benchmarks.
+    \item[$\square$] Subaward amounts match the subaward budget and scope.
+    \item[$\square$] Indirect costs use the correct rate and base.
+    \item[$\square$] Fee uses the correct calculation.
+    \item[$\square$] Total amount matches the final Research.gov budget.
+\end{itemize}
+
+\end{document}

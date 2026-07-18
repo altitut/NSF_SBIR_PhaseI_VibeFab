@@ -1,0 +1,1131 @@
+\documentclass[12pt,letterpaper]{article}
+
+% Page and font compliance: 8.5 x 11, 1-inch margins, 12pt, single-spaced.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Times-like text and mathematics fonts
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+% Improve text search and copy quality in the PDF
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+% ============================================================
+% Page setup
+% ============================================================
+\usepackage[
+    letterpaper,
+    top=1in,
+    bottom=1in,
+    left=1in,
+    right=1in
+]{geometry}
+
+% ============================================================
+% Mathematics
+% Do not load amssymb together with newtxmath
+% ============================================================
+\usepackage{amsmath}
+
+% ============================================================
+% Figures, tables, and layout
+% ============================================================
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{float}
+\usepackage{xcolor}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% ============================================================
+% Lists
+% ============================================================
+\usepackage{enumitem}
+
+\setlist[itemize]{
+    leftmargin=*,
+    itemsep=2pt,
+    topsep=3pt,
+    parsep=0pt
+}
+
+\setlist[enumerate]{
+    leftmargin=*,
+    itemsep=2pt,
+    topsep=3pt,
+    parsep=0pt
+}
+
+% ============================================================
+% Captions
+% ============================================================
+\usepackage{caption}
+
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    singlelinecheck=false
+}
+
+% ============================================================
+% Typography and spacing
+% ============================================================
+\usepackage{microtype}
+\usepackage{setspace}
+
+\singlespacing
+
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0pt}
+
+% ============================================================
+% Headings
+% ============================================================
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titlespacing*{\section}
+  {0pt}
+  {0pt}
+  {0pt}
+
+\titlespacing*{\subsection}
+  {0pt}
+  {2pt}
+  {1pt}
+
+\titlespacing*{\subsubsection}
+  {0pt}
+  {4pt}
+  {2pt}
+
+% ============================================================
+% Bibliography
+% ============================================================
+\usepackage[numbers,sort&compress]{natbib}
+
+% ============================================================
+% Hyperlinks
+% Load near the end of the preamble
+% ============================================================
+\usepackage[hidelinks]{hyperref}
+
+% ============================================================
+% Page style
+% ============================================================
+\pagestyle{empty}
+
+% ============================================================
+% Document
+% ============================================================
+% \begin{document}
+
+\usepackage[
+  backend=biber,
+  style=numeric,
+  sorting=none,
+  sortcites=false,
+  maxbibnames=99,
+  giveninits=true,
+  doi=true,
+  url=true,
+  isbn=false,
+  hyperref=true,
+  natbib=true
+]{biblatex}
+
+\addbibresource{references.bib}
+\setlength{\bibitemsep}{3pt}
+
+\begin{document}
+\begin{center}
+{\large\textbf{VentureTwins: An Uncertainty-Certified AI Compiler for Minimum-Viable Hardware Digital Twins}}\\[2pt]
+{\small NSF Phase I \quad Solicitation \# \quad ALTITUT LLC}
+\end{center}
+\vspace{1pt}\hrule\vspace{4pt}
+
+
+\section{Mock QA}
+\subsection{1. Suggested 60-second opening}
+
+\subsubsection{Q0. Could you briefly clarify what the proposed technical innovation is?}
+
+Thank you for the opportunity to clarify. The proposed innovation is not an AI interface that generates a hardware design from an idea, and it is not simply an integration of retrieval, simulation, and testing.
+
+We propose to develop an evidence-validity propagation and risk-bounded requalification method for hardware design changes.
+
+When a component or requirement changes, the system will determine which prior design assumptions, simulation results, and physical test results remain valid, which are invalidated, and which become unresolved. It will then compute the minimum required redesign and the minimum set of simulations and physical tests needed to restore an acceptable confidence level.
+
+Today, we have only an early workflow mockup and relevant team expertise. The evidence-validity representation, change-impact algorithm, and risk-bounded test planner have not yet been developed or validated. Those are the proposed Phase I R\&D activities.
+
+\subsection{2. Core innovation questions}
+
+\subsubsection{Q1. What exactly is the technical innovation?}
+
+The core innovation is a computational method for propagating engineering-evidence validity after a hardware design change.
+
+Existing design evidence includes requirements, datasheet claims, schematic assumptions, simulation results, firmware dependencies, and previous test results. When a component changes, these artifacts are not all equally affected.
+
+The proposed system will classify prior evidence into three states:
+
+preserved and still valid;
+invalidated by the design change; and
+unresolved and requiring new analysis or testing.
+
+It will then identify the minimum design changes and requalification actions needed to restore a bounded confidence level.
+
+\subsubsection{Q2. Is this simply a knowledge graph?}
+
+No. A knowledge graph may be part of the implementation, but the proposed innovation is the validity semantics and inference method.
+
+Each engineering claim will include its dependencies, operating conditions, applicability region, uncertainty, provenance, and verification history. The system must reason about whether those conditions remain satisfied after a design change.
+
+A standard knowledge graph records relationships. Our proposed method must determine whether prior evidence remains trustworthy after a change and what verification obligations are newly triggered.
+
+\subsubsection{Q3. Is this just RAG over datasheets?}
+
+No. Retrieval only supplies evidence.
+
+A RAG system may retrieve a statement such as a component's voltage range, but it does not determine whether that statement applies to the correct revision, operating condition, board-level configuration, or downstream design decision.
+
+Our method will use retrieved evidence to create executable validity conditions. The technical question is whether those conditions can be propagated through a design change accurately enough to reduce unsafe omissions and unnecessary redesign.
+
+\subsubsection{Q4. Is this just an LLM agent?}
+
+No. The LLM may assist with document interpretation and candidate generation, but it will not be treated as the engineering authority.
+
+The core reasoning will be based on explicit evidence contracts, typed dependencies, constraint checks, uncertainty estimates, and physical verification.
+
+The LLM can propose. The validity engine determines whether the proposal remains supported.
+
+\subsubsection{Q5. Is this just systems integration?}
+
+No. Retrieval, simulation, and testing are supporting tools.
+
+The technical contribution is a new inference problem: how to propagate the validity of prior engineering evidence after a design change and how to compute the minimum redesign and requalification actions under a residual-risk constraint.
+
+The project could fail even if all supporting tools work correctly, because the validity propagation may produce unsafe omissions, excessive invalidation, or unreliable risk estimates.
+
+\subsection{3. High-risk R\&D questions}
+\subsubsection{Q6. Why is this high-risk?}
+
+It is high-risk because several core technical questions have unknown answers.
+
+First, it is not known whether heterogeneous engineering evidence can be represented with sufficient fidelity to support automated validity reasoning.
+
+Second, a component change may have indirect effects across power, interfaces, firmware, thermal behavior, physical layout, and testing. The method must identify those effects without missing critical dependencies or invalidating the entire system unnecessarily.
+
+Third, historical evidence is often conditionally valid rather than simply valid or invalid.
+
+Fourth, sparse physical measurements may not distinguish among competing failure causes.
+
+Finally, it is not known whether residual risk can be calibrated well enough to safely reduce the number of required tests.
+
+\subsubsection{Q7. What are the primary go/no-go risks?}
+
+There are three main go/no-go risks.
+
+The evidence representation may fail to preserve critical validity conditions and engineering dependencies.
+The change-impact algorithm may not outperform a strong RAG or rule-based baseline in identifying affected evidence and dependencies.
+The requalification planner may fail to reduce testing effort without increasing missed-critical-test risk.
+
+Failure on any of these risks would prevent the technology from delivering its intended commercial value.
+
+\subsubsection{Q8. What would technical failure look like?}
+
+Technical failure would include:
+
+unflagged invalid power or interface assumptions;
+classifying invalid evidence as preserved;
+invalidating so much evidence that the method provides no efficiency benefit;
+inability to distinguish major failure hypotheses from sparse measurements;
+poorly calibrated residual-risk estimates; or
+no reduction in redesign or testing effort compared with existing workflows.
+\subsubsection{Q9. Why can a good engineer not simply do this manually?}
+
+A qualified engineer can perform one redesign manually.
+
+The research question is whether the reasoning can be formalized, reused, and transferred across component changes so that the marginal expert effort is reduced.
+
+Phase I will therefore measure not only technical correctness but also expert correction time, transfer to held-out components, unnecessary redesign, unnecessary retesting, and the effort required to add a new component family.
+
+\subsection{4. Method questions}
+\subsubsection{Q10. What is an engineering evidence contract?}
+
+An engineering evidence contract is a machine-computable representation of an engineering conclusion.
+It includes:
+
+the claim;
+the component or subsystem;
+the source and revision;
+the parameter, unit, and range;
+operating conditions;
+dependencies;
+validity region;
+uncertainty;
+and verification history.
+
+For example, a statement that a regulator can support a compute module is valid only under specified peak-current, temperature, startup, and load conditions.
+
+\subsubsection{Q11. How will validity propagation work?}
+
+The hardware design will be represented as a typed dependency model.
+
+After a component change, the system will compare the original and replacement contracts, identify changed conditions, and propagate those changes across dependent design claims.
+
+Each prior claim or test result will be classified as preserved, invalidated, or unresolved.
+
+The algorithm will then identify the smallest set of design changes required to restore constraint satisfaction.
+
+\subsubsection{Q12. What is risk-bounded requalification?}
+
+Risk-bounded requalification means selecting the lowest-cost set of simulations and physical tests that reduces the remaining design risk below a defined threshold.
+
+The planner will consider:
+
+expected information gain;
+test cost;
+test duration;
+safety;
+available hardware;
+and the ability of a test to distinguish competing failure explanations.
+
+It is not simply a generated checklist.
+
+\subsubsection{Q13. How will you define residual risk?}
+
+In Phase I, residual risk will be bounded within the selected low-voltage embedded-system domain.
+
+It will be estimated from unresolved critical claims, uncertainty in model outputs, coverage of required interfaces and operating conditions, and the probability of remaining benchmark failure classes.
+
+We do not claim that Phase I will produce a universal certification metric. The research will determine whether a calibrated decision-support risk score is feasible in a bounded domain.
+
+\subsubsection{Q14. How is this different from design-rule checking?}
+
+Design-rule checking evaluates whether an existing artifact violates predefined rules.
+
+Our proposed method addresses a different question: after a design change, which historical engineering conclusions and verification results remain valid, which must be withdrawn, and which new validation obligations are triggered?
+
+Existing DRC tools can be used as execution tools, but they do not by themselves determine the validity of the broader design evidence.
+
+\subsection{5. Current stage questions}
+\subsubsection{Q15. What has been built to date?}
+
+We currently have an early frontend and workflow mockup that accepts a hardware idea and displays preliminary architecture or component guidance.
+
+It demonstrates the intended interaction and helps define the required outputs.
+
+It does not yet implement:
+
+executable evidence contracts;
+validity propagation;
+minimum redesign inference;
+risk-bounded requalification planning; or
+physical counterexample-driven refinement.
+
+Those are the proposed Phase I developments.
+
+\subsubsection{Q16. Do you already have a technical proof of concept?}
+
+Not for the proposed core innovation.
+
+We have a workflow mockup and preliminary system concept, but we have not demonstrated that prior engineering evidence can be classified and propagated correctly after component changes.
+
+We would therefore describe the current system as an early workflow prototype rather than a technical proof of the proposed method.
+
+\subsubsection{Q17. Is this an extension of Altitut's existing platform?}
+
+It may eventually integrate with Altitut's user and commercialization environment, but the proposed engineering technology is a new R&D direction.
+
+The existing platform does not contain the evidence-validity model, change-impact inference, or risk-bounded requalification engine.
+
+NSF funds would support those unproven technical methods, not routine platform integration.
+
+\subsection{6. Phase I experiment questions}
+\subsubsection{Q18. What will Phase I actually build?}
+
+Phase I will build three research components:
+
+an executable representation of design claims, dependencies, validity conditions, and historical verification evidence;
+a change-impact algorithm that classifies evidence as preserved, invalidated, or unresolved and computes the minimum redesign scope; and
+a risk-constrained planner that selects the minimum simulation and physical-test set needed to restore an acceptable confidence level.
+\subsubsection{Q19. What test platform will you use?}
+
+The initial benchmark will be a low-voltage IoT Smart Camera containing a compute module, camera, microphone, display, wireless subsystem, power subsystem, firmware, and enclosure.
+
+It is complex enough to create coupled hardware and software dependencies, but bounded enough to fabricate and test safely within Phase I.
+
+\subsubsection{Q20. What component changes will you test?}
+
+The current plan includes three controlled categories:
+
+compute-platform substitution;
+camera, display, or communication-interface substitution; and
+power-source or power-management substitution.
+
+The exact part numbers will be finalized before the full proposal, but each case will be selected to create known changes in power, software, interfaces, physical configuration, and verification requirements.
+
+\subsubsection{Q21. Why not use Qualcomm as the main Phase I platform?}
+
+Qualcomm is relevant as a future scalability and industrial case, but it may introduce access, documentation, licensing, hardware, and integration risks that are unnecessary for the initial feasibility study.
+
+Phase I will prioritize well-documented low-voltage platforms such as ESP32-S3 and Raspberry Pi. Qualcomm and Microchip materials may inform later component families and commercialization pathways.
+
+\subsubsection{Q22. What will the gold standard be?}
+
+A qualified electrical-engineering team member will manually construct and validate the baseline design, substitution impacts, preserved evidence, invalidated evidence, required redesign actions, and required tests.
+
+That engineer-reviewed package will serve as the ground truth for comparing the proposed method with LLM, RAG, and static-rule baselines.
+
+\subsubsection{Q23. What baselines will you use?}
+
+The proposed method will be compared with:
+
+a general-purpose LLM with technical documents in context;
+conventional retrieval-augmented generation;
+static component-comparison and engineering-rule templates; and
+an engineer-created reference workflow.
+
+Where relevant, existing EDA and simulation outputs will be used as supporting validation tools, not treated as direct algorithmic competitors.
+
+\subsubsection{Q24. What are the main metrics?}
+
+The main metrics will include:
+
+invalidated-evidence recall;
+preserved-evidence precision;
+unsafe omission rate;
+unnecessary invalidation rate;
+affected-dependency coverage;
+expert correction time;
+minimum redesign accuracy;
+required-test precision and recall;
+unnecessary retesting reduction;
+missed-critical-test rate;
+residual-risk calibration;
+and redesign cycles.
+\subsubsection{Q25. What are your preliminary success criteria?}
+
+Preliminary targets include:
+
+at least 90\% recall for critical invalidated dependencies;
+at least 90\% precision for evidence classified as preserved;
+no unflagged safety-critical power or interface violations in the final benchmark;
+at least 30\% reduction in expert correction time;
+at least 25\% reduction in unnecessary retesting;
+and one fewer redesign cycle in at least two of three prototype variants.
+
+These values will be finalized after the gold-standard benchmark is constructed.
+
+\subsection{7. Novelty and competition questions}
+\subsubsection{Q26. Do similar products already exist?}
+
+Yes. Existing products already support natural-language PCB design, component selection, schematic generation, layout, simulation, lifecycle monitoring, alternative-part search, and enterprise change management.
+
+We do not claim novelty in those individual capabilities.
+
+Our proposed research focuses on a narrower unresolved question: how to determine which prior engineering evidence remains valid after a design change and how to compute the minimum redesign and requalification scope required to restore confidence.
+
+\subsubsection{Q27. How are you different from Flux or Circuit Mind?}
+
+Flux and Circuit Mind automate portions of the forward design process, such as architecture, component selection, schematic generation, and PCB development.
+
+Our proposed method focuses on the change and requalification problem:
+
+what old evidence can still be trusted;
+what became invalid;
+what is unknown;
+what minimally must change; and
+what minimally must be retested.
+
+Their tools may become complementary inputs or downstream execution environments.
+
+\subsubsection{Q28. How are you different from Altium, Cadence, or Siemens?}
+
+These platforms provide mature professional design, simulation, lifecycle, PLM, and change-management capabilities.
+
+We are not proposing to replace them.
+
+The technical contribution is a lightweight, explicit validity-propagation method for sparse, heterogeneous design evidence and controlled component changes, initially in low-voltage embedded systems.
+
+Phase I must demonstrate that this method provides value beyond standard RAG, static rules, and existing engineering workflows.
+
+\subsubsection{Q29. How will you prove novelty rather than merely claim it?}
+
+Before the full proposal, we will complete a structured prior-art and competitive capability review.
+
+Phase I will then define benchmarks around capabilities that can be measured directly:
+
+validity inheritance;
+invalidation accuracy;
+minimum redesign scope;
+minimum requalification scope;
+unsafe omission rate;
+and residual-risk calibration.
+
+Novelty will be supported by the proposed representation and inference method and by measurable improvement over strong baselines, not by claiming that no related products exist.
+
+\subsection{8. Market questions}
+\subsubsection{Q30. Why start with community colleges?}
+
+Community colleges provide a bounded initial market with repeated low-voltage embedded-system projects, limited expert support, and direct consequences from incorrect component choices.
+
+They also provide an accessible environment for validating whether the technology reduces instructor correction time and failed build cycles.
+
+The funded R\&D is the engineering method. Education is the initial application and commercialization pathway.
+
+\subsubsection{Q31. What is the industrial opportunity?}
+
+The longer-term industrial application is component obsolescence, supply-driven substitution, and engineering-change management.
+
+A lower-cost replacement part may still result in a higher total cost after redesign, testing, qualification, delay, and failure risk.
+
+The proposed system could help companies estimate what evidence remains reusable, what must change, and which tests are actually required.
+
+\subsubsection{Q32. What is the commercial product?}
+
+The commercial product would be a software-based change-impact and requalification engine.
+
+The first version would support community-college and hardware-training workflows. Later versions could integrate with industrial BOM, PLM, EDA, simulation, and test environments.
+
+\subsection{9. Team questions}
+\subsubsection{Q33. Why is the team qualified?}
+
+My background is in industrial systems engineering, partially observed systems, hidden-state estimation, and uncertainty-cost decision-making. That experience supports evidence-state modeling, residual-risk estimation, and test selection.
+
+The electrical-engineering and robotics team members provide component, PCB, embedded-system, fault-detection, fabrication, and physical-testing expertise.
+
+Altitut contributes software-product development and access to the initial customer environment.
+
+\subsubsection{Q34. What will the PI personally lead?}
+
+I will lead the evidence-validity representation, uncertainty modeling, change-impact inference, requalification planning, benchmarking, and overall research integration.
+
+The electrical-engineering lead will own the baseline design, gold-standard annotations, hardware safety, fabrication, and physical validation.
+
+\subsubsection{Q35. What role will interns play?}
+
+Interns may support document organization, first-pass component comparisons, design-reference documentation, experiment execution, and measurement logging.
+
+They will not independently approve critical schematics, safety decisions, PCB design, or physical test procedures. Qualified engineering personnel will validate all critical outputs.
+
+\subsection{10. Closing question to NSF}
+
+At the end of the call:
+
+Based on this clarification, does framing the innovation around evidence-validity propagation and risk-bounded requalification address the main concern that the original pitch appeared to describe a product workflow rather than a high-risk technical method?
+
+Optional second question:
+
+Would you recommend retaining community colleges as the initial market while presenting component substitution and evidence-validity inference as the central technical contribution?
+
+
+
+
+\begin{table}[htbp]
+\centering
+\caption{Competitive Landscape for AI-Assisted Hardware and Product Development}
+\label{tab:competitive_landscape}
+\renewcommand{\arraystretch}{0.9}
+\small
+
+\scalebox{0.7}{
+\begin{tabular}{
+    >{\raggedright\arraybackslash}p{0.1\textwidth}
+    >{\raggedright\arraybackslash}p{0.15\textwidth}
+    >{\raggedright\arraybackslash}p{0.3\textwidth}
+    >{\raggedright\arraybackslash}p{0.15\textwidth}
+    >{\raggedright\arraybackslash}p{0.35\textwidth}}
+\toprule
+\textbf{Company / Product} &
+\textbf{Typical Starting Point} &
+\textbf{Publicly Described Capabilities} &
+\textbf{Typical Output} &
+\textbf{Potential Gap Relative to FounderCoach} \\
+\midrule
+
+Flux &
+Natural-language electronics idea or existing PCB project &
+AI-assisted architecture planning, component research, schematic generation and editing, placement, routing, design review, and manufacturing-file generation. &
+PCB design and manufacturing artifacts &
+Public materials emphasize forward design generation. Evidence-validity inheritance, minimum redesign scope, and risk-bounded requalification after a component change are not clearly established as core capabilities. \\
+
+\midrule
+
+Circuit Mind &
+Functional requirements, interfaces, cost, size, and power constraints &
+Automated electronic architecture generation, component selection, schematic development, and BOM optimization. &
+Verified schematic and BOM &
+Limited public evidence of physical-test feedback, validity propagation across prior evidence, or minimum requalification planning after a design change. \\
+
+\midrule
+
+Quilter &
+Existing schematic, board outline, and physical constraints &
+Autonomous PCB component placement, routing, design-rule evaluation, and physics-informed layout optimization. &
+Fabrication-ready PCB layout &
+Primarily addresses downstream PCB layout rather than requirement interpretation, historical evidence reuse, component-change impact, or requalification planning. \\
+
+\midrule
+
+Cadence OrCAD X / Allegro X &
+Professional schematic, PCB, library, and engineering constraints &
+Professional PCB design, component information, AI-assisted placement and routing, physical-constraint management, and design analysis. &
+Professional PCB design and analysis &
+Strong engineering execution environment, but not primarily designed to infer which prior design and test evidence remains valid after heterogeneous component changes. \\
+
+\midrule
+
+Altium Designer / ActiveBOM &
+Existing PCB project and bill of materials &
+PCB design, component management, supply-chain visibility, lifecycle status, alternative-part management, and BOM optimization. &
+Lifecycle-aware PCB and BOM workflow &
+Supports replacement and lifecycle decisions, but public documentation does not clearly demonstrate automated evidence-validity inheritance or minimum risk-bounded retest selection. \\
+
+\midrule
+
+SiliconExpert / Accuris &
+Enterprise BOM and component-lifecycle data &
+Obsolescence monitoring, lifecycle risk, compliance, supply-chain intelligence, and alternative-part information. &
+Lifecycle and sourcing decision support &
+Primarily identifies component risk and alternatives; generally does not create a system-level redesign, simulation, and requalification package. \\
+
+\midrule
+
+Autodesk Fusion Generative Design &
+Defined mechanical geometry, loads, materials, and manufacturing constraints &
+Generative and topology-optimization methods for mechanical design alternatives. &
+Optimized mechanical geometry &
+Focused on well-specified mechanical optimization rather than multidisciplinary electronic evidence, firmware, PCB changes, or historical test validity. \\
+
+\midrule
+
+PTC Creo Generative Design &
+CAD geometry, materials, loads, and design constraints &
+Generative exploration and optimization of manufacturable mechanical-design alternatives. &
+Optimized or near-manufacturing-ready CAD design &
+Does not primarily address electronic component substitution, engineering-evidence validity, or minimum requalification planning. \\
+
+\midrule
+
+Siemens Xcelerator / Teamcenter / Simcenter &
+Enterprise requirements, PLM data, CAD/CAE/EDA data, manufacturing, and field information &
+Enterprise digital thread, product-lifecycle management, simulation, verification, change management, digital twins, and operational feedback. &
+Enterprise-wide product-development environment &
+Conceptually broad and powerful, but requires mature enterprise data and professional workflows. FounderCoach targets a lightweight and explicit validity-propagation method for sparse evidence and lower-cost embedded-system changes. \\
+
+\midrule
+
+Qualcomm / Microchip / Other Manufacturer Reference Designs &
+Specific vendor component, platform, or application &
+Validated development boards, reference schematics, software, application notes, and implementation guidance for predefined configurations. &
+Vendor-specific design starting point &
+References are typically tied to specific platforms and conditions. Cross-vendor adaptation and preservation or invalidation of prior evidence still require engineering judgment. \\
+
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Capability Comparison and Proposed VibeFab Research Focus}
+\label{tab:capability_matrix}
+\renewcommand{\arraystretch}{1.18}
+\scriptsize
+
+\scalebox{0.8}{
+\begin{tabular}{
+    >{\raggedright\arraybackslash}p{0.2\textwidth}
+    p{0.11\textwidth} p{0.11\textwidth}
+    p{0.11\textwidth}
+    p{0.11\textwidth}
+    p{0.11\textwidth}
+    p{0.11\textwidth}
+    >{\raggedright\arraybackslash}p{0.28\textwidth}}
+\toprule
+\textbf{Capability} &
+\textbf{Flux} &
+\textbf{Circuit Mind} &
+\textbf{Quilter} &
+\textbf{Cadence / Altium} &
+\textbf{Lifecycle Tools} &
+\textbf{Siemens} &
+\textbf{VibeFab Research Focus} \\
+\midrule
+
+Natural-language idea input &
+Strong &
+Partial &
+Limited &
+Partial &
+No &
+Partial &
+Useful product feature, but not the core technical innovation. \\
+
+Architecture and BOM generation &
+Strong &
+Strong &
+No &
+Partial &
+Limited &
+Strong &
+May use existing methods and tools; not claimed as the primary novelty. \\
+
+Schematic generation or editing &
+Strong &
+Strong &
+Input required &
+Strong &
+No &
+Strong &
+Supporting capability rather than the principal research contribution. \\
+
+Automated PCB placement and routing &
+Strong &
+Limited &
+Strong &
+Strong &
+No &
+Strong &
+Expected to rely on integration with existing EDA tools. \\
+
+Lifecycle and EOL monitoring &
+Partial &
+Limited &
+No &
+Strong &
+Strong &
+Strong &
+Used as an external input to the change-impact process. \\
+
+Candidate replacement-part search &
+Partial &
+Partial &
+No &
+Strong &
+Strong &
+Strong &
+Used as an input; not the central innovation. \\
+
+System-level dependency identification after a component change &
+Public capability unclear &
+Public capability unclear &
+Local to layout &
+Partial / engineer-guided &
+Limited &
+Strong enterprise support &
+Formal typed dependency and validity propagation in a bounded embedded-system domain. \\
+
+Classification of prior evidence as preserved, invalidated, or unresolved &
+Not clearly demonstrated publicly &
+Not clearly demonstrated publicly &
+Not clearly demonstrated publicly &
+Not clearly demonstrated publicly &
+Generally not provided &
+Potentially supported in enterprise workflows &
+\textbf{Core research objective: explicit engineering-evidence validity inheritance.} \\
+
+Minimum redesign scope after a change &
+Not clearly demonstrated publicly &
+Not clearly demonstrated publicly &
+Local layout optimization &
+Partial / engineer-guided &
+No &
+Potentially supported through enterprise change workflows &
+\textbf{Core research objective: minimum constraint-restoring design delta.} \\
+
+Minimum risk-bounded simulation and physical-test set &
+Not clearly demonstrated publicly &
+Not clearly demonstrated publicly &
+No &
+Mostly engineer-defined &
+No &
+Related enterprise verification capabilities &
+\textbf{Core research objective: cost-aware requalification under a residual-risk constraint.} \\
+
+Physical counterexample mapped to violated design assumptions &
+Debugging assistance &
+Public capability unclear &
+Public capability unclear &
+Tool-specific analysis &
+No &
+Digital-twin and closed-loop capabilities &
+Secondary research objective using structured, source-traceable failure hypotheses. \\
+
+Explicit provenance and validity conditions for critical claims &
+Partial &
+Partial &
+Limited &
+Tool-dependent &
+Strong component provenance, limited design validity &
+Strong enterprise traceability &
+\textbf{Core design principle: every critical claim includes source, condition, uncertainty, and verification state.} \\
+
+Novice-oriented engineering explanation &
+Strong &
+Professional focus &
+Professional focus &
+Limited &
+Enterprise focus &
+Enterprise focus &
+Product differentiation for community-college and early hardware teams. \\
+
+Community-college deployment model &
+Not a primary focus &
+Not a primary focus &
+Not a primary focus &
+Not a primary focus &
+No &
+Not a primary focus &
+Initial market and controlled validation environment. \\
+
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\newpage
+\section{SBIR Pitch}
+
+
+\subsection{A. The Technology Innovation (3487/3500)}
+
+AI-assisted coding, software libraries, and cloud deployment have made software creation accessible to learners. Hardware education has not experienced the same transformation. Each project still requires learners to reconcile incomplete requirements, datasheets, interfaces, component tolerances, manufacturing constraints, and measurements. These dependencies create expert-intensive design--build--test cycles in which errors are often discovered only after parts are purchased or prototypes are fabricated. Existing tools scale computation, but not the reasoning and feedback needed to help more learners create physical systems.
+
+We propose an evidence-bounded hardware learning system that enables students and workers to progress from a product concept to a traceable design package, an uncertainty-certified digital twin, and a validated physical prototype. The system will externalize expert reasoning by linking design decisions to evidence, models, uncertainty, and test results. Phase I will focus on embedded sensing and low-voltage control systems used in community-college PCB, electronics, embedded-systems, and prototyping programs.
+
+Stage 1: Datasheet-grounded design and manufacturing preparation.
+A bidirectional compiler will translate learner requirements and manufacturer documents into a provenance-linked evidence contract graph. Each claim will include its source, units, range, uncertainty, compatibility rules, and verification status. Outputs will include component selections, schematics, bills of materials, manufacturability checks, and traceable handoff artifacts, so learners can see why a choice is supported.
+
+Stage 2: Physics-informed simulation and pre-build validation.
+The graph will be compiled into an executable digital twin combining first-principles models with learned residuals for nonideal behavior. A lifecycle uncertainty budget will propagate uncertainty from datasheets, model form, tolerance, manufacturing variation, operating conditions, and measurement. An active-test planner will select safe calibration tests that most reduce decision-critical uncertainty. A predictive-validity certificate will identify supported operating regions, unresolved assumptions, required tests, and abstention conditions. Learners will connect mathematical and physical concepts with simulated behavior before fabrication.
+
+Stage 3: Prototype fabrication, testing, and final validation.
+Prototypes will be fabricated, measured, and compared with the digital twins. Physical evidence will update parameters, assumptions, fault explanations, and design choices, creating a sim-to-real and real-to-sim-to-real refinement cycle. This multimodal workflow will connect models, simulation, construction, and measured feedback.
+
+The innovation combines the PI's training in mathematics and industrial systems engineering, manufacturing experience, and research on decisions under uncertainty
+%; Altitut's guided learning workflows; 
+and the team's electrical-engineering and robotics expertise. This work represents unproven, high-impact R\&D because research is required to determine whether engineering evidence, physical models, sparse measurements, and fabrication can form a trustworthy learning system for complex hardware-development tasks with less continuous expert intervention. The project could shorten learning and development cycles, expand engineering access, and prepare learners for electronics and advanced-manufacturing roles.
+
+\subsection{B. The Technical Objectives and Challenges (3393/3500)}
+
+Phase I will test the high-risk hypothesis that provenance-constrained design synthesis, lifecycle uncertainty tracking, and active physical calibration can produce decision-ready hardware designs with less expert correction, fewer build-test cycles, and lower marginal expert effort than LLM-only or static-template workflows.
+
+Objective 1: Develop the datasheet-grounded design and manufacturing-preparation compiler.
+The system will translate requirements and manufacturer documents into an evidence contract graph containing components, interfaces, equations, parameter ranges, firmware dependencies, preliminary schematics, bills of materials, manufacturing constraints, uncertainty, and provenance. 
+The highest-risk challenges are resolving conflicting requirements, extracting evidence from tables and figures, distinguishing chip- from board-level behavior, and preventing unsupported design choices. 
+The scientific approach is to constrain generation to validated design primitives and require each critical claim to satisfy an explicit evidence contract. 
+Evaluation will measure component and parameter accuracy, provenance coverage, dimensional and interface consistency, model executability, and expert correction time.
+
+Objective 2: Develop physics-informed simulation and pre-build
+validation. 
+First-principles models will be combined with compact residual models for bias, noise, latency, packet loss, power variation, and component differences. 
+A lifecycle uncertainty budget will propagate datasheet, model-form, tolerance, manufacturing, environmental, and measurement uncertainty to decision-level outcomes. 
+An active-test planner will choose limited physical experiments by jointly optimizing expected information gain, cost, duration, availability, and hardware risk. 
+The highest-risk challenges are sparse-data identifiability, confounded errors, coupled uncertainty propagation, and tests that distinguish competing failure explanations.
+
+Objective 3: Demonstrate complete-prototype fabrication, physical testing, and real-to-sim-to-real validation.
+The team will fabricate three representative embedded systems, collect controlled measurements, compare physical and simulated behavior, update the digital twins, and use revised models to guide redesign and refabrication. 
+Benchmarks will introduce controlled noise, bias, latency, packet loss, power variation, component substitution, environmental variation, and actuator faults.
+
+The system will be compared with LLM-only generation, static educational templates, and engineer-built references. 
+Phase I targets include at least 90\% critical-claim provenance coverage, at least 80\% executable-model success, a 30\% reduction in expert correction time, 85--95\% empirical coverage for calibrated intervals, and one fewer redesign cycle on two of three prototypes. 
+Scalability will be tested on held-out tasks and component combinations using transfer success, marginal expert setup time, critical claims resolved without bespoke modeling, and effort to add a component family.
+
+The sustainable advantage will arise from the accumulated evidence graph, validated model primitives, uncertainty budgets, active-test policies, benchmark data, and real-to-sim-to-real mappings. 
+These proprietary assets should lower the marginal cost of supporting additional projects and become harder to reproduce as evidence accumulates.
+
+\subsection{C. The Market Opportunity (1601/1750)}
+
+The near-term focus is community and technical colleges offering PCB design, electronics, embedded systems, manufacturing, and capstone courses. 
+Primary users are students; instructors, department chairs, and workforce-program administrators are the principal influencers and buyers.
+
+These programs face fragmented tools and an instructional scalability problem. 
+Students must interpret datasheets, select components, simulate circuits, prepare manufacturing outputs, fabricate prototypes, and validate performance. 
+One instructor may oversee many teams using different components, yet each project can require bespoke modeling, debugging, fabrication guidance, and test planning. 
+Errors are often discovered only after parts or boards are ordered, increasing waste, laboratory time, workload, and course-completion risk.
+
+The U.S. EDA industry generated about \$19.3 billion in 2026 after an 8.4\% CAGR from 2021--2026 and is projected to reach \$26.0 billion by 2031 at a 6.2\% CAGR. Simulation software is the largest segment at \$7.2 billion, or 37.2\% of revenue, while cloud and AI are expanding access to startup and mid-tier users. 
+The \$61.3 billion U.S. circuit-board and component industry further shows the value of preventing late-stage errors. 
+
+The initial product will be an annual institutional license that complements professional EDA tools. Austin Community College, a public two-year institution serving Central Texas, has provided a support letter and will serve as a pilot. Phase I discovery will validate the buyer, pricing, procurement path, course integration, and renewal criteria.
+
+
+
+\subsection{D. The Company and Team (1612/1750)}
+
+Altitut is a U.S. small business developing an AI-assisted EdTech to train the future US workforce. 
+Our team has deployed a proof of concept and established relationships with community college programs. 
+The proposed hardware system is built upon our new R\&D direction and is yet to be commercialized.
+
+The PI holds a B.S. in Mathematics and an M.S. in Industrial Systems Engineering and has manufacturing-industry experience. 
+Her research has applied multi-agent inverse reinforcement learning and hidden-state Markov decision models to decisions under uncertainty, including bus-engine maintenance and replacement and opening or closing quick-service restaurant locations. 
+This work involved partially observed systems, policy learning, and uncertainty-cost tradeoffs.
+
+The PI will lead Stages 1 and 2 and research integration, including evidence-based representation, datasheet-grounded design, manufacturing-preparation logic, physics-informed simulation, uncertainty quantification, active test selection, calibration, benchmarking, and scalability evaluation.
+
+The team includes an electrical engineering and robotics specialist (key personnel). She will lead Stage 3: prototype architecture, component selection, PCB and embedded integration, fabrication, hardware safety, controlled testing, sim-to-real comparison, model updating, redesign, and final validation.
+
+Austin Community College, a public two-year institution serving Central Texas that provides workforce-oriented education in electronics, engineering technology, embedded systems, and related technical fields, will serve as a pilot and discovery partner.
+
+\subsection{E. Response to Request for More Information (3485/3500)}
+
+Thank you for the opportunity to clarify Phase I R\&D. 
+VibeFab builds on research coauthored by PI Lu Sun and Key Personnel Mengmeng Wang. 
+The PI’s work addressed hidden-dynamics estimation [1] and operational planning [2]. 
+The Key Personnel’s work combined simulation and field data for electrical-fault detection [3] and learned control of a mechanically constrained robot [4]. 
+Recent studies demonstrated datasheet-to-SPICE modeling [5] and real-to-sim-to-real refinement [6]. 
+The team conducted 53 customer-discovery interviews with community college educators and employers recruiting from 2026 WeTeach\_CS. 
+We created an early workflow mockup showing how the system could move from a hardware concept to a traceable design package. 
+Phase I will develop the compiler, assurance methods, diagnosis algorithms, and physical-validation loop; VibeFab is a new R\&D effort, not an extension or evaluation of an established product. 
+Phase I will pursue three high-risk technical developments. 
+
+Objective 1: Machine-checkable PCB assurance. Motivated by [3] and [5], VibeFab will encode interfaces, equations, compatibility constraints, uncertainty, provenance, validity regions, and fabrication variation in a machine-checkable evidence graph. The risk is whether symbolic constraints, continuous physics, uncertainty, and learned models can form an executable representation for physics-constrained electrical design. 
+
+Objective 2: Physics-informed, counterexample-guided diagnosis and resynthesis. Extending [1] and [3], simulation failures and out-of-bounds measurements will become structured counterexamples. VibeFab will attribute discrepancies to components, parameters, model structure, environment, measurement, or fabrication, then revise the model, design, or test plan. The risk is whether hidden causes can be distinguished when they produce similar electrical measurements. 
+
+Objective 3: Decision-certified testing and real-to-sim-to-real refinement. Building on [1], [2], and [4], and inspired by [6], tests will be ranked by expected design-risk reduction under cost and safety constraints. Measurements will update the model and guide fabrication. The risk is whether the loop can converge without oscillating among explanations, overfitting one prototype, or exceeding the test budget. Phase I will validate these methods on three representative PCB-based embedded systems. 
+
+References: 
+
+[1] Y. Chang, A. Garcia, Z. Wang, and L. Sun, “Structural estimation of partially observable Markov decision processes,” IEEE Trans. Autom. Control, 68(8), 5135–5141, 2023, doi:10.1109/TAC.2022.3217908 
+
+[2] Y. Chang, L. Sun, et al., “Uniform-price auctions in staffing for self-scheduling service,” IISE Trans., 53(6), 719–734, 2021, doi:10.1080/24725854.2020.1841345 
+
+[3] H. Chen, M. Wang, et al., “Incipient fault detection of power distribution system based on statistical characteristics and Transformer network,” Proc. IEEE PSGEC, 669–674, 2022, doi:10.1109/PSGEC54663.2022.9881001 
+
+[4] Y. Hu, et al., “Learning realistic lip motions for humanoid face robots,” Sci. Robot., 11, eadx3017, 2026, doi:10.1126/scirobotics.adx3017 
+
+[5] Y. Peng, et al., “DocHMET: Synergizing Document Intelligence and Multi-Agent Workflows for Automated HEMT Model Generation,” in IEEE MTT-S International Wireless Symposium (IWS), 2025 
+
+[6] M. Torne, et al., “Reconciling reality through simulation: A real-to-sim-to-real approach for robust manipulation,” in Proceedings of Robotics: Science and Systems (RSS), 2024
+
+
+
+
+\newpage
+\section{One Pager}
+% {\LARGE\bfseries VentureMath}\par
+% {\large AI-Generated, Uncertainty-Certified Mathematical Models for Rapid Hardware Venture Validation}\par
+% \vspace{3mm}
+% \textit{Working concept brief for internal discussion and external collaborator outreach.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/NSF_SBIR.png}
+    % \caption{Picture from ChatGPT}
+    \label{fig:placeholder}
+\end{figure}
+
+
+\subsection*{1. Concept Summary}
+
+VentureMath is an AI-assisted modeling and simulation platform that converts an early hardware venture idea, manufacturer datasheets, reference designs, and a small number of physical measurements into a traceable, executable, and uncertainty-aware mathematical model before a team commits to a full hardware build.
+
+The central premise is that mathematics should serve as the executable intermediate representation between a venture concept and a physical prototype. Instead of allowing a large language model to freely invent equations or provide unverified component advice, VentureMath will select and parameterize validated model primitives, compose them into a system-level simulation, calibrate the model using a minimal set of physical tests, and report where the resulting predictions are and are not trustworthy.
+
+\textbf{One-sentence value proposition:} VentureMath helps university hardware venture teams test feasibility, expose design risks, and understand the mathematics behind their system before purchasing and assembling a complete prototype.
+
+\subsection*{2. Problem and Opportunity}
+
+Generative AI has lowered the barrier to early software prototyping, but hardware venture development remains slower and more expertise-intensive. Student and first-time founders must interpret heterogeneous datasheets, select compatible components, understand firmware-hardware interactions, choose suitable mathematical models, account for noise and calibration, and conduct physical tests before they know whether an idea is technically feasible.
+
+Existing options leave a major gap:
+
+\begin{itemize}
+    \item General-purpose AI assistants may recommend components or code, but they do not establish that the complete design is physically coherent or predictively valid.
+    \item Fixed educational kits support predefined projects rather than heterogeneous venture ideas.
+    \item Professional simulation tools are powerful, but users must already know how to select, construct, parameterize, and validate the correct model.
+    \item Digital-twin workflows generally begin after engineers have defined the system, data pipeline, and model scope.
+\end{itemize}
+
+The initial customers are university entrepreneurship centers, engineering entrepreneurship programs, capstone programs, campus makerspaces, and university-affiliated incubators supporting student and first-time hardware founders.
+
+\subsection*{3. Proposed Technical Innovation}
+
+The proposed innovation is an AI compiler for a \textbf{minimum-viable hardware digital twin}. It will transform incomplete venture requirements and component evidence into a mathematical model that is executable, provenance-linked, calibrated, and explicit about uncertainty and validity limits.
+
+The architecture has four primary elements:
+
+\begin{enumerate}
+    \item \textbf{Provenance-linked typed model graph.} Each variable, parameter, unit, equation, interface, and validity condition is linked to a manufacturer source, a validated mathematical primitive, or an observed measurement.
+    \item \textbf{Constrained model synthesis.} The AI selects and instantiates validated model primitives for sensing, sampling, noise, filtering, communication, power, and simple low-voltage actuation instead of freely generating unverified physics.
+    \item \textbf{Hybrid physics-residual modeling and active calibration.} First-principles models are supplemented with compact residual models for effects not fully represented in datasheets, while an active-calibration planner selects the smallest set of safe physical tests expected to reduce uncertainty.
+    \item \textbf{Predictive-validity certification.} The system reports calibrated prediction intervals, supported operating regions, unresolved assumptions, and conditions under which it must refuse to make a prediction.
+\end{enumerate}
+
+The high-risk technical hypothesis is that provenance-constrained model synthesis combined with active calibration can create decision-useful digital twins with substantially less expert correction and fewer physical experiments than unconstrained LLM generation or static template-based modeling.
+
+\subsection*{4. Proposed Workflow}
+
+\begin{enumerate}
+    \item \textbf{Venture intent and validation goal:} the user describes the proposed device, expected function, operating environment, and the decision that must be made before building.
+    \item \textbf{Evidence ingestion:} the system reads manufacturer datasheets, breakout-board documentation, reference designs, and relevant firmware constraints.
+    \item \textbf{Model compilation:} requirements and evidence are converted into a typed system graph with model primitives, units, parameter ranges, interfaces, uncertainty, and validity conditions.
+    \item \textbf{Simulation and stress testing:} the model is evaluated under noise, calibration error, communication delay, packet loss, power variation, and component non-idealities.
+    \item \textbf{Active physical calibration:} the system recommends a minimal set of physical tests and updates uncertain parameters from observed data.
+    \item \textbf{Decision-ready output:} the user receives predicted behavior, design risks, explanations of the underlying mathematics, and an explicit statement of where the model is trustworthy.
+\end{enumerate}
+
+\subsection*{5. Phase I Scope and Objectives}
+
+Phase I will focus on ESP32-S3-based connected sensing systems with Wi-Fi, a bounded library of sensors, and simple low-voltage actuation. This scope is intentionally limited and will not attempt arbitrary robotics, structural mechanics, 3D-print finite-element analysis, or general-purpose multiphysics simulation.
+
+\textbf{Objective 1: Develop the provenance-linked physical model compiler.} Convert natural-language venture requirements and component documentation into typed executable model graphs. Evaluation will measure parameter accuracy, unit and condition accuracy, provenance completeness, dimensional consistency, executable-model rate, and expert correction time.
+
+\textbf{Objective 2: Develop hybrid modeling and active calibration.} Combine first-principles component models with compact residual models for non-ideal behavior and select informative physical tests. Evaluation will measure predictive error before and after calibration, uncertainty reduction per test, recovery of known injected parameter deviations, and number of tests required.
+
+\textbf{Objective 3: Develop predictive-validity certification and sim-to-real validation.} Build representative physical prototypes and compare simulated behavior with real measurements under controlled non-idealities and faults. Evaluation will measure physical prediction error, uncertainty coverage, fault-localization accuracy, calibration improvement, and time to a decision-ready design.
+
+A working benchmark could include 10--15 validated component primitives, 8--12 venture tasks, three representative physical prototypes, and controlled cases involving sensor noise, bias, sampling error, communication delay, packet loss, power variation, and simple actuator faults.
+
+\subsection*{6. Market Entry and Commercialization}
+
+The beachhead product will be an institutional software license for universities, paired with a supported component library and integration into entrepreneurship, engineering, capstone, and makerspace workflows. The initial value is not to replace engineering mentors, but to help programs support more varied hardware projects, focus scarce expert time on the highest-risk decisions, and prevent avoidable build-test-debug cycles.
+
+Potential longer-term markets include community colleges, workforce-development programs, hardware accelerators, prototyping laboratories, and early-stage product teams. Commercial differentiation is expected to arise from the validated model-primitive library, provenance graph, physical calibration benchmark, sim-to-real validation data, and predictive-validity certification layer.
+
+\subsection*{7. Team and Preliminary Work}
+
+Altitut has developed an AI-assisted entrepreneurship platform supporting venture ideation, customer discovery, project planning, software-oriented prototyping, and pitch preparation. This provides an existing venture-development workflow, experience designing AI support for non-expert creators, and relationships with university instructors and entrepreneurship programs.
+
+The proposed PI has a background in mathematical modeling and will lead the central R\&D: mathematical abstraction, typed model representation, simulation, hybrid physics-data modeling, uncertainty quantification, active experiment design, calibration, benchmark design, and overall project execution.
+
+Altitut's software and AI team will support language-model integration, datasheet processing, data infrastructure, model-workspace development, and platform integration. The project will also require formal embedded-systems and robotics expertise for prototype architecture, hardware safety, benchmark construction, and physical validation. A prospective advisor has relevant electrical-engineering, robotics, semiconductor-industry, and peer-reviewed research experience; formal participation will be confirmed only after resolving employer-compliance requirements, or an equivalent consultant will be recruited.
+
+\subsection*{8. Prior-Art Matrix and Working Differentiation}
+
+The table below compares VentureMath with four adjacent research directions. It is a working differentiation matrix, not yet a complete novelty determination. A fuller literature, patent, and commercial-product review is still required.
+
+\begingroup
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{4.0cm} >{\raggedright\arraybackslash}p{4.0cm} >{\raggedright\arraybackslash}p{4.5cm}}
+\toprule
+\textbf{Prior art} & \textbf{Primary contribution} & \textbf{Boundary relative to the proposed problem} & \textbf{Proposed VentureMath difference} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Prior art} & \textbf{Primary contribution} & \textbf{Boundary relative to the proposed problem} & \textbf{Proposed VentureMath difference} \\
+\midrule
+\endhead
+
+\textbf{ModiGen} \cite{modigen}
+& Generates Modelica components and test cases using supervised fine-tuning, graph retrieval-augmented generation, and feedback optimization.
+& Its central goal is reliable Modelica code generation from a modeling task. It does not begin with an incomplete venture decision, ground a heterogeneous system in manufacturer evidence, or establish predictive validity against physical measurements.
+& VentureMath will begin with the user's validation decision, compile a typed system model from datasheets and validated primitives, and calibrate the resulting model against sparse physical observations. \\
+\addlinespace
+
+\textbf{SimuAgent} \cite{simuagent}
+& Uses an LLM agent and reinforcement-learning workflow to construct, execute, and refine Simulink-oriented models.
+& It advances agentic model building inside an existing simulation environment. Manufacturer-document provenance, minimum-test physical calibration, and explicit sim-to-real validity boundaries are not its primary focus.
+& VentureMath will use simulation as one stage in a broader evidence-grounded workflow that links venture intent, component documentation, system composition, physical calibration, and decision certification. \\
+\addlinespace
+
+\textbf{D2S-FLOW / datasheet-to-SPICE} \cite{d2sflow}
+& Extracts electrical parameters from unstructured semiconductor datasheets and generates device-level SPICE models.
+& It provides strong precedent for datasheet grounding, but primarily at the individual electronic-device level. It does not address heterogeneous system composition, venture-specific model-fidelity selection, or active physical calibration of the complete prototype concept.
+& VentureMath will extend beyond component parameter extraction by composing sensing, communication, power, noise, and simple actuation models around a specific venture validation goal. \\
+\addlinespace
+
+\textbf{Uncertainty-aware digital twins} \cite{uadt,envdt}
+& Quantify uncertainty, simulate uncertain environments, update predictions, or support robust control for an already defined digital twin or surrogate model.
+& These approaches generally assume that experts have already selected the system boundary, variables, equations, model structure, and data pipeline. They do not primarily solve the initial translation from a non-expert's idea and product documents into a minimum-viable twin.
+& VentureMath will treat model creation, evidence provenance, calibration-test selection, and predictive-validity reporting as a single workflow for early hardware venture decisions. \\
+\addlinespace
+
+\textbf{VentureMath (proposed)}
+& Compiles an incomplete venture idea, validation goal, component evidence, and sparse measurements into a typed, executable, uncertainty-aware minimum-viable digital twin.
+& This is a proposed research hypothesis. Its originality and technical feasibility must still be validated against additional academic work, patents, commercial simulation products, and model-based engineering tools.
+& Intended differentiator: jointly address venture-intent translation, datasheet grounding, cross-component model composition, active minimum-test calibration, and explicit validity or refusal boundaries for non-expert university venture teams. \\
+
+\bottomrule
+\end{longtable}
+\endgroup
+
+\subsection*{9. Why the Proposed Difference Matters}
+
+\begin{enumerate}
+    \item \textbf{The workflow begins with a venture decision rather than a pre-specified engineering model.} VentureMath first determines what must be validated and selects the minimum model fidelity needed for that decision.
+    \item \textbf{Model content must be traceable to evidence.} Each parameter and assumption is linked to a validated primitive, manufacturer document, reference design, or physical observation.
+    \item \textbf{Physical testing is treated as an information-allocation problem.} The system selects a small number of tests intended to distinguish among competing error sources and reduce uncertainty efficiently.
+    \item \textbf{The output includes boundaries, not only predictions.} VentureMath is intended to state when a design conclusion is supported and when the available evidence is insufficient.
+\end{enumerate}
+
+\subsection*{10. Immediate Validation and Collaboration Needs}
+
+Before submitting a full proposal, the team should:
+
+\begin{enumerate}
+    \item interview 5--10 university entrepreneurship, engineering, capstone, and makerspace leaders to validate the highest-priority pain point and buyer;
+    \item complete a structured literature, patent, and commercial-product review;
+    \item specify the component library, model primitives, physical prototypes, baselines, and quantitative success thresholds;
+    \item formalize an embedded-systems consultant and recruit university pilot partners; and
+    \item test a small proof of concept showing that one venture requirement and a limited set of datasheets can be converted into an executable model that improves after a small number of physical calibration measurements.
+\end{enumerate}
+
+The most valuable collaborators would bring expertise in embedded systems and robotics, Modelica/Simulink or model-based systems engineering, uncertainty quantification and active experiment design, engineering education, or university entrepreneurship and makerspace operations.
+
+\subsection*{11. Representative Sources}
+
+\begin{thebibliography}{9}
+\small
+
+% \bibitem{modigen}
+% J. Xiang, T. Ye, P. Liu, Y. Zhang, and W. Wang,
+% ``ModiGen: A Large Language Model-Based Workflow for Multi-Task Modelica Code Generation,'' 2025.
+% \url{https://arxiv.org/abs/2503.18460}
+
+% \bibitem{simuagent}
+% Y. Liang and X. Zhao,
+% ``SimuAgent: An LLM-Based Simulink Modeling Assistant Enhanced with Reinforcement Learning,'' 2026.
+% \url{https://arxiv.org/abs/2601.05187}
+
+% \bibitem{d2sflow}
+% H.-C. Chen et al.,
+% ``D2S-FLOW: Automated Parameter Extraction from Datasheets for SPICE Model Generation,'' 2025.
+% \url{https://arxiv.org/abs/2502.16540}
+
+% \bibitem{uadt}
+% Y.-P. Chen, Y.-K. Tsai, V. Karkaria, and W. Chen,
+% ``Uncertainty-Aware Digital Twins: Robust Model Predictive Control Using Time-Series Deep Quantile Learning,'' 2025.
+% \url{https://arxiv.org/abs/2501.10337}
+
+% \bibitem{envdt}
+% H. Sartaj, S. Ali, and J. M. Gj\o by,
+% ``Uncertainty-Aware Environment Simulation of Medical Devices Digital Twins,'' 2024.
+% \url{https://arxiv.org/abs/2410.03504}
+
+\end{thebibliography}
+
+\vfill
+\footnotesize\textit{Working document. Claims of novelty, market need, and competitive differentiation remain hypotheses until validated through literature and patent review, product research, customer discovery, and technical benchmarking.}
+\newpage
+\section*{5. Citations}
+\printbibliography[heading=none]
+
+\end{document}

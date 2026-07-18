@@ -1,0 +1,507 @@
+\documentclass[12pt,letterpaper]{article}
+
+% Page and font compliance: 8.5 x 11, 1-inch margins, 12pt, single-spaced.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Times-like text and mathematics fonts
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+% Improve text search and copy quality in the PDF
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+% ============================================================
+% Page setup
+% ============================================================
+\usepackage[
+    letterpaper,
+    top=1in,
+    bottom=1in,
+    left=1in,
+    right=1in
+]{geometry}
+
+% ============================================================
+% Mathematics
+% Do not load amssymb together with newtxmath
+% ============================================================
+\usepackage{amsmath}
+
+% ============================================================
+% Figures, tables, and layout
+% ============================================================
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{float}
+\usepackage{xcolor}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% ============================================================
+% Lists
+% ============================================================
+\usepackage{enumitem}
+
+\setlist[itemize]{
+    leftmargin=*,
+    itemsep=2pt,
+    topsep=3pt,
+    parsep=0pt
+}
+
+\setlist[enumerate]{
+    leftmargin=*,
+    itemsep=2pt,
+    topsep=3pt,
+    parsep=0pt
+}
+
+% ============================================================
+% Captions
+% ============================================================
+\usepackage{caption}
+
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    singlelinecheck=false
+}
+
+% ============================================================
+% Typography and spacing
+% ============================================================
+\usepackage{microtype}
+\usepackage{setspace}
+
+\singlespacing
+
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0pt}
+
+% ============================================================
+% Headings
+% ============================================================
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titlespacing*{\section}
+  {0pt}
+  {0pt}
+  {0pt}
+
+\titlespacing*{\subsection}
+  {0pt}
+  {2pt}
+  {1pt}
+
+\titlespacing*{\subsubsection}
+  {0pt}
+  {4pt}
+  {2pt}
+
+% ============================================================
+% Bibliography
+% ============================================================
+\usepackage[numbers,sort&compress]{natbib}
+
+% ============================================================
+% Hyperlinks
+% Load near the end of the preamble
+% ============================================================
+\usepackage[hidelinks]{hyperref}
+\usepackage{biblatex}
+
+% ============================================================
+% Page style
+% ============================================================
+\pagestyle{empty}
+
+% ============================================================
+% Document
+% ============================================================
+% \begin{document}
+
+\addbibresource{references.bib}
+\setlength{\bibitemsep}{3pt}
+
+\begin{document}
+% \begin{center}
+% {\large\textbf{VentureTwins: An Uncertainty-Certified AI Compiler for Minimum-Viable Hardware Digital Twins}}\\[2pt]
+% {\small NSF Phase I \quad Solicitation \# \quad ALTITUT LLC}
+% \end{center}
+% \vspace{1pt}\hrule\vspace{4pt}
+\section{NSF SBIR Suggested Timeline}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{0.9}
+\small
+\scalebox{0.55}{
+\begin{tabularx}{2\textwidth}{
+    >{\raggedright\arraybackslash}p{0.08\textwidth}
+    >{\raggedright\arraybackslash}p{0.15\textwidth}
+    >{\raggedright\arraybackslash}p{0.7\textwidth}
+    >{\raggedright\arraybackslash}p{0.6\textwidth}
+    >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Period} &
+\textbf{Primary Goal} &
+\textbf{Core Team Activities} &
+\textbf{EE Intern Activities} &
+\textbf{Required Deliverables} \\
+\midrule
+
+Days 1--2 &
+Freeze the technical concept &
+Confirm that the NSF project centers on the FounderCoach Design Reference Engine. Reuse the existing IoT Smart Camera as the baseline project. Select the initial compute, camera, microphone, display, power, and communication modules. Define the three technical objectives: semantic retrieval, design-reference generation, and physical validation. &
+Review the existing CircuitCanva / IoT Smart Camera prototype. Inventory all available hardware, source code, datasheets, diagrams, previous design decisions, and test results. Identify missing engineering documentation. &
+Final system scope; baseline IoT Smart Camera definition; selected hardware stack; technical-objective summary; missing-material checklist. \\
+
+\midrule
+
+Days 3--5 &
+Manually reconstruct the baseline design process &
+Define the complete engineering workflow that FounderCoach must eventually reproduce: requirements, component selection, system architecture, schematic, PCB/layout, software, fabrication, testing, and redesign. Establish the structured Design Reference template. &
+Manually recreate the IoT Smart Camera using a Raspberry Pi or other selected compute platform, camera, screen, microphone, wireless connection, and power subsystem. Document why each component is selected and how each interface is connected. &
+Baseline block diagram; component list; BOM; interface matrix; wiring or schematic draft; software-dependency list; structured Design Reference Template v1. \\
+
+\midrule
+
+Days 6--8 &
+Create a complete gold-standard design reference &
+EE lead reviews power, interfaces, GPIO, camera/display compatibility, thermal requirements, firmware, enclosure, and safety. Define what constitutes a validated design-reference package. &
+Complete first-pass schematic and PCB/layout guidance. Record pin assignments, power rails, communication protocols, driver requirements, software installation, assembly steps, and expected system behavior. Link every important claim to a datasheet or design guide. &
+Gold-standard IoT Smart Camera reference package; schematic/layout draft; software setup guide; evidence-to-claim table; unresolved-risk list. \\
+
+\midrule
+
+Days 9--10 &
+Create semantic-search corpus &
+Define the retrieval architecture and metadata schema. Determine how Qualcomm, Microchip, Raspberry Pi, camera, display, microphone, and power documentation will be stored and retrieved. Verify document-usage and licensing constraints. &
+Collect authorized datasheets, application notes, reference designs, developer guides, firmware documentation, and example projects. Segment and tag each document by manufacturer, component, interface, subsystem, revision, and evidence type. &
+Searchable engineering-document corpus; metadata schema; document index; semantic-search test queries; initial retrieval results. \\
+
+\midrule
+
+Days 11--12 &
+Build component-substitution cases &
+Select realistic customization scenarios. Examples may include replacing the compute platform, camera, display, microphone, or power module. Qualcomm and Microchip references may be used as scalability or industrial examples where documentation and hardware access permit. &
+Prepare old-versus-new component comparison tables covering form, fit, function, voltage, current, interfaces, pinout, firmware, software libraries, thermal limits, footprint, lifecycle status, and expected testing changes. &
+Three component-substitution cases; design-delta ground truth; compatibility matrix; expected redesign and test checklist. \\
+
+\midrule
+
+Days 13--14 &
+Test FounderCoach design-reference generation &
+Implement or refine semantic retrieval and structured output generation. Test whether the system can retrieve the correct design evidence and generate an adapted design package. &
+Run prompts for the baseline and substitution cases. Compare plain LLM, semantic search plus LLM, and structured Design Reference workflows. Log missing components, unsupported claims, incorrect interfaces, software omissions, and citation failures. &
+Baseline comparison report; output examples; error taxonomy; evidence-coverage results; screenshots for the proposal. \\
+
+\midrule
+
+Days 15--16 &
+Prototype, manufacture, and physically test &
+Define the minimum prototype that can be assembled locally and identify which artifacts could be sent to a Shanghai manufacturing partner for PCB fabrication or enclosure production. Confirm manufacturability, cost, lead time, and required files. &
+Assemble the prototype locally where feasible. Prepare fabrication-ready files or manufacturing questions for the Shanghai partner. Execute the test plan for camera, screen, microphone, networking, power, thermal behavior, and software operation. &
+Working prototype or validated assembly; manufacturing-readiness package; test records; photographs; measurements; failure and correction log. \\
+
+\midrule
+
+Day 17 &
+Close the design--create--test loop &
+Compare the generated design reference with physical results. Identify whether failures arose from document retrieval, design reasoning, software configuration, fabrication, measurement, or missing constraints. Update the technical R\&D plan. &
+Document each deviation between the predicted and actual system. Record the redesign action, revised component choice, updated software or layout, and final test result. &
+Real-to-sim-to-real case study; revised Design Reference Template v2; validated failure examples; redesign evidence. \\
+
+\midrule
+
+Day 18 &
+Complete NSF technical narrative &
+Write the technical innovation, research hypotheses, objectives, experiments, baselines, quantitative metrics, go/no-go criteria, timeline, and commercialization connection. &
+Convert the manual engineering process into proposal-ready diagrams, tables, workflow steps, and benchmark definitions. Verify that each proposed experiment corresponds to an actual development task. &
+Complete Intellectual Merit draft; technical-risk table; experiment table; milestone table; proposal figure set. \\
+
+\midrule
+
+Day 19 &
+Complete company, impact, and commercialization sections &
+Finalize the community-college application, company/team roles, broader impacts, and long-term industrial applications including EOL component replacement and design migration. Align budget and personnel effort with the R\&D plan. &
+Verify references, terminology, component names, documentation links, figure labels, and consistency between prototype activities and proposal claims. &
+Submission-ready narrative; references; compliance checklist; resolved missing information. \\
+
+\midrule
+
+Day 20 &
+Final review and submission buffer &
+Conduct technical, commercialization, and NSF compliance review. Upload the proposal and resolve system validation issues. Avoid changing the core technical concept. &
+Archive the manual design process, corpus, prototype files, test results, screenshots, and proposal source files for post-submission development. &
+Final submission package; archived FounderCoach Design Reference dataset and technical backlog. \\
+
+
+\bottomrule
+\end{tabularx}}
+\caption{Internal NSF SBIR Preparation and FounderCoach Design Reference Development Plan}
+\label{tab:internal_nsf_timeline}
+\end{table}
+
+\subsection*{New EE Intern Work Package}
+
+The new EE intern will manually reconstruct and document the complete
+development process for the baseline IoT Smart Camera so that the process can
+be converted into a reusable FounderCoach Design Reference.
+
+The intern's primary responsibilities will include:
+
+\begin{enumerate}
+    \item \textbf{Baseline hardware reconstruction.}
+    Build or reproduce an IoT device integrating a compute platform,
+    camera, display, microphone, wireless communication, and power subsystem.
+
+    \item \textbf{Manual engineering layout.}
+    Prepare the first-pass block diagram, component-interface matrix,
+    schematic or wiring plan, PCB/layout guidance, BOM, and enclosure
+    considerations for EE-lead review.
+
+    \item \textbf{Software reference documentation.}
+    Document operating-system requirements, drivers, libraries, firmware,
+    configuration files, dependencies, setup steps, and test scripts.
+    Software must be represented as part of the design reference rather than
+    treated as a separate afterthought.
+
+    \item \textbf{Evidence collection and semantic-search preparation.}
+    Collect and organize authorized design references, datasheets,
+    application notes, developer documentation, and example implementations
+    from sources including Raspberry Pi, Qualcomm, Microchip, and relevant
+    component manufacturers.
+
+    \item \textbf{Component-substitution analysis.}
+    Create structured comparisons between original and replacement
+    components, including form, fit, function, electrical interfaces,
+    software dependencies, thermal constraints, physical footprint,
+    lifecycle status, and required validation changes.
+
+    \item \textbf{Prototype creation and testing.}
+    Assemble the baseline prototype, execute defined functional and
+    engineering tests, record measurements and failures, and document all
+    redesign decisions.
+
+    \item \textbf{Manufacturing preparation.}
+    Prepare fabrication-ready materials or technical questions for possible
+    manufacturing support in Shanghai, including PCB files, BOM,
+    assembly notes, enclosure specifications, expected cost, and lead time.
+
+    \item \textbf{FounderCoach benchmark execution.}
+    Compare manually created design references with outputs generated by
+    plain LLM, semantic-search-assisted generation, and the structured
+    FounderCoach workflow.
+\end{enumerate}
+
+\[
+\text{Existing IoT Smart Camera}
+\rightarrow
+\text{Manual EE Reconstruction}
+\rightarrow
+\text{Structured Design Reference}
+\rightarrow\]
+\[
+\text{Semantic Search Corpus}
+\rightarrow
+\text{FounderCoach Generation}
+\rightarrow
+\text{Prototype / Manufacturing}
+\rightarrow\]
+\[
+\text{Testing}
+\rightarrow
+\text{Reference Refinement}
+\]
+
+\begin{quote}
+The long-term goal is to enable FounderCoach to generate a customized,
+evidence-grounded design reference for a new hardware idea by retrieving
+relevant manufacturer knowledge, adapting validated engineering templates,
+producing hardware and software design guidance, and learning from fabrication
+and testing outcomes.
+\end{quote}
+
+\newpage
+\section{One Pager: NSF SBIR}
+% {\LARGE\bfseries FounderCoach}\par
+{\large FounderCoach Design Reference Engine: Evidence-Grounded Hardware Design Adaptation and Validation}\par
+\vspace{3mm}
+\textit{Advanced Manufacturing: Modeling and Simulation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/NSF_SBIR.png}
+    \caption{Picture from ChatGPT: \textit{\textbf{FounderCoach challenge-solution-benefits overview.} The system retrieves engineering evidence, adapts design references after component changes, and guides simulation and validation to reduce redesign effort and testing cost.}}
+    \label{fig:placeholder}
+\end{figure}
+\section{4. Project Summary}
+% requirements: one page maximum, in the third person.
+\subsection{Overview}
+%Describe the potential outcome(s) of the proposed activity in terms of a product, process or service. Provide a list of keywords or phrases that identify the areas of technical expertise to be invoked in reviewing the proposal and the areas of application that are the initial target of the technology. Provide the subtopic name.
+Altitut proposes the FounderCoach Design Reference Engine, an AI-assisted system that converts an incomplete hardware concept or component change into a traceable, customized design-reference package. Manufacturer reference designs, development boards, and technical documentation provide validated starting points, but they are usually tied to specific components and operating conditions \cite{qualcomm_hardware,raspberrypi_cm}. When a processor, sensor, camera, display, or power module is replaced, engineers and learners must determine how the change propagates through electrical interfaces, firmware, thermal behavior, PCB layout, fabrication, and testing.
+
+FounderCoach will combine: (1) semantic retrieval of datasheets, application notes, and reusable design references; (2) a provenance-linked graph of components, interfaces, constraints, and uncertainty; (3) constraint-aware generation of a design delta, revised architecture, BOM, schematic guidance, and validation plan; and (4) simulation-to-prototype refinement using measured test results. Phase I will evaluate the approach on an IoT Smart Camera with controlled compute, sensing, display, and power substitutions.
+
+The initial application is community and technical college electronics, embedded-systems, PCB-design, and advanced-manufacturing programs. A longer-term industrial application is component-obsolescence and engineering-change management, where the cost of redesign, requalification, and schedule risk may exceed the purchase-price savings of a replacement component \cite{sd22_2024}.
+
+\textbf{Keywords:} engineering document intelligence; retrieval-augmented generation; hardware knowledge graphs; constraint propagation; electronic design automation; component substitution; uncertainty quantification; active testing; sim-to-real validation; community-college workforce education; component obsolescence.
+
+\subsection{Intellectual Merit}
+%This section MUST begin with “This Small Business Innovation Research (or Small Business Technology Transfer) Phase I project…” and should address the intellectual merits of the proposed activity. Briefly describe the technical hurdle(s) that will be addressed by the proposed research and development (R&D)(which should be crucial to successful commercialization of the innovation), the goals of the proposed R&D, and a high-level summary of the plan to reach those goals.
+
+\textbf{This Small Business Innovation Research Phase I project} will investigate whether heterogeneous engineering evidence, machine-checkable constraints, lightweight physical models, and sparse prototype measurements can be integrated into a trustworthy system for adapting hardware design references.
+
+The central technical hurdle is that component substitution is not a text-generation task. A replacement may alter voltage ranges, pin assignments, protocols, drivers, thermal limits, PCB geometry, and required tests. General-purpose language models can generate plausible recommendations but do not reliably preserve provenance, enforce coupled constraints, or distinguish verified facts from assumptions.
+
+Phase I will test three objectives:
+
+\begin{enumerate}
+    \item develop retrieval and extraction methods that convert technical documents into provenance-linked engineering records;
+    \item develop a typed design graph and algorithms that propagate the system-level effects of component substitutions; and
+    \item develop simulation-informed test selection and measurement-driven refinement for diagnosing discrepancies between predicted and physical behavior.
+\end{enumerate}
+
+FounderCoach will be compared with LLM-only generation, conventional retrieval-augmented generation, static templates, and engineer-created references. Success will be measured using critical-claim provenance, interface and parameter accuracy, unsupported-claim rate, affected-dependency coverage, executable-model success, expert correction time, test efficiency, and redesign cycles. The work is informed by prior research on automated model generation from technical documents and real-to-sim-to-real refinement \cite{peng2025dochmet,torne2024reconciling}.
+
+\subsection{Broader Impacts}
+%“Broader Impacts” are considered in two ways: 1) The direct impacts of this NSF-funded project on education, the environment, science, society, the nation and/or the world; and 2) the potential commercial impact that might result based on a successful commercial launch of the product or service described in the proposal. Explain the expected outcome in terms of both impacts. For “Commercial Potential,” describe how the proposed project will bring the innovation closer to commercialization under a sustainable business model. In this box, also describe the potential commercial and market impacts that such a commercialization effort would have if successful.
+
+The project could expand access to hardware design and advanced-manufacturing education by helping community-college instructors support more individualized student projects without requiring continuous one-to-one engineering intervention. Learners would receive not only recommendations, but also the supporting evidence, assumptions, uncertainty, and required validation steps.
+
+Potential societal benefits include improved engineering literacy, reduced failed fabrication, lower material waste, and stronger preparation for careers in electronics, embedded systems, PCB design, and advanced manufacturing. The initial business model is an annual institutional software license, supplemented by onboarding and reusable design-reference libraries.
+
+Successful Phase I validation would also support expansion into industrial component-obsolescence and engineering-change workflows. In that market, FounderCoach could help organizations compare replacement options based on total migration cost, including redesign, testing, qualification, schedule, and failure risk, rather than component price alone. The proposed work is consistent with NSF SBIR's emphasis on technically risky R\&D that can support a scalable commercial product \cite{nsf26510}.
+
+
+\section{5. Project Description}
+% requirements: no less than 10 pages, no more than 15 pages
+\subsection{Intellectual Merits}
+
+% requirements: recommend 7-10 pages, including technical solution and R\&D plan
+%What is (are) the proposed technical innovation(s)? What is the new scientific/engineering insight that underpins it? (Provide a description of the innovation, including the novel scientific/engineering aspects that enable the realization of the final product.)
+%What are the technical risks/barriers, and how does the proposal address them? What are the go/no-go technical risks/barriers that are unique to your approach and could prevent the innovation from achieving the impact the team intends it to make?
+%Please provide a detailed R&D plan, including a timeline, milestones, risk mitigation and quantitative success criteria. The detailed R&D plan should convey to the reader that the team has subject area mastery of the relevant technical details and show that significant planning has been done to maximize the chance of technical success in Phase I. An R&D plan that consists simply of a generic set of tasks and goals, without giving a substantial perspective and understanding that is unique to this particular effort, may result in the proposal being returned without review.
+%Explain the significance of the Phase I milestones and how they relate to the commercial objectives of the technology.
+
+\subsubsection{Technical Innovation}
+
+VibeFab will generate a \emph{customized, evidence-grounded design-reference package}, not an official manufacturer reference design. The package may include a system architecture, component recommendations, preliminary BOM, interface and power analysis, schematic and PCB guidance, software dependencies, simulation assumptions, unresolved risks, and a validation plan.
+
+The core technical innovation consists of four coupled elements:
+
+\begin{itemize}
+    \item \textbf{Engineering-reference retrieval:} retrieve relevant evidence from authorized datasheets, design guides, application notes, and internally created templates.
+    \item \textbf{Executable design graph:} represent components, ports, operating ranges, dependencies, constraints, provenance, uncertainty, and tests in a machine-checkable form.
+    \item \textbf{Design-delta reasoning:} identify which parts of an existing design remain valid, which must change, and which are unresolved after a component substitution.
+    \item \textbf{Artifact-grounded validation:} compile selected constraints into analytical or simulation models, compare predictions with measurements, and recommend the next test or redesign action.
+\end{itemize}
+
+\subsubsection{Phase I R\&D Plan}
+
+The test platform will be an IoT Smart Camera containing a compute module, camera, microphone, display, wireless connection, and low-voltage power subsystem. A qualified electrical-engineering team member will create a manually validated baseline package and three controlled variants involving compute, sensing/display, and power substitutions.
+
+\textbf{Objective 1: Evidence retrieval and extraction.} FounderCoach will extract components, parameters, interfaces, operating conditions, and source locations. Target criteria include at least 90\% provenance coverage for critical claims, at least 90\% unit/range accuracy, and fewer than 5\% unsupported critical claims.
+
+\textbf{Objective 2: Constraint-aware adaptation.} The system will compare original and replacement components, traverse affected dependencies, and generate a design delta. Target criteria include identifying at least 90\% of critical affected dependencies, reducing expert correction time by at least 30\%, and reducing unflagged compatibility violations relative to LLM-only and conventional RAG baselines.
+
+\textbf{Objective 3: Simulation and validation.} Supported models will include power budgeting, battery runtime, interface-rate checks, thermal-load estimation, and selected circuit-level analyses. Controlled faults and variations will test whether active recommendations reduce the number of tests and redesign cycles. Target criteria include at least 80\% executable-model success and one fewer redesign cycle on at least two of three variants.
+
+\textbf{Go/no-go risks} are: unreliable extraction of safety-critical parameters; failure of the graph to improve change propagation over a strong RAG baseline; and unsafe or poorly calibrated test recommendations. Mitigation includes limiting Phase I to low-voltage systems, requiring source-linked evidence, routing uncertain claims to engineer review, and retaining rule-based safety constraints.
+
+\textbf{Draft timeline:} Months 1--2, corpus and gold-standard design; Months 3--4, retrieval and extraction; Months 5--7, design graph and adaptation; Months 8--9, simulation and test planning; Months 10--11, fabrication and physical validation; Month 12, integration and Phase II planning.
+
+\subsection{Company/Team}
+% requirments: 1-2 pages
+%Provide the date when the company was founded and describe the revenue history, if any, for the past three years. Include and explicitly state government funding and private investment in this discussion.
+%Describe the company founders or key participants in this proposed project. What level of effort will these people devote to the proposed Phase I activities? How does the background and experience of the team enhance the credibility of the effort? Describe the company’s core competencies as related to this project, especially for aspects that are not obvious from other documents contained in the proposal. Give evidence that the core company team is committed to building a viable business around the product/service being developed. If your proposal includes consultants or advisors outside the budgeted company personnel, please discuss it briefly.
+%If the company has existing operations, describe how the proposed effort would fit into these activities. Describe your vision for the company and the company’s expected impact over the next five years.
+
+Altitut was founded in \textbf{[MONTH/YEAR]}. Its revenue, prior government funding, and private investment for the past three years will be stated explicitly in the full proposal.
+
+Lu Sun will serve as PI, subject to final confirmation of NSF eligibility and company-employment requirements. Her background in industrial systems engineering, partially observed decision systems, and uncertainty-cost tradeoffs supports the evidence representation, uncertainty modeling, active testing, and research-integration tasks. A qualified electrical-engineering specialist will lead reference-design construction, schematic and PCB review, fabrication, safety, controlled testing, and physical validation. 
+%Dr.\ Alfredo Costilla Reyes will support company strategy, institutional relationships, and commercialization. Exact person-months and budget roles will be inserted after the work plan is finalized.
+
+FounderCoach extends Altitut's existing AI-assisted entrepreneurship and workforce-development activities into physical-product development. 
+%Over five years, the company intends to progress from community-college deployments to university makerspaces and hardware incubators, followed by industrial engineering-change and component-lifecycle applications.
+One year.
+
+
+\subsection{Broader Impacts}
+% requirments: 1-2 pages
+%What is the motivation for the company to take on this project?
+%Clearly articulate how the proposed technology will result in a societal benefit. Which communities will benefit and on what timeline?
+%How will the societal benefits be measured and tracked?
+%What steps are being taken to recognize and minimize any unintended consequences of the proposed technology?
+
+Altitut is pursuing this project to reduce the gap between the accessibility of software creation and the expert burden of physical-product development. Initial beneficiaries are community-college learners and instructors in electronics, embedded systems, and advanced manufacturing.
+
+Benefits will be tracked using instructor correction time, pre-fabrication issues detected, failed builds, redesign cycles, material waste, project completion, and the percentage of critical recommendations linked to evidence. Educational claims will be kept separate from engineering-performance claims unless supported by an approved human-subjects study.
+
+Potential unintended consequences include unsafe guidance, automation bias, misuse of restricted manufacturer materials, and exposure of confidential designs. Phase I will therefore use low-voltage hardware, require engineer approval before fabrication, display uncertainty and unresolved assumptions, preserve document provenance and licensing metadata, and prohibit training on customer files without consent.
+
+\subsection{Commercialization Potential}
+% requirments: 1-3 pages
+
+%Is there a compelling potential business model?
+%What is your initial target market and its size? How have you validated that this market needs your technology?
+%Provide a detailed plan on your pathway to generate revenue and to become a self-sustaining entity. Present a compelling case that the project will significantly advance the readiness of the technology and strengthen its commercial position.
+%Describe the value proposition of the proposed technology.
+%Describe your plans to address regulatory (including permitting) or safety standards and ethical considerations involved in developing your technology and bringing your product or service to market.
+%Describe your intellectual property strategy and provide a brief rationale for why you chose this strategy.
+%Provide a detailed description of the competitive landscape and your sustainable competitive advantage.
+
+
+The initial target market is U.S. community and technical colleges offering electronics, PCB design, embedded systems, engineering technology, mechatronics, makerspace, and advanced-manufacturing programs. The proposed business model is an annual institutional license with optional onboarding, private design-reference libraries, and implementation support.
+
+The value proposition is reduced instructor troubleshooting, fewer design errors before fabrication, and support for more diverse student projects. Market validation will build on Altitut's educator relationships, prior customer-discovery interviews, and prospective community-college pilot partners. The full proposal will quantify the addressable market, procurement cycle, willingness to pay, and acceptable annual contract value.
+
+The longer-term industrial market includes manufacturers and hardware companies responding to EOL components, supply disruptions, and cost-driven substitutions. Existing lifecycle tools identify PCNs, EOL notices, and candidate replacements; FounderCoach would address the downstream engineering problem by generating the design delta, simulation plan, risk-based test plan, and total migration-cost comparison.
+
+The competitive landscape includes general-purpose LLMs, professional EDA tools, manufacturer reference designs, BOM/lifecycle-intelligence platforms, and educational hardware kits. FounderCoach's sustainable advantage would come from its evidence contracts, typed dependency graph, validated component primitives, design-delta datasets, simulation templates, active-test policies, and accumulated real-to-sim-to-real correction data.
+
+A hybrid IP strategy is anticipated: patent evaluation for core adaptation and test-selection methods; trade-secret protection for validated rules, datasets, and scoring functions; copyright for software and original templates; and selective open-source release of non-core connectors or educational examples. The initial product will remain decision-support software and will not claim certification, autonomous production approval, or suitability for regulated safety-critical systems.
+
+
+% \newpage
+% \section{One Pager: NeurIPS Creative AI}
+% {\LARGE\bfseries VentureMath}\par
+% {\large AI-Generated, Uncertainty-Certified Mathematical Models for Rapid Hardware Venture Validation}\par
+% \vspace{3mm}
+% \textit{Working concept brief for internal discussion and external collaborator outreach.}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\linewidth]{images/idea_process.png}
+%     \caption{Picture from ChatGPT}
+%     \label{fig:placeholder}
+% \end{figure}
+\newpage
+\section{6. References Cited}
+\printbibliography[heading=none]
+
+\end{document}

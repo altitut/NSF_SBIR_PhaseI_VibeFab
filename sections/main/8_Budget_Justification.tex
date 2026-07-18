@@ -1,0 +1,632 @@
+\documentclass[11pt,letterpaper]{article}
+
+% ============================================================
+% NSF SBIR Phase I master source:
+% Project Summary + Project Description + References Cited
+%
+% IMPORTANT:
+% Research.gov requires these as separate PDF uploads.
+% Set exactly ONE switch below to true, compile, and save the PDF.
+% ============================================================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Times-like text and mathematics fonts
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+% Improve text search and copy quality in the PDF
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+% ============================================================
+% Page setup
+% ============================================================
+\usepackage[
+    letterpaper,
+    top=1in,
+    bottom=1in,
+    left=1in,
+    right=1in
+]{geometry}
+
+% ============================================================
+% Mathematics
+% Do not load amssymb together with newtxmath
+% ============================================================
+\usepackage{amsmath}
+
+% ============================================================
+% Figures, tables, and layout
+% ============================================================
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{float}
+\usepackage{xcolor}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% ============================================================
+% Lists
+% ============================================================
+\usepackage{enumitem}
+
+\setlist[itemize]{
+    leftmargin=*,
+    itemsep=2pt,
+    topsep=3pt,
+    parsep=0pt
+}
+
+\setlist[enumerate]{
+    leftmargin=*,
+    itemsep=2pt,
+    topsep=3pt,
+    parsep=0pt
+}
+
+% ============================================================
+% Captions
+% ============================================================
+\usepackage{caption}
+
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    singlelinecheck=false
+}
+
+% ============================================================
+% Typography and spacing
+% ============================================================
+\usepackage{microtype}
+\usepackage{setspace}
+
+\singlespacing
+
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0pt}
+
+% ============================================================
+% Headings
+% ============================================================
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}
+  {}
+  {0pt}
+  {}
+
+\titlespacing*{\section}
+  {0pt}
+  {0pt}
+  {0pt}
+
+\titlespacing*{\subsection}
+  {0pt}
+  {2pt}
+  {1pt}
+
+\titlespacing*{\subsubsection}
+  {0pt}
+  {4pt}
+  {2pt}
+
+% ============================================================
+% Bibliography
+% ============================================================
+\usepackage[numbers,sort&compress]{natbib}
+
+% ============================================================
+% Hyperlinks
+% Load near the end of the preamble
+% ============================================================
+\usepackage[hidelinks]{hyperref}
+
+% ============================================================
+% Page style
+% ============================================================
+\pagestyle{empty}
+
+% ============================================================
+% Document
+% ============================================================
+\begin{document}
+% ============================================================
+% File: sections/main/8_Budget_Justification.tex
+% Purpose: NSF SBIR Phase I Budget Justification Template
+% Primary owner: Alfredo / Finance Lead
+% Technical input and consistency review: Lu
+%
+% Replace all bracketed placeholders before submission.
+% Delete unused sections and rows.
+% Ensure that every non-zero Research.gov budget line is justified.
+% ============================================================
+
+\section*{Budget Justification}
+
+\noindent
+\textbf{Project Title:} [Insert final project title]
+
+\noindent
+\textbf{Company:} ALTITUT LLC
+
+\noindent
+\textbf{Principal Investigator:} Lu Sun
+
+\noindent
+\textbf{Project Period:} [Insert start date] to [Insert end date]
+
+\noindent
+\textbf{Total Requested Amount:} \$[Insert total]
+
+\medskip
+
+This Budget Justification explains the costs required to execute the proposed
+12-month NSF SBIR Phase I R\&D project. All costs are based on reasonable
+company salary records, fringe and indirect-cost practices, vendor estimates,
+historical costs, or documented project assumptions. The budget is aligned
+with the Phase I objectives, work plan, milestones, experimental protocol, and
+personnel responsibilities described in the Project Description.
+
+% ============================================================
+\subsection*{A. and B. Personnel}
+
+\subsubsection*{Lu Sun, Principal Investigator}
+
+Lu Sun will devote approximately [insert] person-months to the proposed Phase
+I project. Her responsibilities will include:
+
+\begin{itemize}
+    \item overall technical and research direction;
+    \item uncertainty-aware intent-to-constraint methodology;
+    \item clarification-ranking logic;
+    \item benchmark and expert-annotation protocol design;
+    \item evaluation metrics and go/no-go analysis;
+    \item integration of the three Phase I objectives;
+    \item coordination of technical, commercial, and partner inputs;
+    \item preparation of NSF technical reports and deliverables.
+\end{itemize}
+
+Lu Sun's annual salary base is \$[insert]. The requested salary is calculated
+as follows:
+
+\[
+\$[\text{annual salary}]
+\times
+\frac{[\text{person-months}]}{12}
+=
+\$[\text{requested salary}]
+\]
+
+\subsubsection*{Mengmeng Wang, Key Personnel}
+
+Mengmeng Wang will devote approximately [insert] person-months to the proposed
+Phase I project. Her responsibilities will include:
+
+\begin{itemize}
+    \item development and review of low-voltage reference designs;
+    \item component, interface, power, and physical-system reasoning;
+    \item definition of supported customization ranges;
+    \item build/test procedures and expected observations;
+    \item identification of known failure modes;
+    \item safety-boundary and expert-review criteria;
+    \item expert annotation and adjudication of benchmark cases;
+    \item technical review of controlled hardware validation.
+\end{itemize}
+
+Mengmeng Wang's annual salary base is \$[insert]. The requested salary is
+calculated as follows:
+
+\[
+\$[\text{annual salary}]
+\times
+\frac{[\text{person-months}]}{12}
+=
+\$[\text{requested salary}]
+\]
+
+\subsubsection*{Diana [Last Name], [Project Role]}
+
+\textit{Delete this subsection if Diana is not included as Senior/Key
+Personnel.}
+
+Diana [Last Name] will devote approximately [insert] person-months to the
+proposed Phase I project. Her responsibilities will include:
+
+\begin{itemize}
+    \item [Insert responsibility];
+    \item [Insert responsibility];
+    \item [Insert responsibility];
+    \item [Identify specific objective or work-plan task supported].
+\end{itemize}
+
+Her annual salary base is \$[insert]. The requested salary is calculated as
+follows:
+
+\[
+\$[\text{annual salary}]
+\times
+\frac{[\text{person-months}]}{12}
+=
+\$[\text{requested salary}]
+\]
+
+\subsubsection*{Software / AI Engineering Personnel}
+
+ALTITUT will budget approximately [insert] person-months for software and AI
+engineering personnel. These personnel will support:
+
+\begin{itemize}
+    \item implementation of the uncertainty-aware research prototype;
+    \item structured constraint and reference-design representations;
+    \item LLM and retrieval orchestration;
+    \item baseline-system implementation;
+    \item benchmark execution;
+    \item evaluation dashboards and logging;
+    \item skill-adaptive guidance generation;
+    \item abstention and escalation logic;
+    \item secure data handling and internal testing.
+\end{itemize}
+
+The requested amount of \$[insert] is based on [insert salary or hourly-rate
+assumption and calculation].
+
+\subsubsection*{Research Assistants / Interns}
+
+ALTITUT may use research assistants or interns to support documentation,
+benchmark preparation, test-case execution, measurement logging, and
+interface testing under senior technical supervision. These personnel will
+not have independent authority to approve reference designs, safety
+boundaries, or engineering decisions.
+
+The requested amount of \$[insert] is based on [insert number of personnel,
+hours or person-months, and rate].
+
+% ============================================================
+\subsection*{C. Fringe Benefits}
+
+Fringe benefits are requested at a rate of [insert]\% applied to eligible
+salary and wage costs of \$[insert], resulting in total requested fringe
+benefits of \$[insert].
+
+The fringe-benefit rate includes [insert applicable components, such as
+employer payroll taxes, health benefits, retirement contributions, workers'
+compensation, or other company-supported benefits]. The rate is based on
+[company payroll records / accounting estimate / approved company practice].
+
+Calculation:
+
+\[
+\$[\text{eligible salary base}]
+\times
+[\text{fringe rate}]
+=
+\$[\text{requested fringe}]
+\]
+
+% ============================================================
+\subsection*{D. Equipment}
+
+\textit{If no equipment is requested, use the following statement:}
+
+No equipment costs are requested.
+
+\medskip
+
+\textit{If equipment is requested, replace the sentence above with a
+description for each item:}
+
+ALTITUT requests \$[insert] for [insert equipment item]. This item is required
+to [describe specific Phase I experimental purpose]. It will support
+[identify objective, benchmark, or validation activity]. The estimated cost is
+based on [vendor quote, catalog price, or other source]. The item is not
+currently available to the company in a form that can support the proposed
+R\&D.
+
+Routine office or general-purpose computing equipment is not included unless
+its project-specific use and allowability have been confirmed.
+
+% ============================================================
+\subsection*{E. Travel}
+
+\textit{If no travel is requested, use the following statement:}
+
+No travel costs are requested.
+
+\medskip
+
+\textit{If travel is requested, replace the sentence above with:}
+
+ALTITUT requests \$[insert] for [number] traveler(s) to travel to
+[destination] for [purpose]. The travel will support [customer discovery,
+partner coordination, controlled testing, NSF-required meeting, or other
+specific purpose].
+
+Estimated costs include:
+
+\begin{itemize}
+    \item airfare or mileage: \$[insert];
+    \item lodging: [number] nights at \$[insert] per night;
+    \item per diem: [number] days at \$[insert] per day;
+    \item local transportation: \$[insert];
+    \item other allowable travel costs: \$[insert].
+\end{itemize}
+
+The total requested travel amount is \$[insert].
+
+% ============================================================
+\subsection*{G.1 Materials and Supplies}
+
+ALTITUT requests \$[insert] for materials and supplies needed to build,
+adapt, and evaluate the bounded low-voltage physical-computing reference
+designs used in Phase I.
+
+The estimated cost includes:
+
+\begin{itemize}
+    \item \textbf{Embedded development boards:} \$[insert].
+    These boards will support the IoT smart-camera reference platform and
+    controlled physical-computing variants.
+
+    \item \textbf{Sensors, cameras, and interface components:} \$[insert].
+    These components will support benchmark cases involving sensing,
+    interaction, environmental monitoring, and interface adaptation.
+
+    \item \textbf{Power-management and battery components:} \$[insert].
+    These components will support testing of runtime, power-budget, heat,
+    compatibility, and user-contact constraints.
+
+    \item \textbf{Lighting, display, and actuator components:} \$[insert].
+    These components will support controlled creative-hardware variants such
+    as wearable lighting, environmental displays, and interactive
+    installations.
+
+    \item \textbf{Wiring, connectors, breadboards, and assembly supplies:}
+    \$[insert].
+    These consumable supplies are required for controlled module reuse,
+    modification, testing, and failure-case evaluation.
+
+    \item \textbf{Enclosure and fabrication supplies:} \$[insert].
+    These supplies will support physical adaptation, user-contact,
+    environmental, weight, and fabrication-boundary cases.
+
+    \item \textbf{Measurement and test supplies:} \$[insert].
+    These supplies will support documentation of expected observations,
+    failure conditions, and test-step completeness.
+
+    \item \textbf{Other project-specific supplies:} \$[insert].
+    [Explain.]
+\end{itemize}
+
+The estimates are based on [vendor prices, recent purchases, or other
+documented assumptions]. All materials will be used directly for Phase I R\&D
+and controlled validation.
+
+% ============================================================
+\subsection*{G.3 Consultant Services}
+
+\textit{Delete this section if no consultants are included.}
+
+ALTITUT requests \$[insert] for consultant services.
+
+\subsubsection*{[Consultant Name], [Area of Expertise]}
+
+[Consultant name] will provide expertise in [embedded hardware, electrical
+safety, human factors, statistics, commercialization, or another area]. The
+consultant will support:
+
+\begin{itemize}
+    \item [Insert specific deliverable];
+    \item [Insert specific deliverable];
+    \item [Insert specific deliverable];
+    \item review of relevant Phase I methods, outputs, or decisions.
+\end{itemize}
+
+The consultant will work approximately [insert] days/hours at a rate of
+\$[insert] per [day/hour], for a total requested amount of \$[insert].
+
+The consultant's expertise is needed because [explain why this expertise is
+not fully available among budgeted company personnel]. A commitment letter
+will be included if required or appropriate.
+
+% ============================================================
+\subsection*{G.4 Computer Services}
+
+ALTITUT requests \$[insert] for computer and software services required to
+implement and evaluate the Phase I research prototype.
+
+The requested costs include:
+
+\begin{itemize}
+    \item \textbf{Cloud computing:} \$[insert].
+    Cloud resources will support development, model execution, benchmark
+    evaluation, logging, and prototype hosting. The estimate is based on
+    \$[insert] per month for [insert] months.
+
+    \item \textbf{Commercial model and API usage:} \$[insert].
+    These costs will support general-purpose LLM baselines, model
+    orchestration, controlled repeated runs, and comparison against the
+    proposed uncertainty-aware system. The estimate is based on [insert usage
+    assumption].
+
+    \item \textbf{Secure data storage and backup:} \$[insert].
+    Storage will be used for benchmark prompts, expert annotations,
+    reference-design records, system outputs, evaluation results, and versioned
+    backups.
+
+    \item \textbf{Specialized software services:} \$[insert].
+    [Describe any project-specific software, simulation, design, annotation,
+    security, or data service.]
+
+    \item \textbf{Other computer services:} \$[insert].
+    [Explain.]
+\end{itemize}
+
+The requested services are directly tied to Phase I development and
+evaluation and are not routine general business expenses.
+
+% ============================================================
+\subsection*{G.5 Subaward(s)}
+
+\textit{If no subaward is included, use the following statement:}
+
+No subaward costs are requested.
+
+\medskip
+
+\textit{If a subaward is included, replace the statement above with:}
+
+ALTITUT requests \$[insert] for a subaward to [institution]. The subawardee
+will perform [describe scope]. Major deliverables will include:
+
+\begin{itemize}
+    \item [Insert deliverable];
+    \item [Insert deliverable];
+    \item [Insert deliverable].
+\end{itemize}
+
+The subaward is necessary because [explain specialized facilities,
+capabilities, participant access, or expertise]. The company will retain
+responsibility for overall technical direction, system integration,
+commercialization, and the majority of the proposed R\&D, consistent with
+applicable SBIR work-share requirements.
+
+A separate subaward budget, Budget Justification, scope of work, and
+commitment documentation will be included as required.
+
+% ============================================================
+\subsection*{G.6 Other Direct Costs}
+
+\textit{If no other direct costs are requested, use the following statement:}
+
+No other direct costs are requested.
+
+\medskip
+
+\textit{If other direct costs are requested, replace the statement above:}
+
+ALTITUT requests \$[insert] for [cost item]. The amount is calculated as
+[insert calculation]. This cost is necessary to [explain direct relationship
+to the Phase I R\&D].
+
+% ============================================================
+\subsection*{I. Indirect Costs}
+
+ALTITUT requests indirect costs of \$[insert], calculated using an indirect
+cost rate of [insert]\% applied to an eligible base of \$[insert].
+
+Calculation:
+
+\[
+\$[\text{eligible base}]
+\times
+[\text{indirect rate}]
+=
+\$[\text{requested indirect costs}]
+\]
+
+The rate is based on [negotiated indirect-cost rate / de minimis rate /
+company accounting methodology / other approved basis]. The company will
+maintain supporting accounting documentation for the selected rate and base.
+
+% ============================================================
+\subsection*{K. Fee}
+
+ALTITUT requests a fee of \$[insert]. The requested fee is calculated as
+[insert calculation] and does not exceed the applicable limitation under the
+active NSF SBIR Phase I solicitation.
+
+The fee will support the company's continued commercial development and
+organizational sustainability associated with advancing the proposed
+innovation beyond the Phase I R\&D period.
+
+% ============================================================
+\subsection*{Budget Alignment with Phase I Objectives}
+
+The budget is structured to support the three proposed Phase I objectives:
+
+\begin{table}[htbp]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{
+    p{0.19\textwidth}
+    p{0.25\textwidth}
+    X
+}
+\toprule
+\textbf{Objective} &
+\textbf{Principal Budget Categories} &
+\textbf{Budget Relationship} \\
+\midrule
+
+Objective 1:
+Intent-to-Constraint Translation &
+PI effort; software/AI personnel; cloud and model services; expert annotation &
+Supports schema development, uncertainty representation, clarification
+ranking, benchmark construction, baseline evaluation, and quantitative
+analysis. \\
+
+Objective 2:
+Bounded Reference-Design Adaptation &
+PI and engineering effort; hardware materials; consultant support if used;
+reference-design documentation &
+Supports reference-design schemas, controlled hardware variants, adaptation
+classification, interface and safety-conflict cases, and expert validation. \\
+
+Objective 3:
+Skill-Adaptive Build/Test Guidance and Abstention &
+PI and software effort; testing supplies; cloud/model services; user or expert
+evaluation support &
+Supports guidance generation, test sequencing, evidence labels,
+troubleshooting, abstention calibration, and integrated evaluation. \\
+
+Integrated Validation &
+All personnel categories; cloud computing; measurement supplies; statistical
+or technical consultant support if used &
+Supports held-out benchmark evaluation, failure analysis, expert review,
+prototype integration, and the final Phase I feasibility report. \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+% ============================================================
+\subsection*{Final Budget-Justification Review}
+
+Before submission, confirm:
+
+\begin{itemize}
+    \item[$\square$] Every non-zero Research.gov line is explained.
+    \item[$\square$] Every calculation is shown or reproducible.
+    \item[$\square$] Personnel effort matches the Project Description.
+    \item[$\square$] Salary information matches company records.
+    \item[$\square$] Fringe and indirect-cost rates have documented bases.
+    \item[$\square$] Materials align with the benchmark and hardware plan.
+    \item[$\square$] Computing costs align with the model and evaluation plan.
+    \item[$\square$] Consultant costs match commitment letters.
+    \item[$\square$] Subaward information matches all separate documents.
+    \item[$\square$] The requested fee complies with the active solicitation.
+    \item[$\square$] The total matches the Research.gov budget exactly.
+\end{itemize}
+
+\end{document}
